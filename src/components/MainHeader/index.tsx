@@ -7,6 +7,7 @@ const MainHeader: React.FC = () => {
     return (
         <Container>
             <h1>MainHeader</h1>
+            <Toggle />
             <Profile>
                 <UserName>Ednaldo Gomes</UserName>
             </Profile>
