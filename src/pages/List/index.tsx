@@ -22,97 +22,114 @@ const List: React.FC = () => {
             </ContentHeader>
 
             <Content>
-                <HistoryFinanceCard 
-                    cardColor="#313862"
+                <HistoryFinanceCard
                     tagColor="#E44C4E"
                     title="Conta de Luz"
                     subtitle="27"
                     amount="130,00"
                 />
-                <HistoryFinanceCard 
-                    cardColor="#313862"
+                <HistoryFinanceCard
                     tagColor="#E44C4E"
                     title="Conta de Luz"
                     subtitle="27"
                     amount="130,00"
                 />
-                                <HistoryFinanceCard 
-                    cardColor="#313862"
+                <HistoryFinanceCard
                     tagColor="#E44C4E"
                     title="Conta de Luz"
                     subtitle="27"
                     amount="130,00"
                 />
-                <HistoryFinanceCard 
-                    cardColor="#313862"
+                <HistoryFinanceCard
                     tagColor="#E44C4E"
                     title="Conta de Luz"
                     subtitle="27"
                     amount="130,00"
                 />
-                <HistoryFinanceCard 
-                    cardColor="#313862"
+                <HistoryFinanceCard
                     tagColor="#E44C4E"
                     title="Conta de Luz"
                     subtitle="27"
                     amount="130,00"
                 />
-                <HistoryFinanceCard 
-                    cardColor="#313862"
+                <HistoryFinanceCard
                     tagColor="#E44C4E"
                     title="Conta de Luz"
                     subtitle="27"
                     amount="130,00"
                 />
-                <HistoryFinanceCard 
-                    cardColor="#313862"
+                <HistoryFinanceCard
                     tagColor="#E44C4E"
                     title="Conta de Luz"
                     subtitle="27"
                     amount="130,00"
                 />
-                <HistoryFinanceCard 
-                    cardColor="#313862"
+                <HistoryFinanceCard
                     tagColor="#E44C4E"
                     title="Conta de Luz"
                     subtitle="27"
                     amount="130,00"
                 />
-                <HistoryFinanceCard 
-                    cardColor="#313862"
+                <HistoryFinanceCard
                     tagColor="#E44C4E"
                     title="Conta de Luz"
                     subtitle="27"
                     amount="130,00"
                 />
-                <HistoryFinanceCard 
-                    cardColor="#313862"
+                <HistoryFinanceCard
                     tagColor="#E44C4E"
                     title="Conta de Luz"
                     subtitle="27"
                     amount="130,00"
                 />
-                <HistoryFinanceCard 
-                    cardColor="#313862"
+                <HistoryFinanceCard
                     tagColor="#E44C4E"
                     title="Conta de Luz"
                     subtitle="27"
                     amount="130,00"
                 />
-                <HistoryFinanceCard 
-                    cardColor="#313862"
+                <HistoryFinanceCard
                     tagColor="#E44C4E"
                     title="Conta de Luz"
                     subtitle="27"
                     amount="130,00"
                 />
-                <HistoryFinanceCard 
-                    cardColor="#313862"
+                <HistoryFinanceCard
                     tagColor="#E44C4E"
                     title="Conta de Luz"
                     subtitle="27"
                     amount="130,00"
-                />                                                                                                                                                                                
+                />
+                <HistoryFinanceCard
+                    tagColor="#E44C4E"
+                    title="Conta de Luz"
+                    subtitle="27"
+                    amount="130,00"
+                />
+                <HistoryFinanceCard
+                    tagColor="#E44C4E"
+                    title="Conta de Luz"
+                    subtitle="27"
+                    amount="130,00"
+                />
+                <HistoryFinanceCard
+                    tagColor="#E44C4E"
+                    title="Conta de Luz"
+                    subtitle="27"
+                    amount="130,00"
+                />
+                <HistoryFinanceCard
+                    tagColor="#E44C4E"
+                    title="Conta de Luz"
+                    subtitle="27"
+                    amount="130,00"
+                />
+                <HistoryFinanceCard
+                    tagColor="#E44C4E"
+                    title="Conta de Luz"
+                    subtitle="27"
+                    amount="130,00"
+                />                                                                                                                                                                                                                                                                                
             </Content>
         </Container>
     );
