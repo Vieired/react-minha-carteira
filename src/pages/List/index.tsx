@@ -9,16 +9,23 @@ import { Container } from './styles';
 
 const List: React.FC = () => {
 
-    const options = [
-        { value: 'pao', label: 'Pão' },
-        { value: 'cenoura', label: 'Cenoura' },
-        { value: 'sabão em pó', label: 'Sabão em Pó' },
+    const months = [
+        { value: 7, label: 'Julho' },
+        { value: 8, label: 'Agosto' },
+        { value: 9, label: 'Setembro' },
     ];
+
+    const years = [
+        { value: 2020, label: 2020 },
+        { value: 2019, label: 2019 },
+        { value: 2018, label: 2018 },
+    ];    
 
     return (
         <Container>
             <ContentHeader title="Saídas" lineColor="#E44C4E">
-                <SelectInput options={options}/>
+                <SelectInput options={months}/>
+                <SelectInput options={years}/>
             </ContentHeader>
 
             <Content>
