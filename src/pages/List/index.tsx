@@ -1,11 +1,10 @@
 import React, { useMemo } from 'react';
-import Content from '../../components/Content';
 
 import ContentHeader from '../../components/ContentHeader';
-import HistoryFinanceCard from '../../components/HistoryFinanceCard';
 import SelectInput from '../../components/SelectInput';
+import HistoryFinanceCard from '../../components/HistoryFinanceCard';
 
-import { Container, Filters } from './styles';
+import { Container, Content, Filters } from './styles';
 
 interface IRouteParams {
     match: {
