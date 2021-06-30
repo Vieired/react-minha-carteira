@@ -44,19 +44,30 @@ const List: React.FC<IRouteParams> = ({ match }) => {
     },[type]);
     
     const months = [
+        { value: 1, label: 'Janeiro' },
+        { value: 6, label: 'Junho' },
+        { value: 5, label: 'Maio' },
         { value: 7, label: 'Julho' },
-        { value: 8, label: 'Agosto' },
-        { value: 9, label: 'Setembro' },
     ];
 
     const years = [
-        { value: 2020, label: 2020 },
         { value: 2019, label: 2019 },
         { value: 2018, label: 2018 },
-    ];    
+        { value: 2020, label: 2020 },
+        { value: 2021, label: 2021 },
+    ];
+    const [selectedMonth, setSelectedMonth] = useState(String(new Date().getMonth()+1));
+    const [selectedYear, setSelectedYear] = useState(String(new Date().getFullYear()));
 
     useEffect(() => {
-        const response = listData.map(item => {
+        const filteredData = listData.filter(item => {
+            const date = new Date(item.date),
+                month = String(date.getMonth()+1),
+                year = String(date.getFullYear());
+            return month === selectedMonth && year === selectedYear;
+        });
+
+        const formattedDate = filteredData.map(item => {
             return {
                 id: String(Math.random() * data.length),
                 description: item.description,
@@ -66,14 +77,30 @@ const List: React.FC<IRouteParams> = ({ match }) => {
                 tagColor: item.frequency === 'recorrente' ? '#4E41F0' : '#E44C4E'
             }
         })
-        setData(response);
-    }, []);
+        setData(formattedDate);
+    }, [data.length, listData, selectedMonth, selectedYear]);
+
+    const handleChangeMonth = (elem: React.ChangeEvent<HTMLSelectElement>) => {
+        console.log(elem.target.value);
+        setSelectedMonth(elem.target.value);
+    }
+
+    const handleChangeYear = (elem: React.ChangeEvent<HTMLSelectElement>) => {
+        console.log(elem.target.value);
+        setSelectedYear(elem.target.value);
+    }
 
     return (
         <Container>
             <ContentHeader title={title} lineColor={lineColor}>
-                <SelectInput options={months}/>
-                <SelectInput options={years}/>
+                <SelectInput options={months}
+                    onChange={(e: React.ChangeEvent<HTMLSelectElement>) => 
+                    handleChangeMonth(e)}
+                    defaultValue={selectedMonth}/>
+                <SelectInput options={years}
+                    onChange={(e: React.ChangeEvent<HTMLSelectElement>) => 
+                    handleChangeYear(e)}
+                    defaultValue={selectedYear}/>
             </ContentHeader>
 
             <Filters>
