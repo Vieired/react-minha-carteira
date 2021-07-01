@@ -138,13 +138,13 @@ const List: React.FC<IRouteParams> = ({ match }) => {
                     type="button"
                     className="tag-filter tag-filter-recurrent"
                 >
-                        Recorrentes
+                    Recorrentes
                 </button>
                 <button
                     type="button"
                     className="tag-filter tag-filter-eventual"
                 >
-                        Eventuais
+                    Eventuais
                 </button>                    
             </Filters>
 
