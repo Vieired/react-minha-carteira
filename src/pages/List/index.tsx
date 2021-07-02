@@ -31,10 +31,10 @@ interface IData {
 
 const List: React.FC<IRouteParams> = ({ match }) => {
     const [data, setData] = useState<IData[]>([]);
-    const [selectedMonth, setSelectedMonth] = useState(String(new Date().getMonth()+1));
-    const [selectedYear, setSelectedYear] = useState(String(new Date().getFullYear()));
+    const [selectedMonth, setSelectedMonth] = useState<number>(new Date().getMonth()+1);
+    const [selectedYear, setSelectedYear] = useState<number>(new Date().getFullYear());
     const [frequencyFilterSelected, setFrequencyFilterSelected] = useState(['recorrente','eventual']);
-    
+    console.log(selectedYear);
     const movimentType = match.params.type;
 
     const pageData = useMemo(() => {
@@ -93,21 +93,31 @@ const List: React.FC<IRouteParams> = ({ match }) => {
     }
 
     const handleChangeMonth = (elem: React.ChangeEvent<HTMLSelectElement>) => {
-        setSelectedMonth(elem.target.value);
+        try {
+            const parseMonth = Number(elem);
+            setSelectedMonth(parseMonth);
+        }
+        catch(eror) {
+            throw new Error('Invalid month value. Is accept 0 - 24.');
+        }
     }
 
     const handleChangeYear = (elem: React.ChangeEvent<HTMLSelectElement>) => {
-        setSelectedYear(elem.target.value);
+        try {
+            const parseYear = Number(elem);
+            setSelectedYear(parseYear);
+        }
+        catch(error) {
+            throw new Error('Invalid month value. Is accept 0 - 24.');
+        }        
     }
 
     useEffect(() => {
         const { data } = pageData;
-        /* eslint-disable no-debugger */
-        debugger;
         const filteredData = data.filter(item => {
             const date = new Date(item.date),
-                month = String(date.getMonth()+1),
-                year = String(date.getFullYear());
+                month = date.getMonth()+1,
+                year = date.getFullYear();
             return month === selectedMonth 
                 && year === selectedYear 
                 && frequencyFilterSelected.includes(item.frequency);
@@ -132,11 +142,9 @@ const List: React.FC<IRouteParams> = ({ match }) => {
             <ContentHeader title={pageData.title} lineColor={pageData.lineColor}>
                 <SelectInput options={months}
                     onChange={(e: React.ChangeEvent<HTMLSelectElement>) => handleChangeMonth(e)}
-                    // onChange={(e) => setSelectedMonth(e.target.value)}
                     defaultValue={selectedMonth}/>
                 <SelectInput options={years}
                     onChange={(e: React.ChangeEvent<HTMLSelectElement>) => handleChangeYear(e)}
-                    // onChange={(e) => setSelectedYear(e.target.value)}
                     defaultValue={selectedYear}/>
             </ContentHeader>
 
