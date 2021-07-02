@@ -35,37 +35,27 @@ const List: React.FC<IRouteParams> = ({ match }) => {
     const [selectedYear, setSelectedYear] = useState(String(new Date().getFullYear()));
     const [frequencyFilterSelected, setFrequencyFilterSelected] = useState(['recorrente','eventual']);
     
-    const { type } = match.params;
+    const movimentType = match.params.type;
 
-    const title = useMemo(() => {
-        return type === 'entry-balance' ? 'Entradas' : 'Saídas';
-    },[type]);
-
-    const lineColor = useMemo(() => {
-        return type === 'entry-balance' ? '#F7931B' : '#E44C4E';
-    },[type]);
-
-    const listData = useMemo(() => {
-        return type === 'entry-balance' ? gains : expenses;
-    },[type]);
-    
-    // const months = [
-    //     { value: 1, label: 'Janeiro' },
-    //     { value: 6, label: 'Junho' },
-    //     { value: 5, label: 'Maio' },
-    //     { value: 7, label: 'Julho' },
-    // ];
-
-    // const years = [
-    //     { value: 2019, label: 2019 },
-    //     { value: 2018, label: 2018 },
-    //     { value: 2020, label: 2020 },
-    //     { value: 2021, label: 2021 },
-    // ];
+    const pageData = useMemo(() => {
+        return movimentType === 'entry-balance' ?
+        {
+            title: 'Entradas',
+            lineColor: '#F7931B',
+            data: gains
+        } : {
+            title: 'Saídas',
+            lineColor: '#E44C4E',
+            data: expenses
+        }
+    },[movimentType]);
 
     const years = useMemo(() => {
         let uniqueYears: number[] = [];
-        listData.forEach(item => {
+
+        const { data } = pageData;
+
+        data.forEach(item => {
             const date = new Date(item.date);
             const year = date.getFullYear();
 
@@ -79,8 +69,8 @@ const List: React.FC<IRouteParams> = ({ match }) => {
                 value: year,
                 label: year
             }
-        })
-    },[listData]);
+        });
+    },[pageData]);
 
     const months = useMemo(() => {
         return listOfMonths.map((month, index) => {
@@ -102,8 +92,19 @@ const List: React.FC<IRouteParams> = ({ match }) => {
         }
     }
 
+    const handleChangeMonth = (elem: React.ChangeEvent<HTMLSelectElement>) => {
+        setSelectedMonth(elem.target.value);
+    }
+
+    const handleChangeYear = (elem: React.ChangeEvent<HTMLSelectElement>) => {
+        setSelectedYear(elem.target.value);
+    }
+
     useEffect(() => {
-        const filteredData = listData.filter(item => {
+        const { data } = pageData;
+        /* eslint-disable no-debugger */
+        debugger;
+        const filteredData = data.filter(item => {
             const date = new Date(item.date),
                 month = String(date.getMonth()+1),
                 year = String(date.getFullYear());
@@ -122,29 +123,20 @@ const List: React.FC<IRouteParams> = ({ match }) => {
                 tagColor: item.frequency === 'recorrente' ? '#4E41F0' : '#E44C4E'
             }
         })
+
         setData(formattedDate);
-    }, [data.length, listData, selectedMonth, selectedYear, frequencyFilterSelected]);
-
-    const handleChangeMonth = (elem: React.ChangeEvent<HTMLSelectElement>) => {
-        console.log(elem.target.value);
-        setSelectedMonth(elem.target.value);
-    }
-
-    const handleChangeYear = (elem: React.ChangeEvent<HTMLSelectElement>) => {
-        console.log(elem.target.value);
-        setSelectedYear(elem.target.value);
-    }
+    }, [pageData, selectedMonth, selectedYear, data.length, frequencyFilterSelected]);
 
     return (
         <Container>
-            <ContentHeader title={title} lineColor={lineColor}>
+            <ContentHeader title={pageData.title} lineColor={pageData.lineColor}>
                 <SelectInput options={months}
-                    onChange={(e: React.ChangeEvent<HTMLSelectElement>) => 
-                    handleChangeMonth(e)}
+                    onChange={(e: React.ChangeEvent<HTMLSelectElement>) => handleChangeMonth(e)}
+                    // onChange={(e) => setSelectedMonth(e.target.value)}
                     defaultValue={selectedMonth}/>
                 <SelectInput options={years}
-                    onChange={(e: React.ChangeEvent<HTMLSelectElement>) => 
-                    handleChangeYear(e)}
+                    onChange={(e: React.ChangeEvent<HTMLSelectElement>) => handleChangeYear(e)}
+                    // onChange={(e) => setSelectedYear(e.target.value)}
                     defaultValue={selectedYear}/>
             </ContentHeader>
 
