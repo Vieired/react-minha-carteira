@@ -95,7 +95,7 @@ const List: React.FC<IRouteParams> = ({ match }) => {
 
     const handleChangeMonth = (elem: React.ChangeEvent<HTMLSelectElement>) => {
         try {
-            const parseMonth = Number(elem);
+            const parseMonth = Number(elem.target.value);
             setSelectedMonth(parseMonth);
         }
         catch(eror) {
@@ -105,7 +105,7 @@ const List: React.FC<IRouteParams> = ({ match }) => {
 
     const handleChangeYear = (elem: React.ChangeEvent<HTMLSelectElement>) => {
         try {
-            const parseYear = Number(elem);
+            const parseYear = Number(elem.target.value);
             setSelectedYear(parseYear);
         }
         catch(error) {
