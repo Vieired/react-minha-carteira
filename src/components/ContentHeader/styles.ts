@@ -27,4 +27,6 @@ export const TitleContainer = styled.div<ITitleContainerProps>`
     }
 `;
 
-export const Controllers = styled.div``;
+export const Controllers = styled.div`
+    display: inline-flex;
+`;
