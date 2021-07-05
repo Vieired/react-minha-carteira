@@ -5,7 +5,7 @@ import dolarImg from '../../assets/dollar.svg';
 import arrowUpImg from '../../assets/arrow-up.svg';
 import arrowDownImg from '../../assets/arrow-down.svg';
 
-import { Container, Content } from './styles';
+import { Container } from './styles';
 
 interface IWalletBoxPropx {
     title: string;
