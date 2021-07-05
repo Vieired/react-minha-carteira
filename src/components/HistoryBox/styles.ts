@@ -22,7 +22,7 @@ export const Container = styled.div`
 
 export const ChartContainer = styled.div`
     flex: 1;
-    height: 260px;
+    min-height: 260px;
 `;
 
 export const Header = styled.header`
