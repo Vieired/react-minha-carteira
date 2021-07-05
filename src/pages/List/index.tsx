@@ -32,10 +32,8 @@ interface IData {
 const List: React.FC<IRouteParams> = ({ match }) => {
     const [data, setData] = useState<IData[]>([]);
     const [selectedMonth, setSelectedMonth] = useState<number>(new Date().getMonth()+1);
-    // const [selectedYear, setSelectedYear] = useState<number>(new Date().getFullYear());
-    const [selectedYear, setSelectedYear] = useState<number>(2020);
+    const [selectedYear, setSelectedYear] = useState<number>(new Date().getFullYear());
     const [frequencyFilterSelected, setFrequencyFilterSelected] = useState(['recorrente','eventual']);
-    console.log(selectedYear);
     const movimentType = match.params.type;
 
     const pageData = useMemo(() => {

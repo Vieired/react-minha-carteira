@@ -18,7 +18,7 @@ import { Container, Content } from './styles';
 const Dashboard: React.FC = () => {
 
     const [selectedMonth, setSelectedMonth] = useState<number>(new Date().getMonth()+1);
-    const [selectedYear, setSelectedYear] = useState<number>(2020);
+    const [selectedYear, setSelectedYear] = useState<number>(new Date().getFullYear());
 
     const years = useMemo(() => {
         let uniqueYears: number[] = [];
