@@ -257,7 +257,7 @@ const Dashboard: React.FC = () => {
                     title={messege.title}
                     description={messege.description}
                     footerText={messege.footerText}
-                    icon={happyImg}
+                    icon={messege.icon}
                 />
 
                 <PieChartBox data={relationExpensesVersusGains} />
