@@ -122,7 +122,7 @@ const Dashboard: React.FC = () => {
             }
         }
 
-    },[totalBalance]);
+    },[totalBalance, totalExpenses, totalGains]);
 
     const relationExpensesVersusGains = useMemo(() => {
         const total = totalGains + totalExpenses;
