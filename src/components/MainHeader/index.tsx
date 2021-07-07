@@ -4,7 +4,6 @@ import emojis from '../../utils/emojis';
 import Toggle from '../Toggle';
 import { useTheme } from '../../hooks/theme';
 import { useState } from 'react';
-import dark from '../../styles/themes/dark';
 
 const MainHeader: React.FC = () => {
     const { toggleTheme, theme } = useTheme();
