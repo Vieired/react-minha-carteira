@@ -49,3 +49,23 @@ export const MenuItemLink = styled.a`
         opacity: .7;
     }
 `;
+
+export const MenuItemButton = styled.button`
+    font-size: 16px;
+    color: ${props => props.theme.colors.info};
+    border: none;
+    background: none;
+    text-decoration: none;
+    margin: 7px 0;
+    transition: opacity .3s;
+    display: flex;
+    align-items: center;
+
+    > svg {
+        margin-right: 5px;
+    }
+
+    &:hover {
+        opacity: .7;
+    }
+`;
