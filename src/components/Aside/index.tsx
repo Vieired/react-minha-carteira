@@ -1,5 +1,15 @@
-import React from 'react';
+import React, { useMemo } from 'react';
+import { useState } from 'react';
+import { 
+    MdDashboard,
+    MdArrowUpward,
+    MdArrowDownward,
+    MdExitToApp,
+    MdClose,
+    MdMenu
+} from 'react-icons/md';
 import logoImg from '../../assets/logo.svg';
+import { useAuth } from '../../hooks/auth';
 import {
     Container,
     Header,
@@ -7,23 +17,25 @@ import {
     MenuContainer,
     MenuItemLink,
     Title,
-    MenuItemButton
+    MenuItemButton,
+    ToggleMenu
 } from './styles';
-import { 
-    MdDashboard,
-    MdArrowUpward,
-    MdArrowDownward,
-    MdExitToApp
-} from 'react-icons/md';
-import { useAuth } from '../../hooks/auth';
 
 
 const Aside: React.FC = () => {
+    const [toggleMenuIsOpened, setToggleMenuIsOpened] = useState(false);
     const { signOut } = useAuth();
 
+    const handleToggleMenu = () => {
+        setToggleMenuIsOpened(!toggleMenuIsOpened);
+    };
+
     return (
-        <Container>
+        <Container menuIsOpen={toggleMenuIsOpened}>
             <Header>
+                <ToggleMenu onClick={handleToggleMenu}>
+                    { toggleMenuIsOpened ? <MdClose/> : <MdMenu/> }
+                </ToggleMenu>
                 <LogImg src={logoImg} alt="Logo Minha Carteira" />
                 <Title>Minha Carteira</Title>
             </Header>
