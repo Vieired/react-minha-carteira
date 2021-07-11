@@ -11,11 +11,10 @@ export const Container = styled.div`
     height: 100vh;
 
     @media(max-width: 600px) {
-        display: grid;
         grid-template-columns: 100%;
         grid-template-rows: 70px auto;
         grid-template-areas:
-        'AS'
-        'CT';        
+        'MH'
+        'CT';
     }
 `;
