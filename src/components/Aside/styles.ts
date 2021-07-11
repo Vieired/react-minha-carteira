@@ -85,7 +85,7 @@ export const MenuItemButton = styled.button`
     color: ${props => props.theme.colors.info};
     border: none;
     background: none;
-    /* text-decoration: none; */
+    
     margin: 7px 0;
     display: flex;
     align-items: center;
