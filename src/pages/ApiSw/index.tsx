@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Container, Content, Header } from './styles';
+import HistoryFinanceCard from '../../components/HistoryFinanceCard';
 import apiSW from '../../services/ApiSw';
 
 const ApiSw: React.FC = () => {
@@ -21,7 +22,12 @@ const ApiSw: React.FC = () => {
             <Header>API Star Wars</Header>
             <Content>
                 {items?.map((person:any) => (
-                    <div>{person.name}</div>
+                    <HistoryFinanceCard
+                        key={person.name}
+                        title={person.name}
+                        subtitle={`Altura: ${person.height}, Massa: ${person.mass}, Aniversário: ${person.birth_year}`}
+                        amount=""
+                        tagColor={person.skin_color} />
                 ))}
             </Content>
         </Container>
