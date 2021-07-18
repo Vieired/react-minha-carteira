@@ -43,7 +43,7 @@ const ApiSw: React.FC = () => {
                     <HistoryFinanceCard
                         key={person.name}
                         title={person.name}
-                        subtitle={`Altura: ${person.height}, Massa: ${person.mass}, Aniversário: ${person.birth_year}`}
+                        subtitle={`${person.height}cm . ${person.mass}kg . Ano de aniversário: ${person.birth_year}`}
                         amount=""
                         tagColor={person.skin_color} />
                 ))}
