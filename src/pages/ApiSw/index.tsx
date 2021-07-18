@@ -1,15 +1,12 @@
 import React, { useState } from 'react';
 import { Container, Content, Header } from './styles';
-import axios from 'axios';
+import apiSW from '../../services/ApiSw';
 
 const ApiSw: React.FC = () => {
 
     const [items, setItems] = useState([]);
-    const api = axios.create({
-        baseURL: "https://swapi.dev/api/"
-    });
 
-    api.get("people/")
+    apiSW.get("people/")
         .then((response) => listPersons(response.data))
         .catch((err) => {
             console.log("There is a error!")
