@@ -66,6 +66,10 @@ const Aside: React.FC = () => {
                     <MdArrowDownward />
                     Saídas
                 </MenuItemLink>
+                <MenuItemLink href="/apisw">
+                    <MdDashboard />
+                    API SW
+                </MenuItemLink>
                 <MenuItemButton onClick={signOut}>
                     <MdExitToApp />
                     Sair
