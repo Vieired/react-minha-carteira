@@ -6,7 +6,8 @@ import {
     MdArrowDownward,
     MdExitToApp,
     MdClose,
-    MdMenu
+    MdMenu,
+    MdMovieFilter
 } from 'react-icons/md';
 import logoImg from '../../assets/logo.svg';
 import { useAuth } from '../../hooks/auth';
@@ -67,7 +68,7 @@ const Aside: React.FC = () => {
                     Saídas
                 </MenuItemLink>
                 <MenuItemLink href="/apisw">
-                    <MdDashboard />
+                    <MdMovieFilter />
                     API SW
                 </MenuItemLink>
                 <MenuItemButton onClick={signOut}>
