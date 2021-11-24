@@ -7,15 +7,17 @@ interface IHistoryFinanceCardProps {
     title: string;
     subtitle: string;
     amount: string;
+    onClick?: () => void;
 }
 
 const HistoryFinanceCard: React.FC<IHistoryFinanceCardProps> = ({
     tagColor,
     title,
     subtitle,
-    amount,    
+    amount,
+    onClick
 }) => (
-    <Container>
+    <Container onClick={onClick}>
         <Tag color={tagColor} />
         <div>
             <span>{title}</span>

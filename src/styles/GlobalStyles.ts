@@ -20,6 +20,25 @@ export const GlobalStyled = createGlobalStyle`
     button {
         cursor: pointer;
     }
+
+    .ReactModal__Overlay {
+        opacity: 0;
+        transition: opacity 200ms ease-in-out;
+    }
+
+    .ReactModal__Overlay--after-open{
+        opacity: 1;
+    }
+
+    .ReactModal__Overlay--before-close{
+        opacity: 0;
+    }
+
+    .ReactModal__Content {
+        width: 40%;
+        height: 50%;
+        margin: auto auto;
+    }
 `;
 
 export default GlobalStyled;
