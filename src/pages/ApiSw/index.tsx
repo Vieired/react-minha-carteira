@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Container, Content, Header } from './styles';
+import { Container, Content, Header, Loading } from './styles';
 import HistoryFinanceCard from '../../components/HistoryFinanceCard';
 import apiSW from '../../services/ApiSw';
 
@@ -24,11 +24,15 @@ interface IPeople {
 const ApiSw: React.FC = () => {
 
     const [items, setItems] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
 
     apiSW.get("people/")
         .then((response) => listPersons(response.data))
         .catch((err) => {
             console.log("There is a error!")
+        })
+        .finally(() => {
+            setIsLoading(false);
         });
 
     const listPersons = (persons: any) => {
@@ -39,7 +43,8 @@ const ApiSw: React.FC = () => {
         <Container>
             <Header>API Star Wars</Header>
             <Content>
-                {items?.map((person:IPeople) => (
+                { isLoading && <Loading/> }
+                { !isLoading && items?.map((person:IPeople) => (
                     <HistoryFinanceCard
                         key={person.name}
                         title={person.name}
