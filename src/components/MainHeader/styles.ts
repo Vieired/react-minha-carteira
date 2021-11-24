@@ -23,6 +23,10 @@ export const Welcome = styled.h3`
 
 `;
 
+export const Img = styled.img`
+    width: 19px;
+`;
+
 export const UserName = styled.span`
 
 `;

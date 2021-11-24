@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import { Container, Profile, Welcome, UserName } from './styles';
+import { Container, Profile, Welcome, UserName, Img } from './styles';
 import emojis from '../../utils/emojis';
 import Toggle from '../Toggle';
 import { useTheme } from '../../hooks/theme';
@@ -14,7 +14,7 @@ const MainHeader: React.FC = () => {
 
     const emoji = useMemo(() => {
         const idx = Math.floor(Math.random() * emojis.length);
-        return emojis[idx];
+        return <Img src={emojis[idx]} alt="Avatar"/>;
     },[]);
     
     const handleChangeTheme = () => {

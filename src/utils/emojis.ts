@@ -1,2 +1,11 @@
 /* eslint import/no-anonymous-default-export: [2, {"allowArray": true}] */
-export default ['A', 'B', 'C', 'D', 'E', 'F'];
+
+import happy from '../assets/happy.svg';
+import embarrassed from '../assets/embarrassed.png';
+import grinning from '../assets/grinning.svg';
+
+export default [
+    happy,
+    embarrassed,
+    grinning
+];
