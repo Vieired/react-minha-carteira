@@ -71,6 +71,10 @@ const Aside: React.FC = () => {
                     <MdMovieFilter />
                     API SW
                 </MenuItemLink>
+                <MenuItemLink href="/api-ludopedia">
+                    <MdMovieFilter />
+                    API Ludopedia
+                </MenuItemLink>
                 <MenuItemButton onClick={signOut}>
                     <MdExitToApp />
                     Sair
