@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Container, Content, Header, Loading } from './styles';
 import HistoryFinanceCard from '../../components/HistoryFinanceCard';
 import apiSW from '../../services/ApiSw';
@@ -27,7 +27,7 @@ const ApiSw: React.FC = () => {
     const [items, setItems] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const [clickedItem, setClickedItem] = useState({
+    const [clickedItem, setClickedItem] = useState<IPeople>({
         birth_year: "",
         eye_color: "",
         skin_color: "",
@@ -44,25 +44,25 @@ const ApiSw: React.FC = () => {
         starshipsUrl: []
     });
 
-    apiSW.get("people/")
-        .then((response) => listPersons(response.data))
+    useEffect(() => {
+        apiSW.get("people/").then((response) => {
+            setItems(response.data.results);
+            console.log("Response:", response);
+        })
         .catch((err) => {
             console.log("There is a error!")
         })
         .finally(() => {
             setIsLoading(false);
         });
-
-    const listPersons = (persons: any) => {
-        setItems(persons.results);
-    };
+    },[]);
 
     const handleClick = (person:any) => {
         setClickedItem(person);
         setIsModalOpen(true);
     }
 
-    const handleRequestCloseFunc = () => {
+    const handleRequestCloseFunc = ():void => {
         setIsModalOpen(false);
     };
 
@@ -83,7 +83,7 @@ const ApiSw: React.FC = () => {
                 <Modal
                     isOpen={isModalOpen}
                     contentLabel={"Detalhes do item"}
-                    ariaHideApp={true}
+                    ariaHideApp={false}
                     onRequestClose={handleRequestCloseFunc}>
                     <h1>{clickedItem.name}</h1>
                     <br />
