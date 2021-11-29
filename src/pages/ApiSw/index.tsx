@@ -10,7 +10,7 @@ interface IPeople {
     eye_color: string;
     skin_color: string;
     hair_color: string;
-    filmsUrl: string[];
+    films: string[];
     gender: string;
     height: string;
     homeworld: string;
@@ -31,7 +31,7 @@ interface IDataPages {
 
 const ApiSw: React.FC = () => {
 
-    const [items, setItems] = useState([]);
+    const [items, setItems] = useState<any>({});
     const [dataPages, setDataPages] = useState<IDataPages>({count: 0, next: null, previous: null});
     const [isLoading, setIsLoading] = useState(true);
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -40,7 +40,7 @@ const ApiSw: React.FC = () => {
         eye_color: "",
         skin_color: "",
         hair_color: "",
-        filmsUrl: [],
+        films: [],
         gender: "",
         height: "",
         homeworld: "",
@@ -144,21 +144,21 @@ const ApiSw: React.FC = () => {
                     <p>Cor do cabelo: {clickedItem.hair_color}</p>
                     <p>Cor do cabelo: {clickedItem.eye_color}</p>
                     <p>Gênero: {clickedItem.gender}</p>
+                    <br/>
                     <p>URL do mundo natal: {clickedItem.homeworld}</p>
                     <p>URLs da espécie: {clickedItem.speciesUrl && clickedItem.speciesUrl[0]}</p>
                     <p>URLs da nave: {clickedItem.starshipsUrl && clickedItem.starshipsUrl[0]}</p>
+                    <br/>
                     <div>
-                        <p>Filmes:</p>
+                        <p>URL dos Filmes:</p>
                         <ul>
                         {
-                            clickedItem.filmsUrl?.map((UrlFilm:any) => (
-                                <li>{UrlFilm}</li>
+                            clickedItem.films?.map((urlFilm:any) => (
+                                <li key={urlFilm}>{urlFilm}</li>
                             ))
                         }
                         </ul>
                     </div>
-                    <p>URLs dos filmes: {clickedItem.filmsUrl && clickedItem.filmsUrl[0]}</p>
-                    <br />
                     <br />
                     <br />
                     <small>Criado em: {clickedItem.created}</small>
