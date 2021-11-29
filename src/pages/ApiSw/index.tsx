@@ -22,9 +22,17 @@ interface IPeople {
     starshipsUrl: string[];
 }
 
+interface IDataPages {
+    count: number;
+    next: string | null;
+    previous: string | null;
+    results?: IPeople[];
+}
+
 const ApiSw: React.FC = () => {
 
     const [items, setItems] = useState([]);
+    const [dataPages, setDataPages] = useState<IDataPages>({count: 0, next: null, previous: null});
     const [isLoading, setIsLoading] = useState(true);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [clickedItem, setClickedItem] = useState<IPeople>({
@@ -47,6 +55,7 @@ const ApiSw: React.FC = () => {
     useEffect(() => {
         apiSW.get("people/").then((response) => {
             setItems(response.data.results);
+            setDataPages(response.data);
             console.log("Response:", response);
         })
         .catch((err) => {
@@ -66,6 +75,42 @@ const ApiSw: React.FC = () => {
         setIsModalOpen(false);
     };
 
+    const handleClickPageNext = () => {
+        if(dataPages.next != null) {
+            setIsLoading(true);
+            const url = `people/?page=${dataPages.next?.split('=')[1]}`;
+            apiSW.get(url).then((response) => {
+                setItems(response.data.results);
+                setDataPages(response.data);
+                console.log("Response:", response);
+            })
+            .catch((err) => {
+                console.log("There is a error!")
+            })
+            .finally(() => {
+                setIsLoading(false);
+            });
+        }
+    }
+
+    const handleClickPagePrev = () => {
+        if(dataPages.previous != null) {
+            setIsLoading(true);
+            const url = `people/?page=${dataPages.previous?.split('=')[1]}`;
+            apiSW.get(url).then((response) => {
+                setItems(response.data.results);
+                setDataPages(response.data);
+                console.log("Response:", response);
+            })
+            .catch((err) => {
+                console.log("There is a error!")
+            })
+            .finally(() => {
+                setIsLoading(false);
+            });
+        }
+    }    
+
     return (
         <Container>
             <Header>API Star Wars</Header>
@@ -80,6 +125,11 @@ const ApiSw: React.FC = () => {
                         tagColor={person.skin_color}
                         onClick={() => handleClick(person)} />
                 ))}
+                <button onClick={handleClickPagePrev}>{"<"}</button>
+                <span> ... </span>
+                <button onClick={handleClickPageNext}>{">"}</button>
+                <span> ... </span>
+                <small>Total items: {dataPages.count}</small>
                 <Modal
                     isOpen={isModalOpen}
                     contentLabel={"Detalhes do item"}
