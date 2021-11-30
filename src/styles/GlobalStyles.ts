@@ -38,6 +38,25 @@ export const GlobalStyled = createGlobalStyle`
         width: 40%;
         height: 50%;
         margin: auto auto;
+        background-color: ${props => props.theme.colors.secondary} !important;
+        color: ${props => props.theme.colors.white} !important;
+        box-shadow: 0px 0px 8px 0px #a1a1a1;
+        border-top-left-radius: 8px !important;
+        border-bottom-left-radius: 8px !important;
+
+        ul {
+            li {
+                list-style: none;
+            }
+        }
+
+        footer {
+            small {
+                color: ${props => props.theme.colors.gray};
+                display: flex;
+                justify-content: end;
+            }
+        }
     }
 `;
 
