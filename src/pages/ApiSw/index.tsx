@@ -24,6 +24,15 @@ interface IPeople {
     starships: string[];
 }
 
+// interface IStarships {
+//     name: string;
+//     model?: string;
+//     cost_in_credits?: string;
+//     length?: string;
+//     max_atmosphering_speed?: string;
+//     starship_class?: string;
+// }
+
 interface IDataFilm {
     title: string;
     episode_id?: number;
@@ -34,14 +43,14 @@ interface IDataFilm {
     url?: string;
 }
 
-interface IConfigFilm {
+interface IConfig {
     url: string;
     baseURL?: string;
     method?: string;
 }
 
 interface IResponseFilm {
-    config: IConfigFilm;
+    config: IConfig;
     data: IDataFilm;
 }
 
@@ -50,6 +59,21 @@ interface IDataPages {
     next: string | null;
     previous: string | null;
     results?: IPeople[];
+}
+
+interface IDataStarships {
+    name: string;
+    model?: string;
+    manufacturer?: string;
+    starship_class?: string;
+    cost_in_credits?: string;
+    length?: string;
+    max_atmosphering_speed?: string;
+}
+
+interface IResponseStarships {
+    config: IConfig;
+    data: IDataStarships;
 }
 
 const ApiSw: React.FC = () => {
@@ -86,6 +110,16 @@ const ApiSw: React.FC = () => {
             }
         }
     ]);
+    const [responseStarshipsClickedItem, setResponseStarshipsClickedItem] = useState<IResponseStarships[]>([
+        {
+            config: {
+                url: ""
+            },
+            data: {
+                name: ""
+            }
+        }
+    ]);    
 
     useEffect(() => {
         apiSW.get("people/").then((response) => {
@@ -142,10 +176,34 @@ const ApiSw: React.FC = () => {
         setIsModalOpen(true);
         setIsLoadingSectionModal(true);
         getFilmesByPerson(person);
+        getStarshipsByPerson(person);
     };
 
     const handleRequestCloseFunc = ():void => {
         setIsModalOpen(false);
+    };
+
+    const getStarshipsByPerson = (person:IPeople) => {
+        let promises:any[] = [];
+
+        if(person.starships) {
+            person.starships.forEach(x => {
+                const id = x.split("/")[5];
+                const url = `starships/${id}`;
+                promises.push(
+                    apiSW.get(url)
+                );
+            });
+            
+            Promise.all(promises).then((responses:IResponseStarships[]) => {
+                console.log(responses);
+                setResponseStarshipsClickedItem(responses);
+                // setIsLoadingSectionModal(false);
+            })
+        }
+        else {
+            setResponseStarshipsClickedItem([]);
+        }
     };
 
     const getFilmesByPerson = (person:IPeople) => {
@@ -229,17 +287,23 @@ const ApiSw: React.FC = () => {
                     </ul>
                 </div>
                 <br/>
-                <div>
-                    <p>URL das naves:</p>
-                    <ul>
-                    {
-                        clickedItem.starships?.map((urlStarship:any) => (
-                            <li key={urlStarship}>{urlStarship}</li>
-                        ))
-                    }
-                    </ul>
-                </div>
-                <br/>
+                { responseStarshipsClickedItem.length > 0 &&
+                    <div>
+                        <p>Naves:</p>
+                        <ul>
+                            {
+                                responseStarshipsClickedItem?.map((x:IResponseStarships) => (
+                                    <li key={x.data.name}>
+                                        <button title={x.data.manufacturer}>
+                                            {x.data.name} ({x.data.starship_class})
+                                        </button>
+                                    </li>
+                                ))
+                            }
+                        </ul>
+                        <br/>
+                    </div>
+                }
                 <div>
                     <p>Filmes:</p>
                     { isLoadingSectionModal && <LoadingSectionModal/> }
