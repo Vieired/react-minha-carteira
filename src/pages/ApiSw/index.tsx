@@ -200,74 +200,74 @@ const ApiSw: React.FC = () => {
                     <button onClick={handleClickPageNext}>{">"}</button>
                     <small>Total items: {dataPages.count}</small>
                 </Paginate>
-                <Modal
-                    isOpen={isModalOpen}
-                    contentLabel={"Detalhes do item"}
-                    ariaHideApp={false}
-                    onRequestClose={handleRequestCloseFunc}>
-                    <h1>{clickedItem.name}</h1>
-                    <br />
-                    <p>Altura: {clickedItem.height} cm</p>
-                    <p>Peso: {clickedItem.mass} kg</p>
-                    <p>Aniversário: {clickedItem.birth_year}</p>
-                    <p>Cor da pele: {clickedItem.skin_color}</p>
-                    <p>Cor do cabelo: {clickedItem.hair_color}</p>
-                    <p>Cor do cabelo: {clickedItem.eye_color}</p>
-                    <p>Gênero: {clickedItem.gender}</p>
-                    <br/>
-                    <p>URL do mundo natal: {clickedItem.homeworld}</p>
-                    <br/>
-                    <div>
-                        <p>URL das espécies:</p>
-                        <ul>
-                        {
-                            clickedItem.species?.map((urlSpecies:any) => (
-                                <li key={urlSpecies}>{urlSpecies}</li>
-                            ))
-                        }
-                        </ul>
-                    </div>
-                    <br/>
-                    <div>
-                        <p>URL das naves:</p>
-                        <ul>
-                        {
-                            clickedItem.starships?.map((urlStarship:any) => (
-                                <li key={urlStarship}>{urlStarship}</li>
-                            ))
-                        }
-                        </ul>
-                    </div>
-                    <br/>
-                    <div>
-                        <p>Filmes:</p>
-                        { isLoadingSectionModal && <LoadingSectionModal/> }
-                        { !isLoadingSectionModal &&
-                            <ul>
-                            {
-                                responseFilmsClickedItem?.map((x:IResponseFilm) => (
-                                    <li key={x.data.title}>
-                                        <button title={x.data.opening_crawl}>
-                                            {x.data.title} ({formatDateYear(x.data.release_date)})
-                                        </button>
-                                    </li>
-                                ))
-                            }
-                            </ul>
-                        }
-                    </div>
-                    <br />
-                    <br />
-                    <footer>
-                        <div>
-                            <small>{`Criado em: ${formatDate(clickedItem.created)}`}</small>
-                        </div>
-                        <div>
-                            <small>{`Última edição: ${formatDate(clickedItem.edited)}`}</small>
-                        </div>
-                    </footer>
-                </Modal>
             </Content>
+            <Modal
+                isOpen={isModalOpen}
+                contentLabel={"Detalhes do item"}
+                ariaHideApp={false}
+                onRequestClose={handleRequestCloseFunc}>
+                <h1>{clickedItem.name}</h1>
+                <br />
+                <p>Altura: {clickedItem.height} cm</p>
+                <p>Peso: {clickedItem.mass} kg</p>
+                <p>Aniversário: {clickedItem.birth_year}</p>
+                <p>Cor da pele: {clickedItem.skin_color}</p>
+                <p>Cor do cabelo: {clickedItem.hair_color}</p>
+                <p>Cor do cabelo: {clickedItem.eye_color}</p>
+                <p>Gênero: {clickedItem.gender}</p>
+                <br/>
+                <p>URL do mundo natal: {clickedItem.homeworld}</p>
+                <br/>
+                <div>
+                    <p>URL das espécies:</p>
+                    <ul>
+                    {
+                        clickedItem.species?.map((urlSpecies:any) => (
+                            <li key={urlSpecies}>{urlSpecies}</li>
+                        ))
+                    }
+                    </ul>
+                </div>
+                <br/>
+                <div>
+                    <p>URL das naves:</p>
+                    <ul>
+                    {
+                        clickedItem.starships?.map((urlStarship:any) => (
+                            <li key={urlStarship}>{urlStarship}</li>
+                        ))
+                    }
+                    </ul>
+                </div>
+                <br/>
+                <div>
+                    <p>Filmes:</p>
+                    { isLoadingSectionModal && <LoadingSectionModal/> }
+                    { !isLoadingSectionModal &&
+                        <ul>
+                        {
+                            responseFilmsClickedItem?.map((x:IResponseFilm) => (
+                                <li key={x.data.title}>
+                                    <button title={x.data.opening_crawl}>
+                                        {x.data.title} ({formatDateYear(x.data.release_date)})
+                                    </button>
+                                </li>
+                            ))
+                        }
+                        </ul>
+                    }
+                </div>
+                <br />
+                <br />
+                <footer>
+                    <div>
+                        <small>{`Criado em: ${formatDate(clickedItem.created)}`}</small>
+                    </div>
+                    <div>
+                        <small>{`Última edição: ${formatDate(clickedItem.edited)}`}</small>
+                    </div>
+                </footer>
+            </Modal>
         </Container>
     )
 };
