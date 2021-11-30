@@ -18,8 +18,8 @@ interface IPeople {
     name: string;
     created: string;
     edited: string;
-    speciesUrl: string[];
-    starshipsUrl: string[];
+    species: string[];
+    starships: string[];
 }
 
 interface IDataPages {
@@ -48,8 +48,8 @@ const ApiSw: React.FC = () => {
         name: "",
         created: "",
         edited: "",
-        speciesUrl: [],
-        starshipsUrl: []
+        species: [],
+        starships: []
     });
 
     useEffect(() => {
@@ -146,8 +146,8 @@ const ApiSw: React.FC = () => {
                     <p>Gênero: {clickedItem.gender}</p>
                     <br/>
                     <p>URL do mundo natal: {clickedItem.homeworld}</p>
-                    <p>URLs da espécie: {clickedItem.speciesUrl && clickedItem.speciesUrl[0]}</p>
-                    <p>URLs da nave: {clickedItem.starshipsUrl && clickedItem.starshipsUrl[0]}</p>
+                    <p>URLs da espécie: {clickedItem.species && clickedItem.species[0]}</p>
+                    <p>URLs da nave: {clickedItem.starships && clickedItem.starships[0]}</p>
                     <br/>
                     <div>
                         <p>URL dos Filmes:</p>
