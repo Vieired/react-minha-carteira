@@ -44,6 +44,14 @@ export const GlobalStyled = createGlobalStyle`
                 list-style: none;
             }
         }
+
+        footer {
+            small {
+                color: ${props => props.theme.colors.gray};
+                display: flex;
+                justify-content: end;
+            }
+        }
     }
 `;
 
