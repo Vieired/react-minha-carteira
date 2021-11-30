@@ -38,6 +38,12 @@ export const GlobalStyled = createGlobalStyle`
         width: 40%;
         height: 50%;
         margin: auto auto;
+
+        ul {
+            li {
+                list-style: none;
+            }
+        }
     }
 `;
 

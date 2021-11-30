@@ -22,6 +22,26 @@ interface IPeople {
     starships: string[];
 }
 
+interface IDataFilm {
+    title: string;
+    episode_id?: number;
+    opening_crawl?: string;
+    director?: string, 
+    producer?: string, 
+    release_date?: string
+}
+
+interface IConfigFilm {
+    url: string;
+    baseURL?: string;
+    method?: string;
+}
+
+interface IResponseFilm {
+    config: IConfigFilm;
+    data: IDataFilm;
+}
+
 interface IDataPages {
     count: number;
     next: string | null;
@@ -51,12 +71,22 @@ const ApiSw: React.FC = () => {
         species: [],
         starships: []
     });
+    const [responseFilmsClickedItem, setResponseFilmsClickedItem] = useState<IResponseFilm[]>([
+        {
+            config: {
+                url: ""
+            },
+            data: {
+                title: ""
+            }
+        }
+    ]);
 
     useEffect(() => {
         apiSW.get("people/").then((response) => {
             setItems(response.data.results);
             setDataPages(response.data);
-            console.log("Response:", response);
+            // console.log("Response:", response);
         })
         .catch((err) => {
             console.log("There is a error!")
@@ -66,15 +96,6 @@ const ApiSw: React.FC = () => {
         });
     },[]);
 
-    const handleClick = (person:any) => {
-        setClickedItem(person);
-        setIsModalOpen(true);
-    }
-
-    const handleRequestCloseFunc = ():void => {
-        setIsModalOpen(false);
-    };
-
     const handleClickPageNext = () => {
         if(dataPages.next != null) {
             setIsLoading(true);
@@ -82,7 +103,7 @@ const ApiSw: React.FC = () => {
             apiSW.get(url).then((response) => {
                 setItems(response.data.results);
                 setDataPages(response.data);
-                console.log("Response:", response);
+                // console.log("Response:", response);
             })
             .catch((err) => {
                 console.log("There is a error!")
@@ -91,7 +112,7 @@ const ApiSw: React.FC = () => {
                 setIsLoading(false);
             });
         }
-    }
+    };
 
     const handleClickPagePrev = () => {
         if(dataPages.previous != null) {
@@ -100,7 +121,7 @@ const ApiSw: React.FC = () => {
             apiSW.get(url).then((response) => {
                 setItems(response.data.results);
                 setDataPages(response.data);
-                console.log("Response:", response);
+                // console.log("Response:", response);
             })
             .catch((err) => {
                 console.log("There is a error!")
@@ -109,7 +130,49 @@ const ApiSw: React.FC = () => {
                 setIsLoading(false);
             });
         }
-    }    
+    };
+
+    const handleClick = (person:any) => {
+        setClickedItem(person);
+        setIsModalOpen(true);
+        getFilmesByPerson(person);
+    };
+
+    const handleRequestCloseFunc = ():void => {
+        setIsModalOpen(false);
+    };
+
+    const getFilmesByPerson = (person:IPeople) => {
+        let promises:any[] = [];
+        person.films.forEach(x => {
+            const id = x.split("/")[5];
+            const url = `films/${id}`;
+            promises.push(
+                apiSW.get(url)
+            );
+        });
+        
+        Promise.all(promises).then((responses:IResponseFilm[]) => {
+            // console.log(responses);
+            // let temp:IDataFilm[] = [];
+            // responses.forEach(x => temp.push({
+            //     title: x.data.title
+            // }));
+
+            // const [um.data, dois.data, tres.data] = responses;
+            // const [...resto] = temp;
+            // console.log("Temp:", temp);
+            // setFilmsdataClickedItem( ...responses.data, {
+            //     title: x.title
+            // });
+            // setFilmsdataClickedItem([...responses.data, { title: responses.data.title }]);
+
+            // [...temp] = responses.data;
+            // setFilmsdataClickedItem(responses[0].data);
+
+            setResponseFilmsClickedItem(responses);
+        })
+    };
 
     return (
         <Container>
@@ -137,8 +200,8 @@ const ApiSw: React.FC = () => {
                     onRequestClose={handleRequestCloseFunc}>
                     <h1>{clickedItem.name}</h1>
                     <br />
-                    <p>Altura: {clickedItem.height}</p>
-                    <p>Peso: {clickedItem.mass}</p>
+                    <p>Altura: {clickedItem.height} cm</p>
+                    <p>Peso: {clickedItem.mass} kg</p>
                     <p>Aniversário: {clickedItem.birth_year}</p>
                     <p>Cor da pele: {clickedItem.skin_color}</p>
                     <p>Cor do cabelo: {clickedItem.hair_color}</p>
@@ -170,11 +233,13 @@ const ApiSw: React.FC = () => {
                     </div>
                     <br/>
                     <div>
-                        <p>URL dos Filmes:</p>
+                        <p>Filmes:</p>
                         <ul>
                         {
-                            clickedItem.films?.map((urlFilm:any) => (
-                                <li key={urlFilm}>{urlFilm}</li>
+                            responseFilmsClickedItem?.map((x:IResponseFilm) => (
+                                <li key={x.data.title}>
+                                    <button>{x.data.title}</button>
+                                </li>
                             ))
                         }
                         </ul>
