@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Content, Header, Loading } from './styles';
+import { Container, Content, Header, Loading, Paginate } from './styles';
 import HistoryFinanceCard from '../../components/HistoryFinanceCard';
 import apiSW from '../../services/ApiSw';
 import Modal from 'react-modal';
@@ -125,11 +125,11 @@ const ApiSw: React.FC = () => {
                         tagColor={person.skin_color}
                         onClick={() => handleClick(person)} />
                 ))}
-                <button onClick={handleClickPagePrev}>{"<"}</button>
-                <span> ... </span>
-                <button onClick={handleClickPageNext}>{">"}</button>
-                <span> ... </span>
-                <small>Total items: {dataPages.count}</small>
+                <Paginate>
+                    <button onClick={handleClickPagePrev}>{"<"}</button>
+                    <button onClick={handleClickPageNext}>{">"}</button>
+                    <small>Total items: {dataPages.count}</small>
+                </Paginate>
                 <Modal
                     isOpen={isModalOpen}
                     contentLabel={"Detalhes do item"}

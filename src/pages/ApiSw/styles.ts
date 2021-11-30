@@ -20,3 +20,21 @@ export const Loading = styled.div`
     background: url(${loader}) center no-repeat;
     background-size: 5rem;
 `;
+
+export const Paginate = styled.footer`
+    justify-content: end;
+    display: flex;
+    gap: 10px;
+
+    button {
+        width: 40px;
+        height: 40px;
+        border-radius: 8px;
+        background-color: ${props => props.theme.colors.tertiary};
+        color: ${props => props.theme.colors.white};
+    }
+
+    small {
+        align-self: center;
+    }
+`;
