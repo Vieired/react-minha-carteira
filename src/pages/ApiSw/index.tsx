@@ -146,8 +146,28 @@ const ApiSw: React.FC = () => {
                     <p>Gênero: {clickedItem.gender}</p>
                     <br/>
                     <p>URL do mundo natal: {clickedItem.homeworld}</p>
-                    <p>URLs da espécie: {clickedItem.species && clickedItem.species[0]}</p>
-                    <p>URLs da nave: {clickedItem.starships && clickedItem.starships[0]}</p>
+                    <br/>
+                    <div>
+                        <p>URL das espécies:</p>
+                        <ul>
+                        {
+                            clickedItem.species?.map((urlSpecies:any) => (
+                                <li key={urlSpecies}>{urlSpecies}</li>
+                            ))
+                        }
+                        </ul>
+                    </div>
+                    <br/>
+                    <div>
+                        <p>URL das naves:</p>
+                        <ul>
+                        {
+                            clickedItem.starships?.map((urlStarship:any) => (
+                                <li key={urlStarship}>{urlStarship}</li>
+                            ))
+                        }
+                        </ul>
+                    </div>
                     <br/>
                     <div>
                         <p>URL dos Filmes:</p>
