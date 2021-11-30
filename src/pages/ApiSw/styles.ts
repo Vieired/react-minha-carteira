@@ -16,9 +16,15 @@ export const Content = styled.main`
 export const Loading = styled.div`
     width: 100%;
     min-height: 400px;
-    background-color: red;
     background: url(${loader}) center no-repeat;
     background-size: 5rem;
+`;
+
+export const LoadingSectionModal = styled.div`
+    width: 100%;
+    min-height: 50px;
+    background: url(${loader}) center no-repeat;
+    background-size: 3rem;
 `;
 
 export const Paginate = styled.footer`

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Content, Header, Loading, Paginate } from './styles';
+import { Container, Content, Header, Loading, LoadingSectionModal, Paginate } from './styles';
 import HistoryFinanceCard from '../../components/HistoryFinanceCard';
 import apiSW from '../../services/ApiSw';
 import Modal from 'react-modal';
@@ -56,6 +56,7 @@ const ApiSw: React.FC = () => {
     const [items, setItems] = useState<any>({});
     const [dataPages, setDataPages] = useState<IDataPages>({count: 0, next: null, previous: null});
     const [isLoading, setIsLoading] = useState(true);
+    const [isLoadingSectionModal, setIsLoadingSectionModal] = useState(true);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [clickedItem, setClickedItem] = useState<IPeople>({
         birth_year: "",
@@ -138,6 +139,7 @@ const ApiSw: React.FC = () => {
     const handleClick = (person:any) => {
         setClickedItem(person);
         setIsModalOpen(true);
+        setIsLoadingSectionModal(true);
         getFilmesByPerson(person);
     };
 
@@ -156,7 +158,7 @@ const ApiSw: React.FC = () => {
         });
         
         Promise.all(promises).then((responses:IResponseFilm[]) => {
-            console.log(responses);
+            // console.log(responses);
             // let temp:IDataFilm[] = [];
             // responses.forEach(x => temp.push({
             //     title: x.data.title
@@ -174,6 +176,7 @@ const ApiSw: React.FC = () => {
             // setFilmsdataClickedItem(responses[0].data);
 
             setResponseFilmsClickedItem(responses);
+            setIsLoadingSectionModal(false);
         })
     };
 
@@ -237,15 +240,20 @@ const ApiSw: React.FC = () => {
                     <br/>
                     <div>
                         <p>Filmes:</p>
-                        <ul>
-                        {
-                            responseFilmsClickedItem?.map((x:IResponseFilm) => (
-                                <li key={x.data.title}>
-                                    <button title={x.data.opening_crawl}>{x.data.title} ({formatDate(x.data.release_date)})</button>
-                                </li>
-                            ))
+                        { isLoadingSectionModal && <LoadingSectionModal/> }
+                        { !isLoadingSectionModal &&
+                            <ul>
+                            {
+                                responseFilmsClickedItem?.map((x:IResponseFilm) => (
+                                    <li key={x.data.title}>
+                                        <button title={x.data.opening_crawl}>
+                                            {x.data.title} ({formatDate(x.data.release_date)})
+                                        </button>
+                                    </li>
+                                ))
+                            }
+                            </ul>
                         }
-                        </ul>
                     </div>
                     <br />
                     <br />
