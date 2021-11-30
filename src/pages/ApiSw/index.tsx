@@ -4,6 +4,7 @@ import HistoryFinanceCard from '../../components/HistoryFinanceCard';
 import apiSW from '../../services/ApiSw';
 import Modal from 'react-modal';
 import formatDate from '../../utils/formatDate';
+import formatDateYear from '../../utils/formatDateYear';
 
 
 interface IPeople {
@@ -247,7 +248,7 @@ const ApiSw: React.FC = () => {
                                 responseFilmsClickedItem?.map((x:IResponseFilm) => (
                                     <li key={x.data.title}>
                                         <button title={x.data.opening_crawl}>
-                                            {x.data.title} ({formatDate(x.data.release_date)})
+                                            {x.data.title} ({formatDateYear(x.data.release_date)})
                                         </button>
                                     </li>
                                 ))
