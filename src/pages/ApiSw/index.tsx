@@ -24,15 +24,6 @@ interface IPeople {
     starships: string[];
 }
 
-// interface IStarships {
-//     name: string;
-//     model?: string;
-//     cost_in_credits?: string;
-//     length?: string;
-//     max_atmosphering_speed?: string;
-//     starship_class?: string;
-// }
-
 interface IDataFilm {
     title: string;
     episode_id?: number;
@@ -82,6 +73,7 @@ const ApiSw: React.FC = () => {
     const [dataPages, setDataPages] = useState<IDataPages>({count: 0, next: null, previous: null});
     const [isLoading, setIsLoading] = useState(true);
     const [isLoadingSectionModal, setIsLoadingSectionModal] = useState(true);
+    const [isLoadingStarships, setIsLoadingStarships] = useState(true);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [clickedItem, setClickedItem] = useState<IPeople>({
         birth_year: "",
@@ -198,7 +190,7 @@ const ApiSw: React.FC = () => {
             Promise.all(promises).then((responses:IResponseStarships[]) => {
                 console.log(responses);
                 setResponseStarshipsClickedItem(responses);
-                // setIsLoadingSectionModal(false);
+                setIsLoadingStarships(false);
             })
         }
         else {
@@ -290,17 +282,20 @@ const ApiSw: React.FC = () => {
                 { responseStarshipsClickedItem.length > 0 &&
                     <div>
                         <p>Naves:</p>
-                        <ul>
-                            {
-                                responseStarshipsClickedItem?.map((x:IResponseStarships) => (
-                                    <li key={x.data.name}>
-                                        <button title={x.data.manufacturer}>
-                                            {x.data.name} ({x.data.starship_class})
-                                        </button>
-                                    </li>
-                                ))
-                            }
-                        </ul>
+                        { isLoadingStarships && <LoadingSectionModal/> }
+                        { !isLoadingStarships &&
+                            <ul>
+                                {
+                                    responseStarshipsClickedItem?.map((x:IResponseStarships) => (
+                                        <li key={x.data.name}>
+                                            <button title={x.data.manufacturer}>
+                                                {x.data.name} ({x.data.starship_class})
+                                            </button>
+                                        </li>
+                                    ))
+                                }
+                            </ul>
+                        }
                         <br/>
                     </div>
                 }
