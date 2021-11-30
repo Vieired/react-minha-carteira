@@ -3,6 +3,7 @@ import { Container, Content, Header, Loading, Paginate } from './styles';
 import HistoryFinanceCard from '../../components/HistoryFinanceCard';
 import apiSW from '../../services/ApiSw';
 import Modal from 'react-modal';
+import formatDate from '../../utils/formatDate';
 
 
 interface IPeople {
@@ -28,7 +29,8 @@ interface IDataFilm {
     opening_crawl?: string;
     director?: string, 
     producer?: string, 
-    release_date?: string
+    release_date: string;
+    url?: string;
 }
 
 interface IConfigFilm {
@@ -77,7 +79,8 @@ const ApiSw: React.FC = () => {
                 url: ""
             },
             data: {
-                title: ""
+                title: "",
+                release_date: ""
             }
         }
     ]);
@@ -153,7 +156,7 @@ const ApiSw: React.FC = () => {
         });
         
         Promise.all(promises).then((responses:IResponseFilm[]) => {
-            // console.log(responses);
+            console.log(responses);
             // let temp:IDataFilm[] = [];
             // responses.forEach(x => temp.push({
             //     title: x.data.title
@@ -238,7 +241,7 @@ const ApiSw: React.FC = () => {
                         {
                             responseFilmsClickedItem?.map((x:IResponseFilm) => (
                                 <li key={x.data.title}>
-                                    <button>{x.data.title}</button>
+                                    <button title={x.data.opening_crawl}>{x.data.title} ({formatDate(x.data.release_date)})</button>
                                 </li>
                             ))
                         }
