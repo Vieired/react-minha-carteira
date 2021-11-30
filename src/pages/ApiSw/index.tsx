@@ -161,7 +161,12 @@ const ApiSw: React.FC = () => {
                     </div>
                     <br />
                     <br />
-                    <small>Criado em: {clickedItem.created}</small>
+                    <div>
+                        <small>Criado em: {clickedItem.created}</small>
+                    </div>
+                    <div>
+                        <small>Última edição: {clickedItem.edited}</small>
+                    </div>
                 </Modal>
             </Content>
         </Container>
