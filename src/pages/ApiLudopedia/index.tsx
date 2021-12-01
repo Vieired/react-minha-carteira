@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Container, Content, Header, Loading } from './styles';
 // import HistoryFinanceCard from '../../components/HistoryFinanceCard';
 import apiLudopedia from '../../services/ApiLudopedia';
@@ -43,32 +43,34 @@ const ApiLudopedia: React.FC = () => {
 
     
     // GET JOGOS - LISTA DE JOGOS CADASTRADOS NO PORTAL
-    /*apiLudopedia.get(
-        // '',
-        'jogos',
-        // 'projects',
-        // 'https://www.ludopedia.com.br/api/ludopedia.com.br/api/v1/jogos',
-        // '/ludopedia.com.br/api/ludopedia.com.br/api/v1/jogos',
-        // 'ludopedia.com.br/api/v1/jogos'
-        // 'https://ludopedia.com.br/api/v1/jogos'
-        config
-        // { method: 'get', headers: {'Authorization': `Bearer ${token}`} }
-        // {
-        //     baseURL: 'https://ludopedia.com.br/api/v1/',
-        //     headers: {
-        //         'Authorization': `Bearer ${token}`,
-        //         'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8'
-        //     }
-        // }
-    )
-    .then((response) => listPersons(response.data))
-    .catch((err) => {
-        console.log("There is a error!", err)
-    })
-    .finally(() => {
-        setIsLoading(false);
-        console.log("Finalizou o request.")
-    });*/
+    useEffect(() => {
+        apiLudopedia.get(
+            // '',
+            "jogos",
+            // 'projects',
+            // 'https://www.ludopedia.com.br/api/ludopedia.com.br/api/v1/jogos',
+            // '/ludopedia.com.br/api/ludopedia.com.br/api/v1/jogos',
+            // 'ludopedia.com.br/api/v1/jogos'
+            // 'https://ludopedia.com.br/api/v1/jogos'
+            config
+            // { method: 'get', headers: {'Authorization': `Bearer ${token}`} }
+            // {
+            //     baseURL: 'https://ludopedia.com.br/api/v1/',
+            //     headers: {
+            //         'Authorization': `Bearer ${token}`,
+            //         'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8'
+            //     }
+            // }
+        )
+        .then(response => console.log("Response", response.data))
+        .catch((err) => {
+            console.log("There is a error!", err)
+        })
+        .finally(() => {
+            setIsLoading(false);
+            console.log("Finalizou o request.")
+        });
+    },[]);
 
 
     // POST TOKENREQUEST ENVIANDO CODE - PARA ADIQUIRIR TOKEN DE ACESSO

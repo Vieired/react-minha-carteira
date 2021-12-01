@@ -6,7 +6,7 @@ import axios from 'axios';
 const apiLudopedia = axios.create({
     // baseURL: "ludopedia.com.br/api/v1/",
     // baseURL: "http://ludopedia.com.br/api/v1/" //301
-    // baseURL: "https://ludopedia.com.br/api/v1/"
+    baseURL: "https://ludopedia.com.br/api/v1/"
     // baseURL: 'http://localhost:3000/api-ludopedia',
     // baseURL: "https://localhost:3000/api-ludopedia/ludopedia.com.br/api/v1/"
     // baseURL: "localhost:3000/api-ludopedia/ludopedia.com.br/api/v1/"
@@ -19,7 +19,7 @@ const apiLudopedia = axios.create({
     // baseURL: process.env.REACT_APP_API_LUDOPEDIA_SEM_HTTPS
     // baseURL: process.env.REACT_APP_API_LUDOPEDIA_COM_HTTP
     // baseURL: process.env.REACT_APP_API_URL
-    baseURL: 'https://www.ludopedia.com.br/api/ludopedia.com.br/api/v1/'
+    // baseURL: 'https://www.ludopedia.com.br/api/ludopedia.com.br/api/v1/'
     // baseURL: 'https://gitlab.com/api/v4/'
     // baseURL: `https://ludopedia.com.br/oauth?app_id=${APP_ID}&redirect_uri=${APP_REDIRECT_URI}`
     // baseURL: "https://ludopedia.com.br/tokenrequest"
