@@ -4,8 +4,8 @@ import axios from 'axios';
 // const APP_REDIRECT_URI = 'http://localhost:3000/api-ludopedia';
 
 const apiLudopedia = axios.create({
-    baseURL: 'https://ludopedia.com.br'
-    // baseURL: "https://ludopedia.com.br/api/v1/"
+    // baseURL: 'https://ludopedia.com.br' // para usar no POST de autorização
+    baseURL: "https://ludopedia.com.br/api/v1" // para usar nas requisições normais da API
     // baseURL: "ludopedia.com.br/api/v1/",
     // baseURL: "http://ludopedia.com.br/api/v1/" //301
     // baseURL: 'http://localhost:3000/api-ludopedia',
