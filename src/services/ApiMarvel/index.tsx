@@ -1,7 +1,8 @@
 import axios from 'axios';
 
 const ApiMarvel = axios.create({
-    baseURL: "https://gateway.marvel.com:443/v1/public/"
+    baseURL: "http://gateway.marvel.com/v1/public/"
+    // baseURL: "https://gateway.marvel.com:443/v1/public/"
     // baseURL: "https://gateway.marvel.com:443/v1/public/"
     // baseURL: "http://developer.marvel.com:443/v1/public/"
     // baseURL: "developer.marvel.com" // essa quase foi

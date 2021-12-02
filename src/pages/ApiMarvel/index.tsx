@@ -47,28 +47,34 @@ const ApiMarvel: React.FC = () => {
     }); 
 
     useEffect(() => {
-        const apiKey = "99708c803f660aaea0ce2bc2332d988e";
-        const apiKeyMD5 = "19514201902a6b1cec34bbe6d9813c67";
+        const API_KEY = "99708c803f660aaea0ce2bc2332d988e";
+        const API_KEY_MD5 = "19514201902a6b1cec34bbe6d9813c67";
         const config = {
             headers: {
-                Authorization: `Bearer ${apiKey}`,
+                Authorization: `Bearer ${API_KEY}`,
                 Method: 'GET',
                 Accept: '*/*'
             }
         };
-        const url = `/v1/public/comics?apikey=${apiKey}`;
+        // const url = `/v1/public/comics`;
         // const urlFull = `https://gateway.marvel.com:443/v1/public/characters?apikey=${apiKey}`;
-        const urlFull = `characters?apikey=${apiKey}`;
-        apiMarvel.get(urlFull/*, config*/).then((response) => {
+        // const urlSourceAndApiKey = `characters?apikey=${API_KEY}`;
+        const params = {
+            params: {
+                apikey: API_KEY
+            }
+        }
+        apiMarvel.get('characters', params).then((response) => {
             // setItems(response.data.results);
             // setDataPages(response.data);
-            console.log("Response:", response);
+            console.log("Response: ", response);
         })
         .catch((err) => {
             console.log("There is a error!")
         })
         .finally(() => {
             setIsLoading(false);
+            console.log("Finalizou o request.")
         });
     },[]);
 
