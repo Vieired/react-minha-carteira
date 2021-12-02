@@ -4,9 +4,10 @@ import axios from 'axios';
 // const APP_REDIRECT_URI = 'http://localhost:3000/api-ludopedia';
 
 const apiLudopedia = axios.create({
+    baseURL: 'https://ludopedia.com.br'
+    // baseURL: "https://ludopedia.com.br/api/v1/"
     // baseURL: "ludopedia.com.br/api/v1/",
     // baseURL: "http://ludopedia.com.br/api/v1/" //301
-    baseURL: "https://ludopedia.com.br/api/v1/"
     // baseURL: 'http://localhost:3000/api-ludopedia',
     // baseURL: "https://localhost:3000/api-ludopedia/ludopedia.com.br/api/v1/"
     // baseURL: "localhost:3000/api-ludopedia/ludopedia.com.br/api/v1/"
@@ -37,8 +38,8 @@ const apiLudopedia = axios.create({
 // apiLudopedia.defaults.baseURL = '/ludopedia.com.br/api/v1/';
 // apiLudopedia.defaults.headers.common['Authorization'] = `Bearer ${token}`;
 // axios.defaults.headers.common['Authorization'] = `token ${token}`;
-axios.defaults.headers.post['Content-Type'] = 'application-json';
-axios.defaults.headers.get['Content-Type'] = 'application-json';
+// axios.defaults.headers.post['Content-Type'] = 'application-json';
+// axios.defaults.headers.get['Content-Type'] = 'application-json';
 // axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 
 // apiLudopedia.interceptors.request.use(req => {

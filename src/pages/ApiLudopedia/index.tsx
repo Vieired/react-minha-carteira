@@ -12,6 +12,10 @@ const ApiLudopedia: React.FC = () => {
         const token = '6f655b678f09ac0f9f12e69d1fb255fa';
         // const tokenGitlab = 'WyzSZGjXrXaaPccDJXGo';
         const config = {
+            params: {
+                code: token,
+                // username: "logominus@gmail.com"
+            },            
             headers: {
                 'Authorization': `Bearer ${token}`,
                 // method: 'GET',
@@ -44,7 +48,7 @@ const ApiLudopedia: React.FC = () => {
 
         
         // GET JOGOS - LISTA DE JOGOS CADASTRADOS NO PORTAL
-        apiLudopedia.get(
+        /*apiLudopedia.get(
             // '',
             "jogos",
             // 'projects',
@@ -69,35 +73,58 @@ const ApiLudopedia: React.FC = () => {
         .finally(() => {
             setIsLoading(false);
             console.log("Finalizou o request.")
+        });*/
+
+        // POST TOKENREQUEST ENVIANDO CODE - PARA ADIQUIRIR TOKEN DE ACESSO
+        const CODE = new URLSearchParams(window.location.search).get("code");
+        const paramsObj = {
+            params: {
+                code: CODE
+            }
+        };
+        apiLudopedia.post(
+            // 'https://ludopedia.com.br/tokenrequest'
+            // 'https://ludopedia.com.br'
+            '/tokenrequest'
+            , {
+                code: CODE
+            }
+            , {
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                    // 'Method': 'POST',
+                    // 'Content-Type': 'application/json',
+                    // 'Accept': 'application/json',
+                    // 'Access-Control-Allow-Origin': '*'
+                    // "Access-Control-Allow-Methods": "GET, POST, OPTIONS, PUT, PATCH, DELETE" ,
+                    // "Access-Control-Allow-Headers": 'Content-Type, Authorization'
+                }
+            }
+            // , {
+            //     headers: {
+            //         "Access-Control-Allow-Origin": "*",
+            //         // "Access-Control-Allow-Headers": "Authorization",
+            //         "Access-Control-Allow-Methods": "GET, POST, OPTIONS, PUT, PATCH, DELETE" ,
+            //         // "Content-Type": "application/json;charset=UTF-8",
+            //         "Content-Type": "application/json",
+            //         "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept",
+            //         traditional: true,
+            //     }
+            // }
+        )
+        .then((response) => {
+            console.log(".then: code enviado: ", CODE);
+            console.log(response);
+        })
+        .catch((err) => {
+            console.log("There is a error!", err)
+        })
+        .finally(() => {
+            setIsLoading(false);
+            console.log(".finally: code enviado: ", CODE);
+            console.log("Finalizou o request.")
         });
     },[]);
-
-
-    // POST TOKENREQUEST ENVIANDO CODE - PARA ADIQUIRIR TOKEN DE ACESSO
-    /*const CODE = new URLSearchParams(window.location.search).get("code");
-    const params = { code: CODE };
-    apiLudopedia.post('https://ludopedia.com.br/tokenrequest'
-        , { code: `${new URLSearchParams(window.location.search).get("code")}` }
-        ,{
-            headers: {
-                "Access-Control-Allow-Origin": "*",
-                // "Access-Control-Allow-Headers": "Authorization",
-                "Access-Control-Allow-Methods": "GET, POST, OPTIONS, PUT, PATCH, DELETE" ,
-                // "Content-Type": "application/json;charset=UTF-8",
-                "Content-Type": "application/json",
-                "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept",
-                traditional: true,
-            }
-        }
-    )
-    .then((response) => listPersons(response.data))
-    .catch((err) => {
-        console.log("There is a error!", err)
-    })
-    .finally(() => {
-        setIsLoading(false);
-        console.log("Finalizou o request.")
-    });*/
 
 
     // GET ME - DADOS DO USUÁRIO
