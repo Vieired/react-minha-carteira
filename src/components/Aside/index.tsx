@@ -71,6 +71,10 @@ const Aside: React.FC = () => {
                     <MdMovieFilter />
                     API SW
                 </MenuItemLink>
+                <MenuItemLink href="/apigitlab">
+                    <MdMovieFilter />
+                    API GitLab
+                </MenuItemLink>
                 <MenuItemButton onClick={signOut}>
                     <MdExitToApp />
                     Sair
