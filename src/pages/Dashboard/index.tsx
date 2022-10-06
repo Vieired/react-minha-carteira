@@ -17,11 +17,13 @@ import thinkingImg from '../../assets/thinking.png';
 
 import { Container, Content } from './styles';
 import BarChartBox from '../../components/BarChartBox';
+import InputCKEditor from '../../components/InputCKEditor';
 
 const Dashboard: React.FC = () => {
 
     const [selectedMonth, setSelectedMonth] = useState<number>(new Date().getMonth()+1);
     const [selectedYear, setSelectedYear] = useState<number>(new Date().getFullYear());
+    const [ richText, setRichText ] = useState<any>('');
 
     const years = useMemo(() => {
         let uniqueYears: number[] = [];
@@ -364,6 +366,13 @@ const Dashboard: React.FC = () => {
                 <BarChartBox
                     title="Entradas"
                     data={relationGainsRecurrentVersusEventual}
+                />
+
+                <InputCKEditor
+                    label="Texto Rico"
+                    name="textoRico"
+                    onChange={(value:string) => setRichText(value)}
+                    value={richText}
                 />
             </Content>
         </Container>
