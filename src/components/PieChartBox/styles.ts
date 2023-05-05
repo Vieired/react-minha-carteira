@@ -64,7 +64,7 @@ export const SideLeft = styled.aside`
 export const LegendContainer = styled.ul`
     list-style: none;
     height: 175px;
-    padding-right: 15px;
+    padding-right: 5px;
     overflow-y: scroll;
 
     ::-webkit-scrollbar {
@@ -95,7 +95,7 @@ export const Legend = styled.li<ILegendProps>`
 
     > div {
         background-color: ${props => props.color};
-        width: 40px;
+        width: 45px;
         height: 40px;
         border-radius: 5px;
 
@@ -114,7 +114,6 @@ export const Legend = styled.li<ILegendProps>`
 
         > div {
             height: 35px;
-            width: 35px;
             line-height: 35px;
         }
 

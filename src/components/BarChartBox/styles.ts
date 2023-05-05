@@ -65,7 +65,7 @@ export const SideRight = styled.main`
 export const LegendContainer = styled.ul`
     list-style: none;
     height: 175px;
-    padding-right: 15px;
+    padding-right: 5px;
     overflow-y: scroll;
 
     ::-webkit-scrollbar {
@@ -86,6 +86,7 @@ export const LegendContainer = styled.ul`
     @media(max-width: 1200px) {
         display: flex;
         height: auto;
+        gap: 16px;
     }
 `;
 
@@ -97,7 +98,7 @@ export const Legend = styled.li<ILegendProps>`
 
     > div {
         background-color: ${props => props.color};
-        width: 40px;
+        width: 45px;
         height: 40px;
         border-radius: 5px;
 
