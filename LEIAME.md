@@ -8,3 +8,7 @@ No projeto existe um exemplo do arquivo com o nome ".env.example".
 A variável deve ser usada no código da seguinte forma:
 
 process.env.REACT_APP_BASE_URL
+
+## Login
+E-mail: logominus\
+Senha: 123
