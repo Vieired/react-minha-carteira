@@ -19,7 +19,7 @@ const animate = keyframes`
 `;
 
 export const Container = styled.div`
-    width: 48%;
+    width: 49%;
     height: 260px;
 
     margin: 10px 0;
