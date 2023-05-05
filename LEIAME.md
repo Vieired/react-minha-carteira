@@ -1,4 +1,4 @@
-## Node version
+## Versão do Node
 14.16.1
 
 ## Variáveis de Ambiente
@@ -9,6 +9,6 @@ A variável deve ser usada no código da seguinte forma:
 
 process.env.REACT_APP_BASE_URL
 
-## Login
+## Login (mockup)
 E-mail: logominus\
 Senha: 123
