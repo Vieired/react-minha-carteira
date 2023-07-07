@@ -30,3 +30,29 @@ export const Img = styled.img`
 export const UserName = styled.span`
 
 `;
+
+export const Search = styled.div`
+    
+    form {
+        display: flex;
+        flex-direction: row;
+    }
+
+    input {
+        padding: 8px;
+        border-radius: 8px 0 0 8px;
+    }
+
+    button {
+        padding: 0px 16px;
+        border-radius: 0 8px 8px 0;
+        font-size: 21px;
+        vertical-align: middle;
+        height: 33px;
+
+        &:not(:disabled) {
+            background: ${props => props.theme.colors.info};
+            color: ${props => props.theme.colors.white};
+        }
+    }
+`;

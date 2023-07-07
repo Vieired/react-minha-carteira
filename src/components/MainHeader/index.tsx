@@ -2,11 +2,12 @@ import React, { useMemo, useState } from 'react';
 import { useFormik } from 'formik';
 import { useModal } from '../../hooks/ModalContext';
 import { useTheme } from '../../hooks/theme';
+import { useBudget } from '../../hooks/BudgetContext';
+import { GeneralSearch } from '../../shared/models/Budget';
 import emojis from '../../utils/emojis';
 import Toggle from '../Toggle';
-import { Container, Profile, Welcome, UserName, Img } from './styles';
-import { GeneralSearch } from '../../shared/models/Budget';
-import { useBudget } from '../../hooks/BudgetContext';
+import { Container, Profile, Welcome, UserName, Img, Search } from './styles';
+import { MdSearch } from 'react-icons/md';
 
 
 
@@ -49,7 +50,7 @@ const MainHeader: React.FC = () => {
                 onChange={handleChangeTheme}
             />
 
-            <div>
+            <Search>
                 <form onSubmit={formik.handleSubmit}>
                     <input
                         type="search"
@@ -60,10 +61,10 @@ const MainHeader: React.FC = () => {
                         onChange={formik?.handleChange}
                     />
                     <button type='submit' disabled={formik.values.generalSearch === ''}>
-                        Ir
+                        <MdSearch />
                     </button>
                 </form>
-            </div>
+            </Search>
 
             <Profile>
                 <Welcome>Olá, {emoji}</Welcome>
