@@ -18,4 +18,27 @@ export const Container = styled.div`
         'MH'
         'CT';
     }
+
+    .ReactModalPortal {
+
+
+        display: flex;
+        justify-content: end;
+    }
+`;
+
+export const ContainerModal = styled.div`
+    > div {
+
+        &:first-child {
+            display: flex;
+            justify-content: end;
+
+            button {
+                height: 40px;
+                width: 40px;
+                font-size: 22px;
+            }
+        }
+    }
 `;

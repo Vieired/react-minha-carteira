@@ -5,3 +5,7 @@ export interface BudgetItem{
     frequency: string;
     date: string;
 }
+
+export interface GeneralSearch {
+    generalSearch: string
+}

@@ -309,9 +309,9 @@ const Dashboard: React.FC = () => {
     }
 
     useEffect(() => {
-        fetchBudgetItems();
-        console.log(budgetItems);
-    }, []);
+        budgetItems?.length === 0 ?? fetchBudgetItems();
+        // console.log(budgetItems);
+    }, [budgetItems, fetchBudgetItems]);
 
     return (
         <Container>
