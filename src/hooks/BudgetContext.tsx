@@ -3,7 +3,7 @@ import { BudgetItem } from "../shared/models/Budget";
 import { budgetService } from "../services/budgetService";
 
 interface Context {
-    budgetItems: BudgetItem[] | null;
+    budgetItems: BudgetItem[];
     fetchBudgetItems: () => void;
 }
 
@@ -14,7 +14,7 @@ interface Props {
 export const BudgetContext = createContext<Context>({} as Context);
 
 export const BudgetProvider: React.FC<Props> = ({  children }) => {
-    const [budgetItems, setBudgetItems] = useState<BudgetItem[]|null>(null);
+    const [budgetItems, setBudgetItems] = useState<BudgetItem[]>([]);
 
     // #region
     const fetchBudgetItems = async () => {
