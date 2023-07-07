@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 
 import ContentHeader from '../../components/ContentHeader';
 import SelectInput from '../../components/SelectInput';
@@ -6,9 +6,13 @@ import WalletBox from '../../components/WalletBox';
 import MessageBox from '../../components/MessageBox';
 import PieChartBox from '../../components/PieChartBox';
 import HistoryBox from '../../components/HistoryBox';
+import BarChartBox from '../../components/BarChartBox';
+import InputCKEditor from '../../components/InputCKEditor';
 
 import expenses from '../../repositories/expenses';
 import gains from '../../repositories/gains';
+import { useBudget } from '../../hooks/BudgetContext';
+
 import listOfMonths from '../../utils/months';
 import happyImg from '../../assets/happy.svg';
 import sadImg from '../../assets/sad.svg';
@@ -16,14 +20,13 @@ import grinningImg from '../../assets/grinning.svg';
 import thinkingImg from '../../assets/thinking.png';
 
 import { Container, Content } from './styles';
-import BarChartBox from '../../components/BarChartBox';
-import InputCKEditor from '../../components/InputCKEditor';
 
 const Dashboard: React.FC = () => {
 
     const [selectedMonth, setSelectedMonth] = useState<number>(new Date().getMonth()+1);
     const [selectedYear, setSelectedYear] = useState<number>(new Date().getFullYear());
     const [ richText, setRichText ] = useState<any>('');
+    const { budgetItems, fetchBudgetItems } = useBudget();
 
     const years = useMemo(() => {
         let uniqueYears: number[] = [];
@@ -304,6 +307,11 @@ const Dashboard: React.FC = () => {
             throw new Error('Invalid month value. Is accept 0 - 24.');
         }        
     }
+
+    useEffect(() => {
+        fetchBudgetItems();
+        console.log(budgetItems);
+    }, []);
 
     return (
         <Container>

@@ -6,12 +6,15 @@ import { ThemeProvider } from './hooks/theme';
 import { AuthProvider } from './hooks/auth';
 
 import App from './App';
+import { BudgetProvider } from './hooks/BudgetContext';
 
 ReactDOM.render(
   <React.StrictMode>
     <ThemeProvider>
       <AuthProvider>
-        <App />
+        <BudgetProvider>
+          <App />
+        </BudgetProvider>
       </AuthProvider>
     </ThemeProvider>
   </React.StrictMode>,
