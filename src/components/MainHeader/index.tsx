@@ -59,7 +59,7 @@ const MainHeader: React.FC = () => {
                         value={formik?.values?.generalSearch}
                         onChange={formik?.handleChange}
                     />
-                    <button type='submit'>
+                    <button type='submit' disabled={formik.values.generalSearch === ''}>
                         Ir
                     </button>
                 </form>

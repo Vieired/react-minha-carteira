@@ -1,14 +1,16 @@
 import React from 'react';
 import Modal from 'react-modal';
 
-import { Container, ContainerModal } from './styles';
-
 import MainHeader from '../MainHeader';
 import Aside from '../Aside';
 import Content from '../Content';
 import { useModal } from '../../hooks/ModalContext';
 import { useBudget } from '../../hooks/BudgetContext';
 import { BudgetItem } from '../../shared/models/Budget';
+
+import { Container, ContainerModal, ItemResult } from './styles';
+import formatDate from '../../utils/formatDate';
+
 
 const Layout: React.FC = ({ children }) => {
 
@@ -23,14 +25,17 @@ const Layout: React.FC = ({ children }) => {
             <Modal isOpen={modalIsOpen} ariaHideApp={false}>
                 <ContainerModal>
                     <div>
-                        <button onClick={toggleModal}>X</button>
+                        <button onClick={toggleModal} autoFocus>X</button>
                     </div>
                     <div>
-                        <h3>Resultados da busca:</h3>
+                        <h3>{`Resultados (${budgetItemsFound.length || 0})`}</h3>
                         {budgetItemsFound.map((item: BudgetItem, idx) => (
-                            <div key={idx}>
+                            <ItemResult key={idx}>
                                 <p>{item.description}</p>
-                            </div>
+                                <p>{item.amount}</p>
+                                <p>{item.type}</p>
+                                <p>{formatDate(item.date)}</p>
+                            </ItemResult>
                         ))}
                     </div>
                 </ContainerModal>
