@@ -42,7 +42,7 @@ export const ContainerModal = styled.div`
                 height: 40px;
                 width: 40px;
                 font-size: 22px;
-                background-color: ${props => props.theme.colors.primary};
+                background-color: transparent;
                 color: ${props => props.theme.colors.white};
             }
         }
