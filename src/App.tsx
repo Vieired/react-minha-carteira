@@ -10,12 +10,10 @@ const App: React.FC = () => {
     const { theme } = useTheme();
 
     return (
-        <>
-            <ThemeProvider theme={theme}>
-                <GlobalStyles />
-                <Routes />
-            </ThemeProvider>
-        </>
+        <ThemeProvider theme={theme}>
+            <GlobalStyles />
+            <Routes />
+        </ThemeProvider>
     );
 }
 
