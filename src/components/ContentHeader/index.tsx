@@ -5,7 +5,7 @@ import { Container, TitleContainer, Controllers } from './styles';
 interface IContentHeaderProps {
     title: string;
     lineColor: string;
-    children: React.ReactNode;
+    children?: React.ReactNode;
 }
 
 const ContentHeader: React.FC<IContentHeaderProps> = ({
@@ -16,7 +16,7 @@ const ContentHeader: React.FC<IContentHeaderProps> = ({
             <h1>{ title }</h1>
         </TitleContainer>
         <Controllers>
-            { children }
+            { children && children }
             {/* <SelectInput options={option} /> */}
         </Controllers>
     </Container>
