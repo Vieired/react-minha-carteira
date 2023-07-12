@@ -6,6 +6,9 @@ import Dashboard from '../pages/Dashboard';
 import ApiSw from '../pages/ApiSw';
 import ApiGitLab from '../pages/ApiGitLab';
 import List from '../pages/List';
+import BudgetManagement from '../pages/BudgetManagement';
+import AddBudget from '../pages/BudgetManagement/AddBudget';
+
 
 const AppRoutes: React.FC = () => (
     <Layout>
@@ -14,6 +17,8 @@ const AppRoutes: React.FC = () => (
             <Route path="/apisw" exact component={ApiSw} />
             <Route path="/apigitlab" exact component={ApiGitLab} />
             <Route path="/list/:type" exact component={List} />
+            <Route path="/budget" exact component={BudgetManagement} />
+            <Route path="/addbudget" exact component={AddBudget} />
         </Switch>
     </Layout>
 );

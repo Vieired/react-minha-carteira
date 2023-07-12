@@ -7,7 +7,8 @@ import {
     MdExitToApp,
     MdClose,
     MdMenu,
-    MdMovieFilter
+    MdMovieFilter,
+    MdAddBox
 } from 'react-icons/md';
 import logoImg from '../../assets/logo.svg';
 import { useAuth } from '../../hooks/auth';
@@ -67,6 +68,10 @@ const Aside: React.FC = () => {
                     <MdArrowDownward />
                     Saídas
                 </MenuItemLink>
+                <MenuItemLink href="/budget">
+                    <MdAddBox />
+                    Cadastro de Orçamentos
+                </MenuItemLink>                
                 <MenuItemLink href="/apisw">
                     <MdMovieFilter />
                     API SW

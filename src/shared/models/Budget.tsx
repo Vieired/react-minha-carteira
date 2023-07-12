@@ -1,6 +1,6 @@
 export interface BudgetItem{
     description: string;
-    amount: number;
+    amount: string;
     type: string;
     frequency: string;
     date: string;
