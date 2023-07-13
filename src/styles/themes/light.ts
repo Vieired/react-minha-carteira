@@ -7,6 +7,8 @@ export default {
         secondary: '#FFFFFF',
         tertiary: '#F5F5F5',
 
+        btnTextSecondary: '#000',
+
         white: '#000',
         black: '#FFF',
         gray: '#BFBFBF',
