@@ -8,4 +8,11 @@ export const Container = styled.div`
 export const Toolbar = styled.div`
     display: flex;
     justify-content: end;
+
+    button {
+        display: flex;
+        width: unset;
+        gap: 8px;
+        align-items: center;
+    }
 `;
