@@ -7,6 +7,7 @@ interface Context {
     budgetItemsFound: BudgetItem[];
     fetchBudgetItems: () => void;
     searchBudgetItem: (term: string) => void;
+    removeBudgetById: (id: number) => void;
 }
 
 interface Props {
@@ -25,6 +26,7 @@ export const BudgetProvider: React.FC<Props> = ({  children }) => {
             const response: BudgetItem[] = await budgetService.list();
             setBudgetItems(response);
         } catch (error) {
+            alert(`Erro: ${error}`);
             console.log(error);
         }
     }
@@ -37,6 +39,24 @@ export const BudgetProvider: React.FC<Props> = ({  children }) => {
             console.log(error);
         }
     }
+
+    const removeBudgetById = async (id: number) => {
+        alert("Item removido com sucesso.");
+        // dialogConfirm({
+        //   text: "Você confirma que deseja apagar este item?",
+        //   title: "Apagar item",
+        //   // bgColor: theme.colors.bgPrimary,
+        //   onClickConfirm: async () => {
+        //     try {
+        //       await userService.deleteUserById(id);
+        //       toast.success('Usuário removido com sucesso.');
+        //       fetchUsers();
+        //     } catch (error) {
+        //       console.log(error);
+        //     }
+        //   }
+        // });
+      }    
     //#endregion
 
     return (
@@ -46,6 +66,7 @@ export const BudgetProvider: React.FC<Props> = ({  children }) => {
                 budgetItemsFound,
                 fetchBudgetItems,
                 searchBudgetItem,
+                removeBudgetById,
             }}
             >
             {children}

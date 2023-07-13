@@ -70,7 +70,7 @@ const Aside: React.FC = () => {
                 </MenuItemLink>
                 <MenuItemLink href="/budget">
                     <MdAddBox />
-                    Cadastro de Orçamentos
+                    Admin. de Orçamentos
                 </MenuItemLink>                
                 <MenuItemLink href="/apisw">
                     <MdMovieFilter />

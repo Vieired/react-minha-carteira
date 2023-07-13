@@ -2,6 +2,13 @@ import styled from "styled-components";
 
 export const Container = styled.div`
 
+    .rdt_TableHead {
+        .rdt_TableHeadRow {
+            background-color: ${props => props.theme.colors.secondary};
+            color: ${props => props.theme.colors.gray};
+        }
+    }
+
     .rdt_TableHeadRow, .rdt_TableRow {
         background-color: ${props => props.theme.colors.primary};
         color: ${props => props.theme.colors.white};
@@ -29,5 +36,11 @@ export const Container = styled.div`
     .rdt_TableCol:last-of-type,
     .rdt_TableCell:last-of-type {
         padding-right: 0
+    }
+
+    .rdt_Pagination {
+        background-color: ${props => props.theme.colors.secondary};
+        color: ${props => props.theme.colors.white};
+        color: ${props => props.theme.colors.gray};
     }
 `;

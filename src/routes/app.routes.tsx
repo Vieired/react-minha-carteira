@@ -19,6 +19,7 @@ const AppRoutes: React.FC = () => (
             <Route path="/list/:type" exact component={List} />
             <Route path="/budget" exact component={BudgetManagement} />
             <Route path="/addbudget" exact component={AddBudget} />
+            <Route path="/budget/edit/:id" exact component={AddBudget} />
         </Switch>
     </Layout>
 );
