@@ -14,6 +14,7 @@ export const Container = styled.div`
         color: ${props => props.theme.colors.white};
         border-bottom-color: ${props => props.theme.colors.gray};
         min-height: 51px;
+        font-weight: 300;
     }
 
     .rdt_TableHeadRow:first-of-type {
