@@ -1,16 +1,18 @@
 import { useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 import { useBudget } from "../../hooks/BudgetContext";
 import ContentHeader from "../../components/ContentHeader";
 import { BudgetItem } from "../../shared/models/Budget";
 
-import { Container, Toolbar } from "./styles";
-import Table from "../../components/Table";
 import formatCurrency from "../../utils/formatCurrency";
 import formatDate from "../../utils/formatDate";
+import { FaPlus, FaTrash } from "react-icons/fa";
+import Table from "../../components/Table";
 import Actions from "./Actions";
-import { FaTrash } from "react-icons/fa";
+import Button from "../../components/Inputs/Button";
+
+import { Container, Toolbar } from "./styles";
 
 
 const BudgetManagement: React.FC = () => {
@@ -20,10 +22,7 @@ const BudgetManagement: React.FC = () => {
         fetchBudgetItems,
         removeBudgetById
     } = useBudget();
-
-    const handleRemoveUserClick = (userId: number) => {
-        removeBudgetById(userId);
-    };
+    const { push } = useHistory();
 
     const columns = [
         {
@@ -32,7 +31,7 @@ const BudgetManagement: React.FC = () => {
                 return (
                     <Actions itemId={row.id} aria-label="Botões de ação">
                         <Link to="#" aria-label="Ação Remover Usuário">
-                            <span onClick={() => handleRemoveUserClick(row.id)}>
+                            <span onClick={() => handleRemoveItemClick(row.id)}>
                                 <FaTrash />
                             </span>
                         </Link>
@@ -63,9 +62,16 @@ const BudgetManagement: React.FC = () => {
         }
     ];
 
+    const handleRemoveItemClick = (itemId: number) => {
+        removeBudgetById(itemId);
+    };
+
+    const handleClick = () => {
+        push('/addbudget')
+    }
+
     useEffect(() => {
         fetchBudgetItems();
-        console.log(budgetItems);
     }, []);
 
     return (
@@ -75,7 +81,11 @@ const BudgetManagement: React.FC = () => {
                 lineColor="#F7931B"
             />
             <Toolbar>
-                <Link to={'/addbudget'} type="button">Adiconar Item de Orçamento</Link>
+                {/* <Link to={'/addbudget'} type="button">Adicionar Item de Orçamento</Link> */}
+                <Button btnTheme="primary" onClick={handleClick}>
+                    <FaPlus/>
+                    Adicionar Item de Orçamento
+                </Button>
             </Toolbar>
             <br/>
             <Table

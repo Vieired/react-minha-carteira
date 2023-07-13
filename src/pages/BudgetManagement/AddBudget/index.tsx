@@ -1,13 +1,17 @@
+import { useHistory } from "react-router-dom";
 import { useFormik } from "formik";
 
-import { Container } from "./styles";
 import { BudgetItem } from "../../../shared/models/Budget";
-import Button from "../../../components/Button";
+import Button from "../../../components/Inputs/Button";
 import ContentHeader from "../../../components/ContentHeader";
 import Input from "../../../components/Inputs/Input";
 import InputMoney from "../../../components/Inputs/InputMoney";
 
+import { Buttons, Container } from "./styles";
+
 const AddBudget: React.FC = () => {
+
+    const { push } = useHistory();
 
     const handleSubmit = (data: BudgetItem) => {
         console.log(data)
@@ -24,6 +28,10 @@ const AddBudget: React.FC = () => {
             type: ''
         } as BudgetItem
     });
+
+    const handleCancelClick = () => {
+        push('/budget')
+    }
 
     return (
         <Container>
@@ -117,7 +125,16 @@ const AddBudget: React.FC = () => {
                         : undefined
                     }
                 />
-                <Button type="submit">Cadastrar</Button>
+                <Buttons>
+                    <Button
+                        type="button"
+                        btnTheme="secondary"
+                        onClick={handleCancelClick}
+                    >
+                        Cancelar
+                    </Button>
+                    <Button type="submit" btnTheme="primary">Salvar</Button>
+                </Buttons>
             </form>
         </Container>
     )
