@@ -10,7 +10,7 @@ export const Container = styled.div`
     justify-content: space-between;
     align-items: center;
 
-    padding: 0 10px;
+    padding: 0 10px; // TODO: os paddings laterais (10px) deveriam ser 25px para melhorar a diagramção alinhando os elementos do header com o do conteúdo abaixo
 
     border-bottom: 1px solid ${props => props.theme.colors.gray};
 `;
