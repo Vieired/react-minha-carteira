@@ -10,5 +10,5 @@ A variável deve ser usada no código da seguinte forma:
 process.env.REACT_APP_BASE_URL
 
 ## Login (mockup)
-E-mail: logominus\
+E-mail: meu e-mail
 Senha: 123
