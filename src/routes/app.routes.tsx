@@ -8,6 +8,7 @@ import ApiGitLab from '../pages/ApiGitLab';
 import List from '../pages/List';
 import BudgetManagement from '../pages/BudgetManagement';
 import AddBudget from '../pages/BudgetManagement/AddBudget';
+import EditBudget from '../pages/BudgetManagement/EditBudget';
 
 
 const AppRoutes: React.FC = () => (
@@ -19,7 +20,7 @@ const AppRoutes: React.FC = () => (
             <Route path="/list/:type" exact component={List} />
             <Route path="/budget" exact component={BudgetManagement} />
             <Route path="/addbudget" exact component={AddBudget} />
-            <Route path="/budget/edit/:id" exact component={AddBudget} />
+            <Route path="/budget/edit/:id" exact component={EditBudget} />
         </Switch>
     </Layout>
 );

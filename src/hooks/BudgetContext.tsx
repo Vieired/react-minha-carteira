@@ -5,8 +5,11 @@ import { budgetService } from "../services/budgetService";
 interface Context {
     budgetItems: BudgetItem[];
     budgetItemsFound: BudgetItem[];
+    budgetItemEditing: BudgetItem|null;
     fetchBudgetItems: () => void;
     searchBudgetItem: (term: string) => void;
+    getBudgetItemById: (id: number) => void;
+    edit: (id: BudgetItem) => void;
     removeBudgetById: (id: number) => void;
 }
 
@@ -18,6 +21,7 @@ export const BudgetContext = createContext<Context>({} as Context);
 
 export const BudgetProvider: React.FC<Props> = ({  children }) => {
     const [budgetItems, setBudgetItems] = useState<BudgetItem[]>([]);
+    const [budgetItemEditing, setBudgetItemEditing] = useState<BudgetItem|null>(null);
     const [budgetItemsFound, setBudgetItemsFound] = useState<BudgetItem[]>([]);
 
     // #region
@@ -36,6 +40,41 @@ export const BudgetProvider: React.FC<Props> = ({  children }) => {
             const response: BudgetItem[] = await budgetService.search(term);
             setBudgetItemsFound(response);
         } catch (error) {
+            console.log(error);
+        }
+    }
+
+    const getBudgetItemById = async (id: number) => {
+        // setIsLoading(true);
+        try {
+            const response: BudgetItem = await budgetService.read(id);
+            // setBudgetItemEditing(null);
+            setBudgetItemEditing({
+                ...response,
+                /*
+                    * Mapeamento dos valores recebidos do backend.
+                    * Sem isso a propriedade touched não funciona corretamente,
+                    * acarretando falha na exibição da mensagem de erro da validação.
+                */
+                id: response.id,
+                amount: response?.amount || '0.00',
+                date: response?.date || '',
+                description: response?.description || '',
+                frequency: response?.frequency || '',
+                type: response?.type || '',
+            } as BudgetItem)
+        } catch (error) {
+            console.log(error);
+        } finally {
+            // setIsLoading(false);
+        }
+      }  
+
+    const edit = async (item: BudgetItem) => {
+        try {
+            await budgetService.update(item);
+        } catch (error) {
+            alert(`Erro: ${error}`);
             console.log(error);
         }
     }
@@ -64,8 +103,11 @@ export const BudgetProvider: React.FC<Props> = ({  children }) => {
             value={{
                 budgetItems,
                 budgetItemsFound,
+                budgetItemEditing,
                 fetchBudgetItems,
                 searchBudgetItem,
+                getBudgetItemById,
+                edit,
                 removeBudgetById,
             }}
             >

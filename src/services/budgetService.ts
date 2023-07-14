@@ -20,7 +20,19 @@ async function search(term: string): Promise<BudgetItem[]> {
     });
 }
 
+async function read(id: number): Promise<BudgetItem> {
+    const { data } = await api.get(`${ENDPOINT}/${id}`);
+    return data;
+}
+
+async function update(item: BudgetItem): Promise<BudgetItem> {
+    const { data } = await api.put(`${ENDPOINT}/${item.id}`, item);
+    return data;
+}
+
 export const budgetService = {
     list,
     search,
+    read,
+    update,
 };
