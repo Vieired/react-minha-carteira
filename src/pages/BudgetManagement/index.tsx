@@ -13,6 +13,8 @@ import Actions from "./Actions";
 import Button from "../../components/Inputs/Button";
 
 import { Container, Toolbar } from "./styles";
+import { DomainSelectOption } from "../../shared/models/Domains";
+import { BUDGETS_FREQUENCY, BUDGETS_TYPE } from "../../shared/consts";
 
 
 const BudgetManagement: React.FC = () => {
@@ -90,14 +92,14 @@ const BudgetManagement: React.FC = () => {
             <br/>
             <Table
                 columns={columns}
-                data={budgetItems?.map((x:BudgetItem) => {
+                data={budgetItems?.map((budgetItems:BudgetItem) => {
                     return ({
-                        id: x.id,
-                        description: x?.description || '-',
-                        type: x?.type || '-',
-                        frequency: x?.frequency || '-',
-                        date: x?.date || '-',
-                        amount: x?.amount || '-',
+                        id: budgetItems.id,
+                        description: budgetItems?.description || '-',
+                        type: BUDGETS_TYPE.find((x: DomainSelectOption) => x.value === budgetItems?.type)?.label || '',
+                        frequency: BUDGETS_FREQUENCY.find((x: DomainSelectOption) => x.value === budgetItems?.type)?.label || '',
+                        date: budgetItems?.date || '-',
+                        amount: budgetItems?.amount || '-',
                     })
                 })}
             />
