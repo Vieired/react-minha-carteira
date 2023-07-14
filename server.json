@@ -1260,24 +1260,24 @@
       "id": 4,
       "description": "Telefone",
       "amount": "99.99",
-      "type": "saída",
-      "frequency": "recorrente",
+      "type": "1",
+      "frequency": "1",
       "date": "2021-01-23"
     },
     {
       "id": 5,
       "description": "Plano de Saúde",
       "amount": "300.00",
-      "type": "saída",
-      "frequency": "recorrente",
+      "type": "1",
+      "frequency": "1",
       "date": "2021-01-23"
     },
     {
       "id": 6,
       "description": "Compras do mês",
       "amount": "625.78",
-      "type": "saída",
-      "frequency": "recorrente",
+      "type": "1",
+      "frequency": "2",
       "date": "2021-01-23"
     },
     {
