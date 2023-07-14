@@ -15,7 +15,7 @@ import { Buttons, Container } from "./styles";
 import InputSelect from "../../../components/Inputs/InputSelect";
 import { SingleValue } from "react-select";
 import { DomainSelectOption } from "../../../shared/models/Domains";
-import { BUDGETS_TYPE } from "../../../shared/consts";
+import { BUDGETS_FREQUENCY, BUDGETS_TYPE } from "../../../shared/consts";
 
 const EditBudget: React.FC = () => {
 
@@ -163,20 +163,25 @@ const EditBudget: React.FC = () => {
                     options={BUDGETS_TYPE}
                     searchable
                     // errorText={getErrorMessage('type')}
-                />             
-                <Input
-                    id="frequency"
+                />
+                <InputSelect
                     name="frequency"
-                    label="Frequência *"
-                    placeholder="Frequência"
-                    value={formik?.values?.frequency}
-                    onChange={formik?.handleChange}
-                    autoFocus
-                    errorText={
-                        formik?.touched?.frequency && formik?.errors?.frequency
-                        ? formik?.errors?.frequency
-                        : undefined
+                    label="Frequência"
+                    value={
+                        formik?.values
+                        ? 
+                        BUDGETS_FREQUENCY.find((x: DomainSelectOption) =>
+                            x?.value?.toString() === formik?.values['frequency']?.toString()
+                        )
+                        :
+                        undefined
                     }
+                    onChange={(e:SingleValue<DomainSelectOption>) => {
+                        formik.setFieldValue('frequency', e?.value);
+                    }}
+                    options={BUDGETS_FREQUENCY}
+                    searchable
+                    // errorText={getErrorMessage('frequency')}
                 />
                 <InputDateHTML
                     label="Data de Nascimento"
