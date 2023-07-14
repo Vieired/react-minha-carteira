@@ -1,12 +1,16 @@
 import { useHistory } from "react-router-dom";
 import { useFormik } from "formik";
+import { SingleValue } from "react-select";
 
 import { BudgetItem } from "../../../shared/models/Budget";
+import { DomainSelectOption } from "../../../shared/models/Domains";
+import { BUDGETS_FREQUENCY, BUDGETS_TYPE } from "../../../shared/consts";
 import Button from "../../../components/Inputs/Button";
 import ContentHeader from "../../../components/ContentHeader";
 import Input from "../../../components/Inputs/Input";
 import InputMoney from "../../../components/Inputs/InputMoney";
 import InputDateHTML from "../../../components/Inputs/InputDateHTML";
+import InputSelect from "../../../components/Inputs/InputSelect";
 
 import { Buttons, Container } from "./styles";
 
@@ -70,47 +74,43 @@ const AddBudget: React.FC = () => {
                         : undefined
                     }
                 />
-                {/* <InputNumber
-                    maskType="money"
-                    id="amount"
-                    name="amount"
-                    label="Valor *"
-                    placeholder="0,00"
-                    value={formik?.values?.amount}
-                    onChange={formik?.handleChange}
-                    errorText={
-                        formik?.touched?.amount && formik?.errors?.amount
-                        ? formik?.errors?.amount
-                        : undefined
-                    }
-                /> */}
-                <Input
-                    id="type"
+                <InputSelect
                     name="type"
-                    label="Tipo *"
-                    placeholder="Tipo"
-                    value={formik?.values?.type}
-                    onChange={formik?.handleChange}
-                    autoFocus
-                    errorText={
-                        formik?.touched?.type && formik?.errors?.type
-                        ? formik?.errors?.type
-                        : undefined
+                    label="Tipo"
+                    value={
+                        formik?.values
+                        ? 
+                        BUDGETS_TYPE.find((x: DomainSelectOption) =>
+                            x?.value?.toString() === formik?.values['type']?.toString()
+                        )
+                        :
+                        undefined
                     }
+                    onChange={(e:SingleValue<DomainSelectOption>) => {
+                        formik.setFieldValue('type', e?.value);
+                    }}
+                    options={BUDGETS_TYPE}
+                    searchable
+                    // errorText={getErrorMessage('type')}
                 />
-                <Input
-                    id="frequency"
+                <InputSelect
                     name="frequency"
-                    label="Frequência *"
-                    placeholder="Frequência"
-                    value={formik?.values?.frequency}
-                    onChange={formik?.handleChange}
-                    autoFocus
-                    errorText={
-                        formik?.touched?.frequency && formik?.errors?.frequency
-                        ? formik?.errors?.frequency
-                        : undefined
+                    label="Frequência"
+                    value={
+                        formik?.values
+                        ? 
+                        BUDGETS_FREQUENCY.find((x: DomainSelectOption) =>
+                            x?.value?.toString() === formik?.values['frequency']?.toString()
+                        )
+                        :
+                        undefined
                     }
+                    onChange={(e:SingleValue<DomainSelectOption>) => {
+                        formik.setFieldValue('frequency', e?.value);
+                    }}
+                    options={BUDGETS_FREQUENCY}
+                    searchable
+                    // errorText={getErrorMessage('frequency')}
                 />
                 <InputDateHTML
                     label="Data de Nascimento *"
