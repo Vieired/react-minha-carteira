@@ -12,6 +12,10 @@ import InputMoney from "../../../components/Inputs/InputMoney";
 import InputDateHTML from "../../../components/Inputs/InputDateHTML";
 
 import { Buttons, Container } from "./styles";
+import InputSelect from "../../../components/Inputs/InputSelect";
+import { SingleValue } from "react-select";
+import { DomainSelectOption } from "../../../shared/models/Domains";
+import { BUDGETS_TYPE } from "../../../shared/consts";
 
 const EditBudget: React.FC = () => {
 
@@ -47,6 +51,21 @@ const EditBudget: React.FC = () => {
     //     const dateStr = date.toISOString();
     //     formik.setFieldValue(fieldName, dateStr);
     //     setSelectedDate(dateStr);
+    // }
+
+    // const getErrorMessage = (fieldName: string): string | undefined => {
+    //     if(formik.isSubmitting && !formik.isValid){
+    //         toast.error("Verifique os campos obrigatórios.", {
+    //             toastId: customId
+    //         });
+    //     }
+
+    //     return (formik?.getFieldMeta(fieldName)?.touched &&
+    //             formik?.getFieldMeta(fieldName)?.error)
+    //         ?
+    //         formik.getFieldMeta(fieldName).error
+    //         :
+    //         ''
     // }
 
     useEffect(() => {
@@ -112,7 +131,7 @@ const EditBudget: React.FC = () => {
                         : undefined
                     }
                 /> */}
-                <Input
+                {/* <Input
                     id="type"
                     name="type"
                     label="Tipo *"
@@ -125,7 +144,26 @@ const EditBudget: React.FC = () => {
                         ? formik?.errors?.type
                         : undefined
                     }
-                />
+                /> */}
+                <InputSelect
+                    name="type"
+                    label="Tipo"
+                    value={
+                        formik?.values
+                        ? 
+                        BUDGETS_TYPE.find((x: DomainSelectOption) =>
+                            x?.value?.toString() === formik?.values['type']?.toString()
+                        )
+                        :
+                        undefined
+                    }
+                    onChange={(e:SingleValue<DomainSelectOption>) => {
+                        formik.setFieldValue('type', e?.value);
+                    }}
+                    options={BUDGETS_TYPE}
+                    searchable
+                    // errorText={getErrorMessage('type')}
+                />             
                 <Input
                     id="frequency"
                     name="frequency"
@@ -141,7 +179,7 @@ const EditBudget: React.FC = () => {
                     }
                 />
                 <InputDateHTML
-                    label="Data de Nascimento *"
+                    label="Data de Nascimento"
                     id="date"
                     name="date"
                     value={formik?.values?.date || ''}
