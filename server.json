@@ -17,355 +17,2604 @@
     "name": "typicode"
   },
   "expenses": [
-    {"description":"Energia elétrica",      "amount":"411.55","type":"saída","frequency":"recorrente","date":"2021-01-10"},
-    {"description":"Corte de cabelo",       "amount":"45.31","type":"saída","frequency":"recorrente","date":"2021-01-10"},
-    {"description":"Água",                  "amount":"175.55", "type":"saída","frequency":"recorrente","date":"2021-01-15"},
-    {"description": "Telefone",             "amount":"99.99", "type":"saída","frequency":"recorrente","date":"2021-01-23"},
-    {"description":"Plano de Saúde",        "amount":"300.00","type":"saída","frequency":"recorrente","date":"2021-01-23"},
-    {"description":"Compras do mês",        "amount":"625.78","type":"saída","frequency":"recorrente","date":"2021-01-23"},
-    {"description":"Lanche",                "amount":"45.70", "type":"saída","frequency":"eventual",  "date":"2021-01-23"},
-    {"description":"Blusa",                 "amount":"95.70", "type":"saída","frequency":"eventual",  "date":"2021-01-23"},
-    {"description":"Energia elétrica",      "amount":"225.55","type":"saída","frequency":"recorrente","date":"2021-02-10"},
-    {"description":"Água",                  "amount":"190.15", "type":"saída","frequency":"recorrente","date":"2021-02-15"},
-    {"description":"Telefone",              "amount":"99.99", "type":"saída","frequency":"recorrente","date":"2021-02-23"},
-    {"description":"Plano de Saúde",        "amount":"300.00","type":"saída","frequency":"recorrente","date":"2021-02-23"},
-    {"description":"Compras do mês",        "amount":"540.00","type":"saída","frequency":"recorrente","date":"2021-02-25"},
-    {"description":"Parcela do Celular 1/5","amount":"150.99","type":"saída","frequency":"eventual",  "date":"2021-02-26"},
-    {"description":"Cinema",                "amount":"45.00", "type":"saída","frequency":"eventual",  "date":"2021-02-23"},
-    {"description":"Energia elétrica",      "amount":"397.00", "type":"saída","frequency":"recorrente","date":"2021-03-10"},
-    {"description":"Água",                  "amount":"200.10","type":"saída","frequency":"recorrente","date":"2021-03-15"},
-    {"description":"Telefone",              "amount":"99.99", "type":"saída","frequency":"recorrente","date":"2021-03-23"},
-    {"description":"Plano de Saúde",        "amount":"300.00","type":"saída","frequency":"recorrente","date":"2021-03-23"},
-    {"description":"Compras do mês",        "amount":"800.50","type":"saída","frequency":"recorrente","date":"2021-03-17"},
-    {"description":"Parcela do Celular 2/5","amount":"150.99","type":"saída","frequency":"eventual",  "date":"2021-03-18"},
-    {"description":"Troca de Oléo do carro","amount":"90.00", "type":"saída","frequency":"eventual",  "date":"2021-03-23"},
-    {"description":"Energia elétrica",      "amount":"375.99", "type":"saída","frequency":"recorrente","date":"2021-04-10"},
-    {"description":"Água",                  "amount":"280.33", "type":"saída","frequency":"recorrente","date":"2021-04-15"},
-    {"description":"Telefone",              "amount":"99.99", "type":"saída","frequency":"recorrente","date":"2021-04-23"},
-    {"description":"Plano de Saúde",        "amount":"300.00","type":"saída","frequency":"recorrente","date":"2021-04-23"},
-    {"description":"Compras do mês",        "amount":"600.00","type":"saída","frequency":"recorrente","date":"2021-04-25"},
-    {"description":"Parcela do Celular 3/5","amount":"150.99","type":"saída","frequency":"eventual",  "date":"2021-04-26"},
-    {"description":"Ebook de React Js",     "amount":"85.95", "type":"saída","frequency":"eventual",  "date":"2021-04-13"},
-    {"description":"Energia elétrica",      "amount":"525.55","type":"saída","frequency":"recorrente","date":"2021-05-10"},
-    {"description":"Água",                  "amount":"390.15", "type":"saída","frequency":"recorrente","date":"2021-05-15"},
-    {"description":"Telefone",              "amount":"99.99", "type":"saída","frequency":"recorrente","date":"2021-05-23"},
-    {"description":"Plano de Saúde",        "amount":"300.00","type":"saída","frequency":"recorrente","date":"2021-05-23"},
-    {"description":"Compras do mês",        "amount":"540.00","type":"saída","frequency":"recorrente","date":"2021-05-25"},
-    {"description":"Parcela do Celular 4/5","amount":"150.99","type":"saída","frequency":"eventual",  "date":"2021-05-26"},
-    {"description":"Blusa Iron Man",        "amount":"150.00","type":"saída","frequency":"eventual",  "date":"2021-01-23"},
-    {"description":"Energia elétrica",      "amount":"200.00","type":"saída","frequency":"recorrente","date":"2021-06-10"},
-    {"description":"Água",                  "amount":"550.00","type":"saída","frequency":"recorrente","date":"2021-06-15"},
-    {"description":"Telefone",              "amount":"99.99", "type":"saída","frequency":"recorrente","date":"2021-06-23"},
-    {"description":"Plano de Saúde",        "amount":"300.00","type":"saída","frequency":"recorrente","date":"2021-06-23"},
-    {"description":"Compras do mês",        "amount":"559.15","type":"saída","frequency":"recorrente","date":"2021-06-25"},
-    {"description":"Parcela do Celular 5/5","amount":"150.99","type":"saída","frequency":"eventual",  "date":"2021-06-26"},
-    {"description":"Perfume",               "amount":"250.00","type":"saída","frequency":"eventual",  "date":"2021-06-21"},
-    {"description":"Energia elétrica",      "amount":"250.00","type":"saída","frequency":"recorrente","date":"2021-07-10"},
-    {"description":"Água",                  "amount":"690.00", "type":"saída","frequency":"recorrente","date":"2021-07-15"},
-    {"description":"Telefone",              "amount":"99.99", "type":"saída","frequency":"recorrente","date":"2021-07-23"},
-    {"description":"Plano de Saúde",        "amount":"300.00","type":"saída","frequency":"recorrente","date":"2021-07-23"},
-    {"description":"Compras do mês",        "amount":"700.00","type":"saída","frequency":"recorrente","date":"2021-07-25"},
-    {"description":"Cafeteira",             "amount":"250.00","type":"saída","frequency":"eventual",  "date":"2021-07-26"},
-    {"description":"Pizza",                 "amount":"60.00", "type":"saída","frequency":"eventual",  "date":"2021-07-19"},
-    {"description":"Energia elétrica",      "amount":"150.55","type":"saída","frequency":"recorrente","date":"2020-01-10"},
-    {"description":"Água",                  "amount":"775.55", "type":"saída","frequency":"recorrente","date":"2020-01-15"},
-    {"description": "Telefone",             "amount":"99.99", "type":"saída","frequency":"recorrente","date":"2020-01-23"},
-    {"description":"Plano de Saúde",        "amount":"300.00","type":"saída","frequency":"recorrente","date":"2020-01-23"},
-    {"description":"Compras do mês",        "amount":"625.78","type":"saída","frequency":"recorrente","date":"2020-01-23"},
-    {"description":"Lanche",                "amount":"45.70", "type":"saída","frequency":"eventual",  "date":"2020-01-23"},
-    {"description":"Blusa",                 "amount":"95.70", "type":"saída","frequency":"eventual",  "date":"2020-01-23"},
-    {"description":"Energia elétrica",      "amount":"552","type":"saída","frequency":"recorrente","date":"2020-02-10"},
-    {"description":"Água",                  "amount":"890.15", "type":"saída","frequency":"recorrente","date":"2020-02-15"},
-    {"description":"Telefone",              "amount":"99.99", "type":"saída","frequency":"recorrente","date":"2020-02-23"},
-    {"description":"Plano de Saúde",        "amount":"300.00","type":"saída","frequency":"recorrente","date":"2020-02-23"},
-    {"description":"Compras do mês",        "amount":"540.00","type":"saída","frequency":"recorrente","date":"2020-02-25"},
-    {"description":"Parcela do Celular 1/5","amount":"150.99","type":"saída","frequency":"eventual",  "date":"2020-02-26"},
-    {"description":"Cinema",                "amount":"45.00", "type":"saída","frequency":"eventual",  "date":"2020-02-23"},
-    {"description":"Energia elétrica",      "amount":"97.00", "type":"saída","frequency":"recorrente","date":"2020-03-10"},
-    {"description":"Água",                  "amount":"900.10","type":"saída","frequency":"recorrente","date":"2020-03-15"},
-    {"description":"Telefone",              "amount":"99.99", "type":"saída","frequency":"recorrente","date":"2020-03-23"},
-    {"description":"Plano de Saúde",        "amount":"300.00","type":"saída","frequency":"recorrente","date":"2020-03-23"},
-    {"description":"Compras do mês",        "amount":"800.50","type":"saída","frequency":"recorrente","date":"2020-03-17"},
-    {"description":"Parcela do Celular 2/5","amount":"150.99","type":"saída","frequency":"eventual",  "date":"2020-03-18"},
-    {"description":"Troca de Oléo do carro","amount":"90.00", "type":"saída","frequency":"eventual",  "date":"2020-03-23"},
-    {"description":"Energia elétrica",      "amount":"375.99", "type":"saída","frequency":"recorrente","date":"2020-04-10"},
-    {"description":"Água",                  "amount":"1080.33", "type":"saída","frequency":"recorrente","date":"2020-04-15"},
-    {"description":"Telefone",              "amount":"99.99", "type":"saída","frequency":"recorrente","date":"2020-04-23"},
-    {"description":"Plano de Saúde",        "amount":"300.00","type":"saída","frequency":"recorrente","date":"2020-04-23"},
-    {"description":"Compras do mês",        "amount":"600.00","type":"saída","frequency":"recorrente","date":"2020-04-25"},
-    {"description":"Parcela do Celular 3/5","amount":"150.99","type":"saída","frequency":"eventual",  "date":"2020-04-26"},
-    {"description":"Ebook de React Js",     "amount":"85.95", "type":"saída","frequency":"eventual",  "date":"2020-04-13"},
-    {"description":"Energia elétrica",      "amount":"325.55","type":"saída","frequency":"recorrente","date":"2020-05-10"},
-    {"description":"Água",                  "amount":"190.15", "type":"saída","frequency":"recorrente","date":"2020-05-15"},
-    {"description":"Telefone",              "amount":"99.99", "type":"saída","frequency":"recorrente","date":"2020-05-23"},
-    {"description":"Plano de Saúde",        "amount":"300.00","type":"saída","frequency":"recorrente","date":"2020-05-23"},
-    {"description":"Compras do mês",        "amount":"540.00","type":"saída","frequency":"recorrente","date":"2020-05-25"},
-    {"description":"Parcela do Celular 4/5","amount":"150.99","type":"saída","frequency":"eventual",  "date":"2020-05-26"},
-    {"description":"Blusa Iron Man",        "amount":"150.00","type":"saída","frequency":"eventual",  "date":"2020-01-23"},
-    {"description":"Energia elétrica",      "amount":"200.00","type":"saída","frequency":"recorrente","date":"2020-06-10"},
-    {"description":"Água",                  "amount":"111.00","type":"saída","frequency":"recorrente","date":"2020-06-15"},
-    {"description":"Telefone",              "amount":"99.99", "type":"saída","frequency":"recorrente","date":"2020-06-23"},
-    {"description":"Plano de Saúde",        "amount":"300.00","type":"saída","frequency":"recorrente","date":"2020-06-23"},
-    {"description":"Compras do mês",        "amount":"559.15","type":"saída","frequency":"recorrente","date":"2020-06-25"},
-    {"description":"Parcela do Celular 5/5","amount":"150.99","type":"saída","frequency":"eventual",  "date":"2020-06-26"},
-    {"description":"Perfume",               "amount":"250.00","type":"saída","frequency":"eventual",  "date":"2020-06-21"},
-    {"description":"Energia elétrica",      "amount":"350.00","type":"saída","frequency":"recorrente","date":"2020-07-10"},
-    {"description":"Água",                  "amount":"191.00", "type":"saída","frequency":"recorrente","date":"2020-07-15"},
-    {"description":"Telefone",              "amount":"99.99", "type":"saída","frequency":"recorrente","date":"2020-07-23"},
-    {"description":"Plano de Saúde",        "amount":"300.00","type":"saída","frequency":"recorrente","date":"2020-07-23"},
-    {"description":"Compras do mês",        "amount":"700.00","type":"saída","frequency":"recorrente","date":"2020-07-25"},
-    {"description":"Cafeteira",             "amount":"250.00","type":"saída","frequency":"eventual",  "date":"2020-07-26"},
-    {"description":"Pizza",                 "amount":"60.00", "type":"saída","frequency":"eventual",  "date":"2020-07-19"},
-    {"description":"Água",                  "amount":"219.15", "type":"saída","frequency":"recorrente","date":"2020-08-15"},
-    {"description":"Telefone",              "amount":"99.99", "type":"saída","frequency":"recorrente","date":"2020-08-23"},
-    {"description":"Plano de Saúde",        "amount":"300.00","type":"saída","frequency":"recorrente","date":"2020-08-23"},
-    {"description":"Compras do mês",        "amount":"540.00","type":"saída","frequency":"recorrente","date":"2020-08-25"},
-    {"description":"Parcela do Celular 1/5","amount":"150.99","type":"saída","frequency":"eventual",  "date":"2020-08-26"},
-    {"description":"Cinema",                "amount":"45.00", "type":"saída","frequency":"eventual",  "date":"2020-08-23"},
-    {"description":"Energia elétrica",      "amount":"497.00", "type":"saída","frequency":"recorrente","date":"2020-09-10"},
-    {"description":"Água",                  "amount":"200.10","type":"saída","frequency":"recorrente","date":"2020-09-15"},
-    {"description":"Telefone",              "amount":"99.99", "type":"saída","frequency":"recorrente","date":"2021-09-23"},
-    {"description":"Plano de Saúde",        "amount":"300.00","type":"saída","frequency":"recorrente","date":"2021-09-23"},
-    {"description":"Compras do mês",        "amount":"800.50","type":"saída","frequency":"recorrente","date":"2021-09-17"},
-    {"description":"Parcela do Celular 2/5","amount":"150.99","type":"saída","frequency":"eventual",  "date":"2021-09-18"},
-    {"description":"Troca de Oléo do carro","amount":"90.00", "type":"saída","frequency":"eventual",  "date":"2021-09-23"},
-    {"description":"Energia elétrica",      "amount":"275.99", "type":"saída","frequency":"recorrente","date":"2021-10-10"},
-    {"description":"Água",                  "amount":"380.33", "type":"saída","frequency":"recorrente","date":"2021-10-15"},
-    {"description":"Telefone",              "amount":"99.99", "type":"saída","frequency":"recorrente","date":"2021-10-23"},
-    {"description":"Plano de Saúde",        "amount":"300.00","type":"saída","frequency":"recorrente","date":"2021-10-23"},
-    {"description":"Compras do mês",        "amount":"600.00","type":"saída","frequency":"recorrente","date":"2021-10-25"},
-    {"description":"Parcela do Celular 3/5","amount":"150.99","type":"saída","frequency":"eventual",  "date":"2021-10-26"},
-    {"description":"Ebook de React Js",     "amount":"85.95", "type":"saída","frequency":"eventual",  "date":"2021-10-13"},
-    {"description":"Energia elétrica",      "amount":"725.55","type":"saída","frequency":"recorrente","date":"2021-11-10"},
-    {"description":"Água",                  "amount":"390.15", "type":"saída","frequency":"recorrente","date":"2021-11-15"},
-    {"description":"Telefone",              "amount":"99.99", "type":"saída","frequency":"recorrente","date":"2021-11-23"},
-    {"description":"Plano de Saúde",        "amount":"300.00","type":"saída","frequency":"recorrente","date":"2021-11-23"},
-    {"description":"Compras do mês",        "amount":"744.15","type":"saída","frequency":"recorrente","date":"2021-11-25"},
-    {"description":"Parcela do Celular 4/5","amount":"150.99","type":"saída","frequency":"eventual",  "date":"2021-11-26"},
-    {"description":"Blusa Iron Man",        "amount":"150.00","type":"saída","frequency":"eventual",  "date":"2021-01-23"},
-    {"description":"Energia elétrica",      "amount":"600.11","type":"saída","frequency":"recorrente","date":"2021-12-10"},
-    {"description":"Água",                  "amount":"450.00","type":"saída","frequency":"recorrente","date":"2021-12-15"},
-    {"description":"Telefone",              "amount":"99.99", "type":"saída","frequency":"recorrente","date":"2021-12-23"},
-    {"description":"Plano de Saúde",        "amount":"300.00","type":"saída","frequency":"recorrente","date":"2021-12-23"},
-    {"description":"Compras do mês",        "amount":"659.15","type":"saída","frequency":"recorrente","date":"2021-12-25"},
-    {"description":"Parcela do Celular 5/5","amount":"150.99","type":"saída","frequency":"eventual",  "date":"2021-12-26"},
-    {"description":"Perfume",               "amount":"250.00","type":"saída","frequency":"eventual",  "date":"2021-12-21"},
-    {"description":"Pizza",                 "amount":"750.01", "type":"saída","frequency":"eventual",  "date":"2020-07-19"}      
+    {
+      "description": "Energia elétrica",
+      "amount": "411.55",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2021-01-10"
+    },
+    {
+      "description": "Corte de cabelo",
+      "amount": "45.31",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2021-01-10"
+    },
+    {
+      "description": "Água",
+      "amount": "175.55",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2021-01-15"
+    },
+    {
+      "description": "Telefone",
+      "amount": "99.99",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2021-01-23"
+    },
+    {
+      "description": "Plano de Saúde",
+      "amount": "300.00",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2021-01-23"
+    },
+    {
+      "description": "Compras do mês",
+      "amount": "625.78",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2021-01-23"
+    },
+    {
+      "description": "Lanche",
+      "amount": "45.70",
+      "type": "saída",
+      "frequency": "eventual",
+      "date": "2021-01-23"
+    },
+    {
+      "description": "Blusa",
+      "amount": "95.70",
+      "type": "saída",
+      "frequency": "eventual",
+      "date": "2021-01-23"
+    },
+    {
+      "description": "Energia elétrica",
+      "amount": "225.55",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2021-02-10"
+    },
+    {
+      "description": "Água",
+      "amount": "190.15",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2021-02-15"
+    },
+    {
+      "description": "Telefone",
+      "amount": "99.99",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2021-02-23"
+    },
+    {
+      "description": "Plano de Saúde",
+      "amount": "300.00",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2021-02-23"
+    },
+    {
+      "description": "Compras do mês",
+      "amount": "540.00",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2021-02-25"
+    },
+    {
+      "description": "Parcela do Celular 1/5",
+      "amount": "150.99",
+      "type": "saída",
+      "frequency": "eventual",
+      "date": "2021-02-26"
+    },
+    {
+      "description": "Cinema",
+      "amount": "45.00",
+      "type": "saída",
+      "frequency": "eventual",
+      "date": "2021-02-23"
+    },
+    {
+      "description": "Energia elétrica",
+      "amount": "397.00",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2021-03-10"
+    },
+    {
+      "description": "Água",
+      "amount": "200.10",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2021-03-15"
+    },
+    {
+      "description": "Telefone",
+      "amount": "99.99",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2021-03-23"
+    },
+    {
+      "description": "Plano de Saúde",
+      "amount": "300.00",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2021-03-23"
+    },
+    {
+      "description": "Compras do mês",
+      "amount": "800.50",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2021-03-17"
+    },
+    {
+      "description": "Parcela do Celular 2/5",
+      "amount": "150.99",
+      "type": "saída",
+      "frequency": "eventual",
+      "date": "2021-03-18"
+    },
+    {
+      "description": "Troca de Oléo do carro",
+      "amount": "90.00",
+      "type": "saída",
+      "frequency": "eventual",
+      "date": "2021-03-23"
+    },
+    {
+      "description": "Energia elétrica",
+      "amount": "375.99",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2021-04-10"
+    },
+    {
+      "description": "Água",
+      "amount": "280.33",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2021-04-15"
+    },
+    {
+      "description": "Telefone",
+      "amount": "99.99",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2021-04-23"
+    },
+    {
+      "description": "Plano de Saúde",
+      "amount": "300.00",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2021-04-23"
+    },
+    {
+      "description": "Compras do mês",
+      "amount": "600.00",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2021-04-25"
+    },
+    {
+      "description": "Parcela do Celular 3/5",
+      "amount": "150.99",
+      "type": "saída",
+      "frequency": "eventual",
+      "date": "2021-04-26"
+    },
+    {
+      "description": "Ebook de React Js",
+      "amount": "85.95",
+      "type": "saída",
+      "frequency": "eventual",
+      "date": "2021-04-13"
+    },
+    {
+      "description": "Energia elétrica",
+      "amount": "525.55",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2021-05-10"
+    },
+    {
+      "description": "Água",
+      "amount": "390.15",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2021-05-15"
+    },
+    {
+      "description": "Telefone",
+      "amount": "99.99",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2021-05-23"
+    },
+    {
+      "description": "Plano de Saúde",
+      "amount": "300.00",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2021-05-23"
+    },
+    {
+      "description": "Compras do mês",
+      "amount": "540.00",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2021-05-25"
+    },
+    {
+      "description": "Parcela do Celular 4/5",
+      "amount": "150.99",
+      "type": "saída",
+      "frequency": "eventual",
+      "date": "2021-05-26"
+    },
+    {
+      "description": "Blusa Iron Man",
+      "amount": "150.00",
+      "type": "saída",
+      "frequency": "eventual",
+      "date": "2021-01-23"
+    },
+    {
+      "description": "Energia elétrica",
+      "amount": "200.00",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2021-06-10"
+    },
+    {
+      "description": "Água",
+      "amount": "550.00",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2021-06-15"
+    },
+    {
+      "description": "Telefone",
+      "amount": "99.99",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2021-06-23"
+    },
+    {
+      "description": "Plano de Saúde",
+      "amount": "300.00",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2021-06-23"
+    },
+    {
+      "description": "Compras do mês",
+      "amount": "559.15",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2021-06-25"
+    },
+    {
+      "description": "Parcela do Celular 5/5",
+      "amount": "150.99",
+      "type": "saída",
+      "frequency": "eventual",
+      "date": "2021-06-26"
+    },
+    {
+      "description": "Perfume",
+      "amount": "250.00",
+      "type": "saída",
+      "frequency": "eventual",
+      "date": "2021-06-21"
+    },
+    {
+      "description": "Energia elétrica",
+      "amount": "250.00",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2021-07-10"
+    },
+    {
+      "description": "Água",
+      "amount": "690.00",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2021-07-15"
+    },
+    {
+      "description": "Telefone",
+      "amount": "99.99",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2021-07-23"
+    },
+    {
+      "description": "Plano de Saúde",
+      "amount": "300.00",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2021-07-23"
+    },
+    {
+      "description": "Compras do mês",
+      "amount": "700.00",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2021-07-25"
+    },
+    {
+      "description": "Cafeteira",
+      "amount": "250.00",
+      "type": "saída",
+      "frequency": "eventual",
+      "date": "2021-07-26"
+    },
+    {
+      "description": "Pizza",
+      "amount": "60.00",
+      "type": "saída",
+      "frequency": "eventual",
+      "date": "2021-07-19"
+    },
+    {
+      "description": "Energia elétrica",
+      "amount": "150.55",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2020-01-10"
+    },
+    {
+      "description": "Água",
+      "amount": "775.55",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2020-01-15"
+    },
+    {
+      "description": "Telefone",
+      "amount": "99.99",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2020-01-23"
+    },
+    {
+      "description": "Plano de Saúde",
+      "amount": "300.00",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2020-01-23"
+    },
+    {
+      "description": "Compras do mês",
+      "amount": "625.78",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2020-01-23"
+    },
+    {
+      "description": "Lanche",
+      "amount": "45.70",
+      "type": "saída",
+      "frequency": "eventual",
+      "date": "2020-01-23"
+    },
+    {
+      "description": "Blusa",
+      "amount": "95.70",
+      "type": "saída",
+      "frequency": "eventual",
+      "date": "2020-01-23"
+    },
+    {
+      "description": "Energia elétrica",
+      "amount": "552",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2020-02-10"
+    },
+    {
+      "description": "Água",
+      "amount": "890.15",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2020-02-15"
+    },
+    {
+      "description": "Telefone",
+      "amount": "99.99",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2020-02-23"
+    },
+    {
+      "description": "Plano de Saúde",
+      "amount": "300.00",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2020-02-23"
+    },
+    {
+      "description": "Compras do mês",
+      "amount": "540.00",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2020-02-25"
+    },
+    {
+      "description": "Parcela do Celular 1/5",
+      "amount": "150.99",
+      "type": "saída",
+      "frequency": "eventual",
+      "date": "2020-02-26"
+    },
+    {
+      "description": "Cinema",
+      "amount": "45.00",
+      "type": "saída",
+      "frequency": "eventual",
+      "date": "2020-02-23"
+    },
+    {
+      "description": "Energia elétrica",
+      "amount": "97.00",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2020-03-10"
+    },
+    {
+      "description": "Água",
+      "amount": "900.10",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2020-03-15"
+    },
+    {
+      "description": "Telefone",
+      "amount": "99.99",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2020-03-23"
+    },
+    {
+      "description": "Plano de Saúde",
+      "amount": "300.00",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2020-03-23"
+    },
+    {
+      "description": "Compras do mês",
+      "amount": "800.50",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2020-03-17"
+    },
+    {
+      "description": "Parcela do Celular 2/5",
+      "amount": "150.99",
+      "type": "saída",
+      "frequency": "eventual",
+      "date": "2020-03-18"
+    },
+    {
+      "description": "Troca de Oléo do carro",
+      "amount": "90.00",
+      "type": "saída",
+      "frequency": "eventual",
+      "date": "2020-03-23"
+    },
+    {
+      "description": "Energia elétrica",
+      "amount": "375.99",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2020-04-10"
+    },
+    {
+      "description": "Água",
+      "amount": "1080.33",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2020-04-15"
+    },
+    {
+      "description": "Telefone",
+      "amount": "99.99",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2020-04-23"
+    },
+    {
+      "description": "Plano de Saúde",
+      "amount": "300.00",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2020-04-23"
+    },
+    {
+      "description": "Compras do mês",
+      "amount": "600.00",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2020-04-25"
+    },
+    {
+      "description": "Parcela do Celular 3/5",
+      "amount": "150.99",
+      "type": "saída",
+      "frequency": "eventual",
+      "date": "2020-04-26"
+    },
+    {
+      "description": "Ebook de React Js",
+      "amount": "85.95",
+      "type": "saída",
+      "frequency": "eventual",
+      "date": "2020-04-13"
+    },
+    {
+      "description": "Energia elétrica",
+      "amount": "325.55",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2020-05-10"
+    },
+    {
+      "description": "Água",
+      "amount": "190.15",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2020-05-15"
+    },
+    {
+      "description": "Telefone",
+      "amount": "99.99",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2020-05-23"
+    },
+    {
+      "description": "Plano de Saúde",
+      "amount": "300.00",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2020-05-23"
+    },
+    {
+      "description": "Compras do mês",
+      "amount": "540.00",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2020-05-25"
+    },
+    {
+      "description": "Parcela do Celular 4/5",
+      "amount": "150.99",
+      "type": "saída",
+      "frequency": "eventual",
+      "date": "2020-05-26"
+    },
+    {
+      "description": "Blusa Iron Man",
+      "amount": "150.00",
+      "type": "saída",
+      "frequency": "eventual",
+      "date": "2020-01-23"
+    },
+    {
+      "description": "Energia elétrica",
+      "amount": "200.00",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2020-06-10"
+    },
+    {
+      "description": "Água",
+      "amount": "111.00",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2020-06-15"
+    },
+    {
+      "description": "Telefone",
+      "amount": "99.99",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2020-06-23"
+    },
+    {
+      "description": "Plano de Saúde",
+      "amount": "300.00",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2020-06-23"
+    },
+    {
+      "description": "Compras do mês",
+      "amount": "559.15",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2020-06-25"
+    },
+    {
+      "description": "Parcela do Celular 5/5",
+      "amount": "150.99",
+      "type": "saída",
+      "frequency": "eventual",
+      "date": "2020-06-26"
+    },
+    {
+      "description": "Perfume",
+      "amount": "250.00",
+      "type": "saída",
+      "frequency": "eventual",
+      "date": "2020-06-21"
+    },
+    {
+      "description": "Energia elétrica",
+      "amount": "350.00",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2020-07-10"
+    },
+    {
+      "description": "Água",
+      "amount": "191.00",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2020-07-15"
+    },
+    {
+      "description": "Telefone",
+      "amount": "99.99",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2020-07-23"
+    },
+    {
+      "description": "Plano de Saúde",
+      "amount": "300.00",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2020-07-23"
+    },
+    {
+      "description": "Compras do mês",
+      "amount": "700.00",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2020-07-25"
+    },
+    {
+      "description": "Cafeteira",
+      "amount": "250.00",
+      "type": "saída",
+      "frequency": "eventual",
+      "date": "2020-07-26"
+    },
+    {
+      "description": "Pizza",
+      "amount": "60.00",
+      "type": "saída",
+      "frequency": "eventual",
+      "date": "2020-07-19"
+    },
+    {
+      "description": "Água",
+      "amount": "219.15",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2020-08-15"
+    },
+    {
+      "description": "Telefone",
+      "amount": "99.99",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2020-08-23"
+    },
+    {
+      "description": "Plano de Saúde",
+      "amount": "300.00",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2020-08-23"
+    },
+    {
+      "description": "Compras do mês",
+      "amount": "540.00",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2020-08-25"
+    },
+    {
+      "description": "Parcela do Celular 1/5",
+      "amount": "150.99",
+      "type": "saída",
+      "frequency": "eventual",
+      "date": "2020-08-26"
+    },
+    {
+      "description": "Cinema",
+      "amount": "45.00",
+      "type": "saída",
+      "frequency": "eventual",
+      "date": "2020-08-23"
+    },
+    {
+      "description": "Energia elétrica",
+      "amount": "497.00",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2020-09-10"
+    },
+    {
+      "description": "Água",
+      "amount": "200.10",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2020-09-15"
+    },
+    {
+      "description": "Telefone",
+      "amount": "99.99",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2021-09-23"
+    },
+    {
+      "description": "Plano de Saúde",
+      "amount": "300.00",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2021-09-23"
+    },
+    {
+      "description": "Compras do mês",
+      "amount": "800.50",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2021-09-17"
+    },
+    {
+      "description": "Parcela do Celular 2/5",
+      "amount": "150.99",
+      "type": "saída",
+      "frequency": "eventual",
+      "date": "2021-09-18"
+    },
+    {
+      "description": "Troca de Oléo do carro",
+      "amount": "90.00",
+      "type": "saída",
+      "frequency": "eventual",
+      "date": "2021-09-23"
+    },
+    {
+      "description": "Energia elétrica",
+      "amount": "275.99",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2021-10-10"
+    },
+    {
+      "description": "Água",
+      "amount": "380.33",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2021-10-15"
+    },
+    {
+      "description": "Telefone",
+      "amount": "99.99",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2021-10-23"
+    },
+    {
+      "description": "Plano de Saúde",
+      "amount": "300.00",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2021-10-23"
+    },
+    {
+      "description": "Compras do mês",
+      "amount": "600.00",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2021-10-25"
+    },
+    {
+      "description": "Parcela do Celular 3/5",
+      "amount": "150.99",
+      "type": "saída",
+      "frequency": "eventual",
+      "date": "2021-10-26"
+    },
+    {
+      "description": "Ebook de React Js",
+      "amount": "85.95",
+      "type": "saída",
+      "frequency": "eventual",
+      "date": "2021-10-13"
+    },
+    {
+      "description": "Energia elétrica",
+      "amount": "725.55",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2021-11-10"
+    },
+    {
+      "description": "Água",
+      "amount": "390.15",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2021-11-15"
+    },
+    {
+      "description": "Telefone",
+      "amount": "99.99",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2021-11-23"
+    },
+    {
+      "description": "Plano de Saúde",
+      "amount": "300.00",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2021-11-23"
+    },
+    {
+      "description": "Compras do mês",
+      "amount": "744.15",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2021-11-25"
+    },
+    {
+      "description": "Parcela do Celular 4/5",
+      "amount": "150.99",
+      "type": "saída",
+      "frequency": "eventual",
+      "date": "2021-11-26"
+    },
+    {
+      "description": "Blusa Iron Man",
+      "amount": "150.00",
+      "type": "saída",
+      "frequency": "eventual",
+      "date": "2021-01-23"
+    },
+    {
+      "description": "Energia elétrica",
+      "amount": "600.11",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2021-12-10"
+    },
+    {
+      "description": "Água",
+      "amount": "450.00",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2021-12-15"
+    },
+    {
+      "description": "Telefone",
+      "amount": "99.99",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2021-12-23"
+    },
+    {
+      "description": "Plano de Saúde",
+      "amount": "300.00",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2021-12-23"
+    },
+    {
+      "description": "Compras do mês",
+      "amount": "659.15",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2021-12-25"
+    },
+    {
+      "description": "Parcela do Celular 5/5",
+      "amount": "150.99",
+      "type": "saída",
+      "frequency": "eventual",
+      "date": "2021-12-26"
+    },
+    {
+      "description": "Perfume",
+      "amount": "250.00",
+      "type": "saída",
+      "frequency": "eventual",
+      "date": "2021-12-21"
+    },
+    {
+      "description": "Pizza",
+      "amount": "750.01",
+      "type": "saída",
+      "frequency": "eventual",
+      "date": "2020-07-19"
+    }
   ],
   "gains": [
-    {"description": "Salário",      "amount": "11300.52", "type": "entrada", "frequency": "recorrente", "date": "2021-01-10" }, 
-    {"description": "Freela",       "amount": "150.13",  "type": "entrada", "frequency": "eventual",   "date": "2021-01-17" }, 
-    {"description": "Salário",      "amount": "8500.23", "type": "entrada", "frequency": "recorrente", "date": "2021-02-10" }, 
-    {"description": "Freela site",  "amount": "10900.23", "type": "entrada", "frequency": "eventual",  "date": "2021-02-21" }, 
-    {"description": "Freela app",   "amount": "950.92",  "type": "entrada", "frequency": "eventual",   "date": "2021-02-23" }, 
-    {"description": "Salário",      "amount": "2500.25", "type": "entrada", "frequency": "recorrente", "date": "2021-03-10" }, 
-    {"description": "Salário",      "amount": "2500.18", "type": "entrada", "frequency": "recorrente", "date": "2021-04-10" }, 
-    {"description": "Salário",      "amount": "2500.15", "type": "entrada", "frequency": "recorrente", "date": "2021-05-10" }, 
-    {"description": "Salário",      "amount": "2500.12", "type": "entrada", "frequency": "recorrente", "date": "2021-06-10" }, 
-    {"description": "Salário",      "amount": "1300.52", "type": "entrada", "frequency": "recorrente", "date": "2020-01-10" }, 
-    {"description": "Freela",       "amount": "150.13",  "type": "entrada", "frequency": "eventual",   "date": "2020-01-17" }, 
-    {"description": "Salário",      "amount": "5500.23", "type": "entrada", "frequency": "recorrente", "date": "2020-02-10" }, 
-    {"description": "Freela site",  "amount": "13900.23", "type": "entrada", "frequency": "eventual",  "date": "2020-02-21" }, 
-    {"description": "Freela app",   "amount": "33810.92", "type": "entrada", "frequency": "eventual",  "date": "2020-02-23" }, 
-    {"description": "Salário",      "amount": "2500.25", "type": "entrada", "frequency": "recorrente", "date": "2020-03-10" }, 
-    {"description": "Salário",      "amount": "2500.18", "type": "entrada", "frequency": "recorrente", "date": "2020-04-10" }, 
-    {"description": "Salário",      "amount": "2500.15", "type": "entrada", "frequency": "recorrente", "date": "2020-05-10" }, 
-    {"description": "Salário",      "amount": "2500.12", "type": "entrada", "frequency": "recorrente", "date": "2020-06-10" }, 
-    {"description": "Salário",      "amount": "2500.00", "type": "entrada", "frequency": "recorrente", "date": "2019-07-10" },
-    {"description": "Salário",      "amount": "1500.00", "type": "entrada", "frequency": "eventual", "date": "2019-07-10" },
-    {"description": "Salário",      "amount": "1300.52", "type": "entrada", "frequency": "recorrente", "date": "2021-08-10" }, 
-    {"description": "Freela",       "amount": "150.13",  "type": "entrada", "frequency": "eventual",   "date": "2021-08-17" }, 
-    {"description": "Salário",      "amount": "6500.23", "type": "entrada", "frequency": "recorrente", "date": "2021-09-10" }, 
-    {"description": "Freela site",  "amount": "11750.23", "type": "entrada", "frequency": "eventual",  "date": "2021-09-21" }, 
-    {"description": "Freela app",   "amount": "14050.92", "type": "entrada", "frequency": "eventual",  "date": "2021-09-23" }, 
-    {"description": "Salário",      "amount": "2500.25", "type": "entrada", "frequency": "recorrente", "date": "2021-10-10" }, 
-    {"description": "Salário",      "amount": "2500.18", "type": "entrada", "frequency": "recorrente", "date": "2021-11-10" }, 
-    {"description": "Salário",      "amount": "2500.15", "type": "entrada", "frequency": "recorrente", "date": "2021-12-10" }, 
-    {"description": "Salário",      "amount": "2500.12", "type": "entrada", "frequency": "recorrente", "date": "2021-11-10" }, 
-    {"description": "Salário",      "amount": "1300.52", "type": "entrada", "frequency": "recorrente", "date": "2020-08-10" }, 
-    {"description": "Freela",       "amount": "150.13",  "type": "entrada", "frequency": "eventual",   "date": "2020-08-17" }, 
-    {"description": "Salário",      "amount": "7500.23", "type": "entrada", "frequency": "recorrente", "date": "2020-09-10" }, 
-    {"description": "Freela site",  "amount": "11900.23", "type": "entrada", "frequency": "eventual",  "date": "2020-09-21" }, 
-    {"description": "Freela app",   "amount": "12200.92", "type": "entrada", "frequency": "eventual",  "date": "2020-09-23" }, 
-    {"description": "Salário",      "amount": "5300", "type": "entrada", "frequency": "recorrente", "date": "2020-10-10" }, 
-    {"description": "Salário",      "amount": "8500.18", "type": "entrada", "frequency": "recorrente", "date": "2020-11-10" }, 
-    {"description": "Salário",      "amount": "25000.15", "type": "entrada", "frequency": "recorrente", "date": "2020-12-10" }, 
-    {"description": "Salário",      "amount": "12000.12", "type": "entrada", "frequency": "recorrente", "date": "2020-11-10" }, 
-    {"description": "Salário",      "amount": "9700.00", "type": "entrada", "frequency": "recorrente", "date": "2019-11-10" }
+    {
+      "description": "Salário",
+      "amount": "11300.52",
+      "type": "entrada",
+      "frequency": "recorrente",
+      "date": "2021-01-10"
+    },
+    {
+      "description": "Freela",
+      "amount": "150.13",
+      "type": "entrada",
+      "frequency": "eventual",
+      "date": "2021-01-17"
+    },
+    {
+      "description": "Salário",
+      "amount": "8500.23",
+      "type": "entrada",
+      "frequency": "recorrente",
+      "date": "2021-02-10"
+    },
+    {
+      "description": "Freela site",
+      "amount": "10900.23",
+      "type": "entrada",
+      "frequency": "eventual",
+      "date": "2021-02-21"
+    },
+    {
+      "description": "Freela app",
+      "amount": "950.92",
+      "type": "entrada",
+      "frequency": "eventual",
+      "date": "2021-02-23"
+    },
+    {
+      "description": "Salário",
+      "amount": "2500.25",
+      "type": "entrada",
+      "frequency": "recorrente",
+      "date": "2021-03-10"
+    },
+    {
+      "description": "Salário",
+      "amount": "2500.18",
+      "type": "entrada",
+      "frequency": "recorrente",
+      "date": "2021-04-10"
+    },
+    {
+      "description": "Salário",
+      "amount": "2500.15",
+      "type": "entrada",
+      "frequency": "recorrente",
+      "date": "2021-05-10"
+    },
+    {
+      "description": "Salário",
+      "amount": "2500.12",
+      "type": "entrada",
+      "frequency": "recorrente",
+      "date": "2021-06-10"
+    },
+    {
+      "description": "Salário",
+      "amount": "1300.52",
+      "type": "entrada",
+      "frequency": "recorrente",
+      "date": "2020-01-10"
+    },
+    {
+      "description": "Freela",
+      "amount": "150.13",
+      "type": "entrada",
+      "frequency": "eventual",
+      "date": "2020-01-17"
+    },
+    {
+      "description": "Salário",
+      "amount": "5500.23",
+      "type": "entrada",
+      "frequency": "recorrente",
+      "date": "2020-02-10"
+    },
+    {
+      "description": "Freela site",
+      "amount": "13900.23",
+      "type": "entrada",
+      "frequency": "eventual",
+      "date": "2020-02-21"
+    },
+    {
+      "description": "Freela app",
+      "amount": "33810.92",
+      "type": "entrada",
+      "frequency": "eventual",
+      "date": "2020-02-23"
+    },
+    {
+      "description": "Salário",
+      "amount": "2500.25",
+      "type": "entrada",
+      "frequency": "recorrente",
+      "date": "2020-03-10"
+    },
+    {
+      "description": "Salário",
+      "amount": "2500.18",
+      "type": "entrada",
+      "frequency": "recorrente",
+      "date": "2020-04-10"
+    },
+    {
+      "description": "Salário",
+      "amount": "2500.15",
+      "type": "entrada",
+      "frequency": "recorrente",
+      "date": "2020-05-10"
+    },
+    {
+      "description": "Salário",
+      "amount": "2500.12",
+      "type": "entrada",
+      "frequency": "recorrente",
+      "date": "2020-06-10"
+    },
+    {
+      "description": "Salário",
+      "amount": "2500.00",
+      "type": "entrada",
+      "frequency": "recorrente",
+      "date": "2019-07-10"
+    },
+    {
+      "description": "Salário",
+      "amount": "1500.00",
+      "type": "entrada",
+      "frequency": "eventual",
+      "date": "2019-07-10"
+    },
+    {
+      "description": "Salário",
+      "amount": "1300.52",
+      "type": "entrada",
+      "frequency": "recorrente",
+      "date": "2021-08-10"
+    },
+    {
+      "description": "Freela",
+      "amount": "150.13",
+      "type": "entrada",
+      "frequency": "eventual",
+      "date": "2021-08-17"
+    },
+    {
+      "description": "Salário",
+      "amount": "6500.23",
+      "type": "entrada",
+      "frequency": "recorrente",
+      "date": "2021-09-10"
+    },
+    {
+      "description": "Freela site",
+      "amount": "11750.23",
+      "type": "entrada",
+      "frequency": "eventual",
+      "date": "2021-09-21"
+    },
+    {
+      "description": "Freela app",
+      "amount": "14050.92",
+      "type": "entrada",
+      "frequency": "eventual",
+      "date": "2021-09-23"
+    },
+    {
+      "description": "Salário",
+      "amount": "2500.25",
+      "type": "entrada",
+      "frequency": "recorrente",
+      "date": "2021-10-10"
+    },
+    {
+      "description": "Salário",
+      "amount": "2500.18",
+      "type": "entrada",
+      "frequency": "recorrente",
+      "date": "2021-11-10"
+    },
+    {
+      "description": "Salário",
+      "amount": "2500.15",
+      "type": "entrada",
+      "frequency": "recorrente",
+      "date": "2021-12-10"
+    },
+    {
+      "description": "Salário",
+      "amount": "2500.12",
+      "type": "entrada",
+      "frequency": "recorrente",
+      "date": "2021-11-10"
+    },
+    {
+      "description": "Salário",
+      "amount": "1300.52",
+      "type": "entrada",
+      "frequency": "recorrente",
+      "date": "2020-08-10"
+    },
+    {
+      "description": "Freela",
+      "amount": "150.13",
+      "type": "entrada",
+      "frequency": "eventual",
+      "date": "2020-08-17"
+    },
+    {
+      "description": "Salário",
+      "amount": "7500.23",
+      "type": "entrada",
+      "frequency": "recorrente",
+      "date": "2020-09-10"
+    },
+    {
+      "description": "Freela site",
+      "amount": "11900.23",
+      "type": "entrada",
+      "frequency": "eventual",
+      "date": "2020-09-21"
+    },
+    {
+      "description": "Freela app",
+      "amount": "12200.92",
+      "type": "entrada",
+      "frequency": "eventual",
+      "date": "2020-09-23"
+    },
+    {
+      "description": "Salário",
+      "amount": "5300",
+      "type": "entrada",
+      "frequency": "recorrente",
+      "date": "2020-10-10"
+    },
+    {
+      "description": "Salário",
+      "amount": "8500.18",
+      "type": "entrada",
+      "frequency": "recorrente",
+      "date": "2020-11-10"
+    },
+    {
+      "description": "Salário",
+      "amount": "25000.15",
+      "type": "entrada",
+      "frequency": "recorrente",
+      "date": "2020-12-10"
+    },
+    {
+      "description": "Salário",
+      "amount": "12000.12",
+      "type": "entrada",
+      "frequency": "recorrente",
+      "date": "2020-11-10"
+    },
+    {
+      "description": "Salário",
+      "amount": "9700.00",
+      "type": "entrada",
+      "frequency": "recorrente",
+      "date": "2019-11-10"
+    }
   ],
   "budgets": [
-    {"id": 1, "description":"Energia elétrica",      "amount":"411.55","type":"saída","frequency":"recorrente","date":"2021-01-10"},
-    {"id": 2, "description":"Corte de cabelo",       "amount":"45.31","type":"saída","frequency":"recorrente","date":"2021-01-10"},
-    {"id": 3, "description":"Água",                  "amount":"175.55", "type":"saída","frequency":"recorrente","date":"2021-01-15"},
-    {"id": 4, "description": "Telefone",             "amount":"99.99", "type":"saída","frequency":"recorrente","date":"2021-01-23"},
-    {"id": 5, "description":"Plano de Saúde",        "amount":"300.00","type":"saída","frequency":"recorrente","date":"2021-01-23"},
-    {"id": 6, "description":"Compras do mês",        "amount":"625.78","type":"saída","frequency":"recorrente","date":"2021-01-23"},
-    {"id": 7, "description":"Lanche",                "amount":"45.70", "type":"saída","frequency":"eventual",  "date":"2021-01-23"},
-    {"id": 8, "description":"Blusa",                 "amount":"95.70", "type":"saída","frequency":"eventual",  "date":"2021-01-23"},
-    {"id": 9, "description":"Energia elétrica",      "amount":"225.55","type":"saída","frequency":"recorrente","date":"2021-02-10"},
-    {"id": 10, "description":"Água",                  "amount":"190.15", "type":"saída","frequency":"recorrente","date":"2021-02-15"},
-    {"id": 11, "description":"Telefone",              "amount":"99.99", "type":"saída","frequency":"recorrente","date":"2021-02-23"},
-    {"id": 12, "description":"Plano de Saúde",        "amount":"300.00","type":"saída","frequency":"recorrente","date":"2021-02-23"},
-    {"id": 13, "description":"Compras do mês",        "amount":"540.00","type":"saída","frequency":"recorrente","date":"2021-02-25"},
-    {"id": 14, "description":"Parcela do Celular 1/5","amount":"150.99","type":"saída","frequency":"eventual",  "date":"2021-02-26"},
-    {"id": 15, "description":"Cinema",                "amount":"45.00", "type":"saída","frequency":"eventual",  "date":"2021-02-23"},
-    {"id": 16, "description":"Energia elétrica",      "amount":"397.00", "type":"saída","frequency":"recorrente","date":"2021-03-10"},
-    {"id": 17, "description": "Salário",      "amount": "11300.52", "type": "entrada", "frequency": "recorrente", "date": "2021-01-10" }, 
-    {"id": 18, "description": "Freela",       "amount": "150.13",  "type": "entrada", "frequency": "eventual",   "date": "2021-01-17" }, 
-    {"id": 19, "description": "Salário",      "amount": "8500.23", "type": "entrada", "frequency": "recorrente", "date": "2021-02-10" }, 
-    {"id": 20, "description": "Freela site",  "amount": "10900.23", "type": "entrada", "frequency": "eventual",  "date": "2021-02-21" }, 
-    {"id": 21, "description": "Freela app",   "amount": "950.92",  "type": "entrada", "frequency": "eventual",   "date": "2021-02-23" },     
-    {"id": 22, "description":"Água",                  "amount":"200.10","type":"saída","frequency":"recorrente","date":"2021-03-15"},
-    {"id": 23, "description":"Telefone",              "amount":"99.99", "type":"saída","frequency":"recorrente","date":"2021-03-23"},
-    {"id": 24, "description":"Plano de Saúde",        "amount":"300.00","type":"saída","frequency":"recorrente","date":"2021-03-23"},
-    {"id": 25, "description":"Compras do mês",        "amount":"800.50","type":"saída","frequency":"recorrente","date":"2021-03-17"},
-    {"id": 26, "description":"Parcela do Celular 2/5","amount":"150.99","type":"saída","frequency":"eventual",  "date":"2021-03-18"},
-    {"id": 27, "description":"Troca de Oléo do carro","amount":"90.00", "type":"saída","frequency":"eventual",  "date":"2021-03-23"},
-    {"id": 28, "description":"Energia elétrica",      "amount":"375.99", "type":"saída","frequency":"recorrente","date":"2021-04-10"},
-    {"id": 29, "description":"Água",                  "amount":"280.33", "type":"saída","frequency":"recorrente","date":"2021-04-15"},
-    {"id": 30, "description":"Telefone",              "amount":"99.99", "type":"saída","frequency":"recorrente","date":"2021-04-23"},
-    {"id": 31, "description":"Plano de Saúde",        "amount":"300.00","type":"saída","frequency":"recorrente","date":"2021-04-23"},
-    {"id": 32, "description":"Compras do mês",        "amount":"600.00","type":"saída","frequency":"recorrente","date":"2021-04-25"},
-    {"id": 33, "description":"Parcela do Celular 3/5","amount":"150.99","type":"saída","frequency":"eventual",  "date":"2021-04-26"},
-    {"id": 34, "description": "Salário",      "amount": "2500.25", "type": "entrada", "frequency": "recorrente", "date": "2021-03-10" }, 
-    {"id": 35, "description": "Salário",      "amount": "2500.18", "type": "entrada", "frequency": "recorrente", "date": "2021-04-10" }, 
-    {"id": 36, "description": "Salário",      "amount": "2500.15", "type": "entrada", "frequency": "recorrente", "date": "2021-05-10" }, 
-    {"id": 37, "description":"Plano de Saúde",        "amount":"300.00","type":"saída","frequency":"recorrente","date":"2021-05-23"},
-    {"id": 38, "description":"Compras do mês",        "amount":"540.00","type":"saída","frequency":"recorrente","date":"2021-05-25"},
-    {"id": 39, "description":"Parcela do Celular 4/5","amount":"150.99","type":"saída","frequency":"eventual",  "date":"2021-05-26"},    
-    {"id": 40, "description": "Salário",      "amount": "2500.12", "type": "entrada", "frequency": "recorrente", "date": "2021-06-10" }, 
-    {"id": 41, "description": "Salário",      "amount": "1300.52", "type": "entrada", "frequency": "recorrente", "date": "2020-01-10" }, 
-    {"id": 42, "description": "Freela",       "amount": "150.13",  "type": "entrada", "frequency": "eventual",   "date": "2020-01-17" }, 
-    {"id": 43, "description": "Salário",      "amount": "5500.23", "type": "entrada", "frequency": "recorrente", "date": "2020-02-10" }, 
-    {"id": 44, "description": "Freela site",  "amount": "13900.23", "type": "entrada", "frequency": "eventual",  "date": "2020-02-21" }, 
-    {"id": 45, "description": "Freela app",   "amount": "33810.92", "type": "entrada", "frequency": "eventual",  "date": "2020-02-23" }, 
-    {"id": 46, "description": "Salário",      "amount": "2500.25", "type": "entrada", "frequency": "recorrente", "date": "2020-03-10" },     
-    {"id": 47, "description":"Ebook de React Js",     "amount":"85.95", "type":"saída","frequency":"eventual",  "date":"2021-04-13"},
-    {"id": 48, "description":"Energia elétrica",      "amount":"525.55","type":"saída","frequency":"recorrente","date":"2021-05-10"},
-    {"id": 49, "description":"Água",                  "amount":"390.15", "type":"saída","frequency":"recorrente","date":"2021-05-15"},
-    {"id": 50, "description":"Telefone",              "amount":"99.99", "type":"saída","frequency":"recorrente","date":"2021-05-23"},
-    {"id": 51, "description":"Blusa Iron Man",        "amount":"150.00","type":"saída","frequency":"eventual",  "date":"2021-01-23"},
-    {"id": 52, "description":"Energia elétrica",      "amount":"200.00","type":"saída","frequency":"recorrente","date":"2021-06-10"},
-    {"id": 53, "description":"Água",                  "amount":"550.00","type":"saída","frequency":"recorrente","date":"2021-06-15"},
-    {"id": 54, "description":"Telefone",              "amount":"99.99", "type":"saída","frequency":"recorrente","date":"2021-06-23"},
-    {"id": 55, "description":"Plano de Saúde",        "amount":"300.00","type":"saída","frequency":"recorrente","date":"2021-06-23"},
-    {"id": 56, "description":"Compras do mês",        "amount":"559.15","type":"saída","frequency":"recorrente","date":"2021-06-25"},
-    {"id": 57, "description":"Parcela do Celular 5/5","amount":"150.99","type":"saída","frequency":"eventual",  "date":"2021-06-26"},
-    {"id": 58, "description":"Perfume",               "amount":"250.00","type":"saída","frequency":"eventual",  "date":"2021-06-21"},
-    {"id": 59, "description":"Energia elétrica",      "amount":"250.00","type":"saída","frequency":"recorrente","date":"2021-07-10"},
-    {"id": 60, "description":"Água",                  "amount":"690.00", "type":"saída","frequency":"recorrente","date":"2021-07-15"},
-    {"id": 61, "description":"Telefone",              "amount":"99.99", "type":"saída","frequency":"recorrente","date":"2021-07-23"},
-    {"id": 62, "description":"Plano de Saúde",        "amount":"300.00","type":"saída","frequency":"recorrente","date":"2021-07-23"},
-    {"id": 63, "description":"Compras do mês",        "amount":"700.00","type":"saída","frequency":"recorrente","date":"2021-07-25"},
-    {"id": 64, "description":"Cafeteira",             "amount":"250.00","type":"saída","frequency":"eventual",  "date":"2021-07-26"},
-    {"id": 65, "description":"Pizza",                 "amount":"60.00", "type":"saída","frequency":"eventual",  "date":"2021-07-19"},
-    {"id": 66, "description":"Energia elétrica",      "amount":"150.55","type":"saída","frequency":"recorrente","date":"2020-01-10"},
-    {"id": 67, "description":"Água",                  "amount":"775.55", "type":"saída","frequency":"recorrente","date":"2020-01-15"},
-    {"id": 68, "description": "Telefone",             "amount":"99.99", "type":"saída","frequency":"recorrente","date":"2020-01-23"},
-    {"id": 69, "description":"Plano de Saúde",        "amount":"300.00","type":"saída","frequency":"recorrente","date":"2020-01-23"},
-    {"id": 70, "description":"Compras do mês",        "amount":"625.78","type":"saída","frequency":"recorrente","date":"2020-01-23"},
-    {"id": 71, "description":"Lanche",                "amount":"45.70", "type":"saída","frequency":"eventual",  "date":"2020-01-23"},
-    {"id": 72, "description":"Blusa",                 "amount":"95.70", "type":"saída","frequency":"eventual",  "date":"2020-01-23"},
-    {"id": 73, "description":"Energia elétrica",      "amount":"552","type":"saída","frequency":"recorrente","date":"2020-02-10"},
-    {"id": 74, "description":"Água",                  "amount":"890.15", "type":"saída","frequency":"recorrente","date":"2020-02-15"},
-    {"id": 75, "description":"Telefone",              "amount":"99.99", "type":"saída","frequency":"recorrente","date":"2020-02-23"},
-    {"id": 76, "description": "Salário",      "amount": "6500.23", "type": "entrada", "frequency": "recorrente", "date": "2021-09-10" }, 
-    {"id": 77, "description": "Freela site",  "amount": "11750.23", "type": "entrada", "frequency": "eventual",  "date": "2021-09-21" }, 
-    {"id": 78, "description": "Freela app",   "amount": "14050.92", "type": "entrada", "frequency": "eventual",  "date": "2021-09-23" }, 
-    {"id": 79, "description": "Salário",      "amount": "2500.25", "type": "entrada", "frequency": "recorrente", "date": "2021-10-10" }, 
-    {"id": 80, "description": "Salário",      "amount": "2500.18", "type": "entrada", "frequency": "recorrente", "date": "2021-11-10" },     
-    {"id": 81, "description":"Plano de Saúde",        "amount":"300.00","type":"saída","frequency":"recorrente","date":"2020-02-23"},
-    {"id": 82, "description":"Compras do mês",        "amount":"540.00","type":"saída","frequency":"recorrente","date":"2020-02-25"},
-    {"id": 83, "description":"Parcela do Celular 1/5","amount":"150.99","type":"saída","frequency":"eventual",  "date":"2020-02-26"},
-    {"id": 84, "description":"Cinema",                "amount":"45.00", "type":"saída","frequency":"eventual",  "date":"2020-02-23"},
-    {"id": 85, "description":"Energia elétrica",      "amount":"97.00", "type":"saída","frequency":"recorrente","date":"2020-03-10"},
-    {"id": 86, "description":"Água",                  "amount":"900.10","type":"saída","frequency":"recorrente","date":"2020-03-15"},
-    {"id": 87, "description":"Telefone",              "amount":"99.99", "type":"saída","frequency":"recorrente","date":"2020-03-23"},
-    {"id": 88, "description":"Plano de Saúde",        "amount":"300.00","type":"saída","frequency":"recorrente","date":"2020-03-23"},
-    {"id": 89, "description":"Compras do mês",        "amount":"800.50","type":"saída","frequency":"recorrente","date":"2020-03-17"},
-    {"id": 90, "description":"Parcela do Celular 2/5","amount":"150.99","type":"saída","frequency":"eventual",  "date":"2020-03-18"},
-    {"id": 91, "description":"Troca de Oléo do carro","amount":"90.00", "type":"saída","frequency":"eventual",  "date":"2020-03-23"},
-    {"id": 92, "description":"Energia elétrica",      "amount":"375.99", "type":"saída","frequency":"recorrente","date":"2020-04-10"},
-    {"id": 93, "description": "Salário",      "amount": "2500.18", "type": "entrada", "frequency": "recorrente", "date": "2020-04-10" }, 
-    {"id": 94, "description": "Salário",      "amount": "2500.15", "type": "entrada", "frequency": "recorrente", "date": "2020-05-10" }, 
-    {"id": 95, "description": "Salário",      "amount": "2500.12", "type": "entrada", "frequency": "recorrente", "date": "2020-06-10" }, 
-    {"id": 96, "description": "Salário",      "amount": "2500.00", "type": "entrada", "frequency": "recorrente", "date": "2019-07-10" },
-    {"id": 97, "description": "Salário",      "amount": "1500.00", "type": "entrada", "frequency": "eventual", "date": "2019-07-10" },
-    {"id": 98, "description": "Salário",      "amount": "1300.52", "type": "entrada", "frequency": "recorrente", "date": "2021-08-10" }, 
-    {"id": 99, "description": "Freela",       "amount": "150.13",  "type": "entrada", "frequency": "eventual",   "date": "2021-08-17" },    
-    {"id": 100, "description":"Água",                  "amount":"1080.33", "type":"saída","frequency":"recorrente","date":"2020-04-15"},
-    {"id": 101, "description":"Telefone",              "amount":"99.99", "type":"saída","frequency":"recorrente","date":"2020-04-23"},
-    {"id": 102, "description":"Plano de Saúde",        "amount":"300.00","type":"saída","frequency":"recorrente","date":"2020-04-23"},
-    {"id": 103, "description":"Compras do mês",        "amount":"600.00","type":"saída","frequency":"recorrente","date":"2020-04-25"},
-    {"id": 104, "description":"Parcela do Celular 3/5","amount":"150.99","type":"saída","frequency":"eventual",  "date":"2020-04-26"},
-    {"id": 105, "description":"Ebook de React Js",     "amount":"85.95", "type":"saída","frequency":"eventual",  "date":"2020-04-13"},
-    {"id": 106, "description":"Energia elétrica",      "amount":"325.55","type":"saída","frequency":"recorrente","date":"2020-05-10"},
-    {"id": 107, "description":"Água",                  "amount":"190.15", "type":"saída","frequency":"recorrente","date":"2020-05-15"},
-    {"id": 108, "description":"Telefone",              "amount":"99.99", "type":"saída","frequency":"recorrente","date":"2020-05-23"},
-    {"id": 109, "description":"Plano de Saúde",        "amount":"300.00","type":"saída","frequency":"recorrente","date":"2020-05-23"},
-    {"id": 110, "description":"Compras do mês",        "amount":"540.00","type":"saída","frequency":"recorrente","date":"2020-05-25"},
-    {"id": 111, "description":"Parcela do Celular 4/5","amount":"150.99","type":"saída","frequency":"eventual",  "date":"2020-05-26"},
-    {"id": 112, "description":"Blusa Iron Man",        "amount":"150.00","type":"saída","frequency":"eventual",  "date":"2020-01-23"},
-    {"id": 113, "description":"Energia elétrica",      "amount":"200.00","type":"saída","frequency":"recorrente","date":"2020-06-10"},
-    {"id": 114, "description": "Salário",      "amount": "2500.15", "type": "entrada", "frequency": "recorrente", "date": "2021-12-10" }, 
-    {"id": 115, "description": "Salário",      "amount": "2500.12", "type": "entrada", "frequency": "recorrente", "date": "2021-11-10" }, 
-    {"id": 116, "description": "Salário",      "amount": "1300.52", "type": "entrada", "frequency": "recorrente", "date": "2020-08-10" }, 
-    {"id": 117, "description":"Água",                  "amount":"111.00","type":"saída","frequency":"recorrente","date":"2020-06-15"},
-    {"id": 118, "description":"Telefone",              "amount":"99.99", "type":"saída","frequency":"recorrente","date":"2020-06-23"},
-    {"id": 119, "description":"Plano de Saúde",        "amount":"300.00","type":"saída","frequency":"recorrente","date":"2020-06-23"},
-    {"id": 120, "description":"Compras do mês",        "amount":"559.15","type":"saída","frequency":"recorrente","date":"2020-06-25"},
-    {"id": 121, "description":"Parcela do Celular 5/5","amount":"150.99","type":"saída","frequency":"eventual",  "date":"2020-06-26"},
-    {"id": 122, "description":"Perfume",               "amount":"250.00","type":"saída","frequency":"eventual",  "date":"2020-06-21"},
-    {"id": 123, "description":"Energia elétrica",      "amount":"350.00","type":"saída","frequency":"recorrente","date":"2020-07-10"},
-    {"id": 124, "description":"Água",                  "amount":"191.00", "type":"saída","frequency":"recorrente","date":"2020-07-15"},
-    {"id": 125, "description": "Freela",       "amount": "150.13",  "type": "entrada", "frequency": "eventual",   "date": "2020-08-17" }, 
-    {"id": 126, "description": "Salário",      "amount": "7500.23", "type": "entrada", "frequency": "recorrente", "date": "2020-09-10" }, 
-    {"id": 127, "description": "Freela site",  "amount": "11900.23", "type": "entrada", "frequency": "eventual",  "date": "2020-09-21" }, 
-    {"id": 128, "description":"Telefone",              "amount":"99.99", "type":"saída","frequency":"recorrente","date":"2020-07-23"},
-    {"id": 129, "description":"Plano de Saúde",        "amount":"300.00","type":"saída","frequency":"recorrente","date":"2020-07-23"},
-    {"id": 130, "description":"Compras do mês",        "amount":"700.00","type":"saída","frequency":"recorrente","date":"2020-07-25"},
-    {"id": 131, "description":"Cafeteira",             "amount":"250.00","type":"saída","frequency":"eventual",  "date":"2020-07-26"},
-    {"id": 132, "description":"Pizza",                 "amount":"60.00", "type":"saída","frequency":"eventual",  "date":"2020-07-19"},
-    {"id": 133, "description":"Água",                  "amount":"219.15", "type":"saída","frequency":"recorrente","date":"2020-08-15"},
-    {"id": 134, "description":"Telefone",              "amount":"99.99", "type":"saída","frequency":"recorrente","date":"2020-08-23"},
-    {"id": 135, "description":"Plano de Saúde",        "amount":"300.00","type":"saída","frequency":"recorrente","date":"2020-08-23"},
-    {"id": 136, "description":"Compras do mês",        "amount":"540.00","type":"saída","frequency":"recorrente","date":"2020-08-25"},
-    {"id": 137, "description":"Parcela do Celular 1/5","amount":"150.99","type":"saída","frequency":"eventual",  "date":"2020-08-26"},
-    {"id": 138, "description":"Cinema",                "amount":"45.00", "type":"saída","frequency":"eventual",  "date":"2020-08-23"},
-    {"id": 139, "description":"Energia elétrica",      "amount":"497.00", "type":"saída","frequency":"recorrente","date":"2020-09-10"},
-    {"id": 140, "description":"Água",                  "amount":"200.10","type":"saída","frequency":"recorrente","date":"2020-09-15"},
-    {"id": 141, "description": "Freela app",   "amount": "12200.92", "type": "entrada", "frequency": "eventual",  "date": "2020-09-23" }, 
-    {"id": 142, "description": "Salário",      "amount": "5300", "type": "entrada", "frequency": "recorrente", "date": "2020-10-10" }, 
-    {"id": 143, "description":"Telefone",              "amount":"99.99", "type":"saída","frequency":"recorrente","date":"2021-09-23"},
-    {"id": 144, "description":"Plano de Saúde",        "amount":"300.00","type":"saída","frequency":"recorrente","date":"2021-09-23"},
-    {"id": 145, "description":"Compras do mês",        "amount":"800.50","type":"saída","frequency":"recorrente","date":"2021-09-17"},
-    {"id": 146, "description":"Parcela do Celular 2/5","amount":"150.99","type":"saída","frequency":"eventual",  "date":"2021-09-18"},
-    {"id": 147, "description":"Troca de Oléo do carro","amount":"90.00", "type":"saída","frequency":"eventual",  "date":"2021-09-23"},
-    {"id": 148, "description":"Energia elétrica",      "amount":"275.99", "type":"saída","frequency":"recorrente","date":"2021-10-10"},
-    {"id": 149, "description":"Água",                  "amount":"380.33", "type":"saída","frequency":"recorrente","date":"2021-10-15"},
-    {"id": 150, "description":"Telefone",              "amount":"99.99", "type":"saída","frequency":"recorrente","date":"2021-10-23"},
-    {"id": 151, "description":"Plano de Saúde",        "amount":"300.00","type":"saída","frequency":"recorrente","date":"2021-10-23"},
-    {"id": 152, "description":"Compras do mês",        "amount":"600.00","type":"saída","frequency":"recorrente","date":"2021-10-25"},
-    {"id": 153, "description":"Parcela do Celular 3/5","amount":"150.99","type":"saída","frequency":"eventual",  "date":"2021-10-26"},
-    {"id": 154, "description":"Ebook de React Js",     "amount":"85.95", "type":"saída","frequency":"eventual",  "date":"2021-10-13"},
-    {"id": 155, "description":"Energia elétrica",      "amount":"725.55","type":"saída","frequency":"recorrente","date":"2021-11-10"},
-    {"id": 156, "description":"Água",                  "amount":"390.15", "type":"saída","frequency":"recorrente","date":"2021-11-15"},
-    {"id": 157, "description":"Telefone",              "amount":"99.99", "type":"saída","frequency":"recorrente","date":"2021-11-23"},
-    {"id": 158, "description":"Plano de Saúde",        "amount":"300.00","type":"saída","frequency":"recorrente","date":"2021-11-23"},
-    {"id": 159, "description":"Compras do mês",        "amount":"744.15","type":"saída","frequency":"recorrente","date":"2021-11-25"},
-    {"id": 160, "description": "Salário",      "amount": "8500.18", "type": "entrada", "frequency": "recorrente", "date": "2020-11-10" }, 
-    {"id": 161, "description": "Salário",      "amount": "25000.15", "type": "entrada", "frequency": "recorrente", "date": "2020-12-10" },     
-    {"id": 162, "description":"Parcela do Celular 4/5","amount":"150.99","type":"saída","frequency":"eventual",  "date":"2021-11-26"},
-    {"id": 163, "description":"Blusa Iron Man",        "amount":"150.00","type":"saída","frequency":"eventual",  "date":"2021-01-23"},
-    {"id": 164, "description":"Energia elétrica",      "amount":"600.11","type":"saída","frequency":"recorrente","date":"2021-12-10"},
-    {"id": 165, "description":"Água",                  "amount":"450.00","type":"saída","frequency":"recorrente","date":"2021-12-15"},
-    {"id": 166, "description":"Telefone",              "amount":"99.99", "type":"saída","frequency":"recorrente","date":"2021-12-23"},
-    {"id": 167, "description":"Plano de Saúde",        "amount":"300.00","type":"saída","frequency":"recorrente","date":"2021-12-23"},
-    {"id": 168, "description":"Compras do mês",        "amount":"659.15","type":"saída","frequency":"recorrente","date":"2021-12-25"},
-    {"id": 169, "description":"Parcela do Celular 5/5","amount":"150.99","type":"saída","frequency":"eventual",  "date":"2021-12-26"},
-    {"id": 170, "description":"Perfume",               "amount":"250.00","type":"saída","frequency":"eventual",  "date":"2021-12-21"},
-    {"id": 171, "description":"Pizza",                 "amount":"750.01", "type":"saída","frequency":"eventual",  "date":"2020-07-19"},
-    {"id": 172, "description": "Salário",      "amount": "12000.12", "type": "entrada", "frequency": "recorrente", "date": "2020-11-10" }, 
-    {"id": 173, "description": "Salário",      "amount": "9700.00", "type": "entrada", "frequency": "recorrente", "date": "2019-11-10" }
-  ]  
+    {
+      "id": 1,
+      "description": "Energia elétrica",
+      "amount": "411.55",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2021-01-10"
+    },
+    {
+      "id": 2,
+      "description": "Corte de cabelo",
+      "amount": "45.31",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2021-01-11"
+    },
+    {
+      "id": 3,
+      "description": "Água",
+      "amount": "175.55",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2021-01-15"
+    },
+    {
+      "id": 4,
+      "description": "Telefone",
+      "amount": "99.99",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2021-01-23"
+    },
+    {
+      "id": 5,
+      "description": "Plano de Saúde",
+      "amount": "300.00",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2021-01-23"
+    },
+    {
+      "id": 6,
+      "description": "Compras do mês",
+      "amount": "625.78",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2021-01-23"
+    },
+    {
+      "id": 7,
+      "description": "Lanche",
+      "amount": "45.70",
+      "type": "saída",
+      "frequency": "eventual",
+      "date": "2021-01-23"
+    },
+    {
+      "id": 8,
+      "description": "Blusa",
+      "amount": "95.70",
+      "type": "saída",
+      "frequency": "eventual",
+      "date": "2021-01-23"
+    },
+    {
+      "id": 9,
+      "description": "Energia elétrica",
+      "amount": "225.55",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2021-02-10"
+    },
+    {
+      "id": 10,
+      "description": "Água",
+      "amount": "190.15",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2021-02-15"
+    },
+    {
+      "id": 11,
+      "description": "Telefone",
+      "amount": "99.99",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2021-02-23"
+    },
+    {
+      "id": 12,
+      "description": "Plano de Saúde",
+      "amount": "300.00",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2021-02-23"
+    },
+    {
+      "id": 13,
+      "description": "Compras do mês",
+      "amount": "540.00",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2021-02-25"
+    },
+    {
+      "id": 14,
+      "description": "Parcela do Celular 1/5",
+      "amount": "150.99",
+      "type": "saída",
+      "frequency": "eventual",
+      "date": "2021-02-26"
+    },
+    {
+      "id": 15,
+      "description": "Cinema",
+      "amount": "45.00",
+      "type": "saída",
+      "frequency": "eventual",
+      "date": "2021-02-23"
+    },
+    {
+      "id": 16,
+      "description": "Energia elétrica",
+      "amount": "397.00",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2021-03-10"
+    },
+    {
+      "id": 17,
+      "description": "Salário",
+      "amount": "11300.52",
+      "type": "entrada",
+      "frequency": "recorrente",
+      "date": "2021-01-10"
+    },
+    {
+      "id": 18,
+      "description": "Freela",
+      "amount": "150.13",
+      "type": "entrada",
+      "frequency": "eventual",
+      "date": "2021-01-17"
+    },
+    {
+      "id": 19,
+      "description": "Salário",
+      "amount": "8500.23",
+      "type": "entrada",
+      "frequency": "recorrente",
+      "date": "2021-02-10"
+    },
+    {
+      "id": 20,
+      "description": "Freela site",
+      "amount": "10900.23",
+      "type": "entrada",
+      "frequency": "eventual",
+      "date": "2021-02-21"
+    },
+    {
+      "id": 21,
+      "description": "Freela app",
+      "amount": "950.92",
+      "type": "entrada",
+      "frequency": "eventual",
+      "date": "2021-02-23"
+    },
+    {
+      "id": 22,
+      "description": "Água",
+      "amount": "200.10",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2021-03-15"
+    },
+    {
+      "id": 23,
+      "description": "Telefone",
+      "amount": "99.99",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2021-03-23"
+    },
+    {
+      "id": 24,
+      "description": "Plano de Saúde",
+      "amount": "300.00",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2021-03-23"
+    },
+    {
+      "id": 25,
+      "description": "Compras do mês",
+      "amount": "800.50",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2021-03-17"
+    },
+    {
+      "id": 26,
+      "description": "Parcela do Celular 2/5",
+      "amount": "150.99",
+      "type": "saída",
+      "frequency": "eventual",
+      "date": "2021-03-18"
+    },
+    {
+      "id": 27,
+      "description": "Troca de Oléo do carro",
+      "amount": "90.00",
+      "type": "saída",
+      "frequency": "eventual",
+      "date": "2021-03-23"
+    },
+    {
+      "id": 28,
+      "description": "Energia elétrica",
+      "amount": "375.99",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2021-04-10"
+    },
+    {
+      "id": 29,
+      "description": "Água",
+      "amount": "280.33",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2021-04-15"
+    },
+    {
+      "id": 30,
+      "description": "Telefone",
+      "amount": "99.99",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2021-04-23"
+    },
+    {
+      "id": 31,
+      "description": "Plano de Saúde",
+      "amount": "300.00",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2021-04-23"
+    },
+    {
+      "id": 32,
+      "description": "Compras do mês",
+      "amount": "600.00",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2021-04-25"
+    },
+    {
+      "id": 33,
+      "description": "Parcela do Celular 3/5",
+      "amount": "150.99",
+      "type": "saída",
+      "frequency": "eventual",
+      "date": "2021-04-26"
+    },
+    {
+      "id": 34,
+      "description": "Salário",
+      "amount": "2500.25",
+      "type": "entrada",
+      "frequency": "recorrente",
+      "date": "2021-03-10"
+    },
+    {
+      "id": 35,
+      "description": "Salário",
+      "amount": "2500.18",
+      "type": "entrada",
+      "frequency": "recorrente",
+      "date": "2021-04-10"
+    },
+    {
+      "id": 36,
+      "description": "Salário",
+      "amount": "2500.15",
+      "type": "entrada",
+      "frequency": "recorrente",
+      "date": "2021-05-10"
+    },
+    {
+      "id": 37,
+      "description": "Plano de Saúde",
+      "amount": "300.00",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2021-05-23"
+    },
+    {
+      "id": 38,
+      "description": "Compras do mês",
+      "amount": "540.00",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2021-05-25"
+    },
+    {
+      "id": 39,
+      "description": "Parcela do Celular 4/5",
+      "amount": "150.99",
+      "type": "saída",
+      "frequency": "eventual",
+      "date": "2021-05-26"
+    },
+    {
+      "id": 40,
+      "description": "Salário",
+      "amount": "2500.12",
+      "type": "entrada",
+      "frequency": "recorrente",
+      "date": "2021-06-10"
+    },
+    {
+      "id": 41,
+      "description": "Salário",
+      "amount": "1300.52",
+      "type": "entrada",
+      "frequency": "recorrente",
+      "date": "2020-01-10"
+    },
+    {
+      "id": 42,
+      "description": "Freela",
+      "amount": "150.13",
+      "type": "entrada",
+      "frequency": "eventual",
+      "date": "2020-01-17"
+    },
+    {
+      "id": 43,
+      "description": "Salário",
+      "amount": "5500.23",
+      "type": "entrada",
+      "frequency": "recorrente",
+      "date": "2020-02-10"
+    },
+    {
+      "id": 44,
+      "description": "Freela site",
+      "amount": "13900.23",
+      "type": "entrada",
+      "frequency": "eventual",
+      "date": "2020-02-21"
+    },
+    {
+      "id": 45,
+      "description": "Freela app",
+      "amount": "33810.92",
+      "type": "entrada",
+      "frequency": "eventual",
+      "date": "2020-02-23"
+    },
+    {
+      "id": 46,
+      "description": "Salário",
+      "amount": "2500.25",
+      "type": "entrada",
+      "frequency": "recorrente",
+      "date": "2020-03-10"
+    },
+    {
+      "id": 47,
+      "description": "Ebook de React Js",
+      "amount": "85.95",
+      "type": "saída",
+      "frequency": "eventual",
+      "date": "2021-04-13"
+    },
+    {
+      "id": 48,
+      "description": "Energia elétrica",
+      "amount": "525.55",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2021-05-10"
+    },
+    {
+      "id": 49,
+      "description": "Água",
+      "amount": "390.15",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2021-05-15"
+    },
+    {
+      "id": 50,
+      "description": "Telefone",
+      "amount": "99.99",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2021-05-23"
+    },
+    {
+      "id": 51,
+      "description": "Blusa Iron Man",
+      "amount": "150.00",
+      "type": "saída",
+      "frequency": "eventual",
+      "date": "2021-01-23"
+    },
+    {
+      "id": 52,
+      "description": "Energia elétrica",
+      "amount": "200.00",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2021-06-10"
+    },
+    {
+      "id": 53,
+      "description": "Água",
+      "amount": "550.00",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2021-06-15"
+    },
+    {
+      "id": 54,
+      "description": "Telefone",
+      "amount": "99.99",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2021-06-23"
+    },
+    {
+      "id": 55,
+      "description": "Plano de Saúde",
+      "amount": "300.00",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2021-06-23"
+    },
+    {
+      "id": 56,
+      "description": "Compras do mês",
+      "amount": "559.15",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2021-06-25"
+    },
+    {
+      "id": 57,
+      "description": "Parcela do Celular 5/5",
+      "amount": "150.99",
+      "type": "saída",
+      "frequency": "eventual",
+      "date": "2021-06-26"
+    },
+    {
+      "id": 58,
+      "description": "Perfume",
+      "amount": "250.00",
+      "type": "saída",
+      "frequency": "eventual",
+      "date": "2021-06-21"
+    },
+    {
+      "id": 59,
+      "description": "Energia elétrica",
+      "amount": "250.00",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2021-07-10"
+    },
+    {
+      "id": 60,
+      "description": "Água",
+      "amount": "690.00",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2021-07-15"
+    },
+    {
+      "id": 61,
+      "description": "Telefone",
+      "amount": "99.99",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2021-07-23"
+    },
+    {
+      "id": 62,
+      "description": "Plano de Saúde",
+      "amount": "300.00",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2021-07-23"
+    },
+    {
+      "id": 63,
+      "description": "Compras do mês",
+      "amount": "700.00",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2021-07-25"
+    },
+    {
+      "id": 64,
+      "description": "Cafeteira",
+      "amount": "250.00",
+      "type": "saída",
+      "frequency": "eventual",
+      "date": "2021-07-26"
+    },
+    {
+      "id": 65,
+      "description": "Pizza",
+      "amount": "60.00",
+      "type": "saída",
+      "frequency": "eventual",
+      "date": "2021-07-19"
+    },
+    {
+      "id": 66,
+      "description": "Energia elétrica",
+      "amount": "150.55",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2020-01-10"
+    },
+    {
+      "id": 67,
+      "description": "Água",
+      "amount": "775.55",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2020-01-15"
+    },
+    {
+      "id": 68,
+      "description": "Telefone",
+      "amount": "99.99",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2020-01-23"
+    },
+    {
+      "id": 69,
+      "description": "Plano de Saúde",
+      "amount": "300.00",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2020-01-23"
+    },
+    {
+      "id": 70,
+      "description": "Compras do mês",
+      "amount": "625.78",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2020-01-23"
+    },
+    {
+      "id": 71,
+      "description": "Lanche",
+      "amount": "45.70",
+      "type": "saída",
+      "frequency": "eventual",
+      "date": "2020-01-23"
+    },
+    {
+      "id": 72,
+      "description": "Blusa",
+      "amount": "95.70",
+      "type": "saída",
+      "frequency": "eventual",
+      "date": "2020-01-23"
+    },
+    {
+      "id": 73,
+      "description": "Energia elétrica",
+      "amount": "552",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2020-02-10"
+    },
+    {
+      "id": 74,
+      "description": "Água",
+      "amount": "890.15",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2020-02-15"
+    },
+    {
+      "id": 75,
+      "description": "Telefone",
+      "amount": "99.99",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2020-02-23"
+    },
+    {
+      "id": 76,
+      "description": "Salário",
+      "amount": "6500.23",
+      "type": "entrada",
+      "frequency": "recorrente",
+      "date": "2021-09-10"
+    },
+    {
+      "id": 77,
+      "description": "Freela site",
+      "amount": "11750.23",
+      "type": "entrada",
+      "frequency": "eventual",
+      "date": "2021-09-21"
+    },
+    {
+      "id": 78,
+      "description": "Freela app",
+      "amount": "14050.92",
+      "type": "entrada",
+      "frequency": "eventual",
+      "date": "2021-09-23"
+    },
+    {
+      "id": 79,
+      "description": "Salário",
+      "amount": "2500.25",
+      "type": "entrada",
+      "frequency": "recorrente",
+      "date": "2021-10-10"
+    },
+    {
+      "id": 80,
+      "description": "Salário",
+      "amount": "2500.18",
+      "type": "entrada",
+      "frequency": "recorrente",
+      "date": "2021-11-10"
+    },
+    {
+      "id": 81,
+      "description": "Plano de Saúde",
+      "amount": "300.00",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2020-02-23"
+    },
+    {
+      "id": 82,
+      "description": "Compras do mês",
+      "amount": "540.00",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2020-02-25"
+    },
+    {
+      "id": 83,
+      "description": "Parcela do Celular 1/5",
+      "amount": "150.99",
+      "type": "saída",
+      "frequency": "eventual",
+      "date": "2020-02-26"
+    },
+    {
+      "id": 84,
+      "description": "Cinema",
+      "amount": "45.00",
+      "type": "saída",
+      "frequency": "eventual",
+      "date": "2020-02-23"
+    },
+    {
+      "id": 85,
+      "description": "Energia elétrica",
+      "amount": "97.00",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2020-03-10"
+    },
+    {
+      "id": 86,
+      "description": "Água",
+      "amount": "900.10",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2020-03-15"
+    },
+    {
+      "id": 87,
+      "description": "Telefone",
+      "amount": "99.99",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2020-03-23"
+    },
+    {
+      "id": 88,
+      "description": "Plano de Saúde",
+      "amount": "300.00",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2020-03-23"
+    },
+    {
+      "id": 89,
+      "description": "Compras do mês",
+      "amount": "800.50",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2020-03-17"
+    },
+    {
+      "id": 90,
+      "description": "Parcela do Celular 2/5",
+      "amount": "150.99",
+      "type": "saída",
+      "frequency": "eventual",
+      "date": "2020-03-18"
+    },
+    {
+      "id": 91,
+      "description": "Troca de Oléo do carro",
+      "amount": "90.00",
+      "type": "saída",
+      "frequency": "eventual",
+      "date": "2020-03-23"
+    },
+    {
+      "id": 92,
+      "description": "Energia elétrica",
+      "amount": "375.99",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2020-04-10"
+    },
+    {
+      "id": 93,
+      "description": "Salário",
+      "amount": "2500.18",
+      "type": "entrada",
+      "frequency": "recorrente",
+      "date": "2020-04-10"
+    },
+    {
+      "id": 94,
+      "description": "Salário",
+      "amount": "2500.15",
+      "type": "entrada",
+      "frequency": "recorrente",
+      "date": "2020-05-10"
+    },
+    {
+      "id": 95,
+      "description": "Salário",
+      "amount": "2500.12",
+      "type": "entrada",
+      "frequency": "recorrente",
+      "date": "2020-06-10"
+    },
+    {
+      "id": 96,
+      "description": "Salário",
+      "amount": "2500.00",
+      "type": "entrada",
+      "frequency": "recorrente",
+      "date": "2019-07-10"
+    },
+    {
+      "id": 97,
+      "description": "Salário",
+      "amount": "1500.00",
+      "type": "entrada",
+      "frequency": "eventual",
+      "date": "2019-07-10"
+    },
+    {
+      "id": 98,
+      "description": "Salário",
+      "amount": "1300.52",
+      "type": "entrada",
+      "frequency": "recorrente",
+      "date": "2021-08-10"
+    },
+    {
+      "id": 99,
+      "description": "Freela",
+      "amount": "150.13",
+      "type": "entrada",
+      "frequency": "eventual",
+      "date": "2021-08-17"
+    },
+    {
+      "id": 100,
+      "description": "Água",
+      "amount": "1080.33",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2020-04-15"
+    },
+    {
+      "id": 101,
+      "description": "Telefone",
+      "amount": "99.99",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2020-04-23"
+    },
+    {
+      "id": 102,
+      "description": "Plano de Saúde",
+      "amount": "300.00",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2020-04-23"
+    },
+    {
+      "id": 103,
+      "description": "Compras do mês",
+      "amount": "600.00",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2020-04-25"
+    },
+    {
+      "id": 104,
+      "description": "Parcela do Celular 3/5",
+      "amount": "150.99",
+      "type": "saída",
+      "frequency": "eventual",
+      "date": "2020-04-26"
+    },
+    {
+      "id": 105,
+      "description": "Ebook de React Js",
+      "amount": "85.95",
+      "type": "saída",
+      "frequency": "eventual",
+      "date": "2020-04-13"
+    },
+    {
+      "id": 106,
+      "description": "Energia elétrica",
+      "amount": "325.55",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2020-05-10"
+    },
+    {
+      "id": 107,
+      "description": "Água",
+      "amount": "190.15",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2020-05-15"
+    },
+    {
+      "id": 108,
+      "description": "Telefone",
+      "amount": "99.99",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2020-05-23"
+    },
+    {
+      "id": 109,
+      "description": "Plano de Saúde",
+      "amount": "300.00",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2020-05-23"
+    },
+    {
+      "id": 110,
+      "description": "Compras do mês",
+      "amount": "540.00",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2020-05-25"
+    },
+    {
+      "id": 111,
+      "description": "Parcela do Celular 4/5",
+      "amount": "150.99",
+      "type": "saída",
+      "frequency": "eventual",
+      "date": "2020-05-26"
+    },
+    {
+      "id": 112,
+      "description": "Blusa Iron Man",
+      "amount": "150.00",
+      "type": "saída",
+      "frequency": "eventual",
+      "date": "2020-01-23"
+    },
+    {
+      "id": 113,
+      "description": "Energia elétrica",
+      "amount": "200.00",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2020-06-10"
+    },
+    {
+      "id": 114,
+      "description": "Salário",
+      "amount": "2500.15",
+      "type": "entrada",
+      "frequency": "recorrente",
+      "date": "2021-12-10"
+    },
+    {
+      "id": 115,
+      "description": "Salário",
+      "amount": "2500.12",
+      "type": "entrada",
+      "frequency": "recorrente",
+      "date": "2021-11-10"
+    },
+    {
+      "id": 116,
+      "description": "Salário",
+      "amount": "1300.52",
+      "type": "entrada",
+      "frequency": "recorrente",
+      "date": "2020-08-10"
+    },
+    {
+      "id": 117,
+      "description": "Água",
+      "amount": "111.00",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2020-06-15"
+    },
+    {
+      "id": 118,
+      "description": "Telefone",
+      "amount": "99.99",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2020-06-23"
+    },
+    {
+      "id": 119,
+      "description": "Plano de Saúde",
+      "amount": "300.00",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2020-06-23"
+    },
+    {
+      "id": 120,
+      "description": "Compras do mês",
+      "amount": "559.15",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2020-06-25"
+    },
+    {
+      "id": 121,
+      "description": "Parcela do Celular 5/5",
+      "amount": "150.99",
+      "type": "saída",
+      "frequency": "eventual",
+      "date": "2020-06-26"
+    },
+    {
+      "id": 122,
+      "description": "Perfume",
+      "amount": "250.00",
+      "type": "saída",
+      "frequency": "eventual",
+      "date": "2020-06-21"
+    },
+    {
+      "id": 123,
+      "description": "Energia elétrica",
+      "amount": "350.00",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2020-07-10"
+    },
+    {
+      "id": 124,
+      "description": "Água",
+      "amount": "191.00",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2020-07-15"
+    },
+    {
+      "id": 125,
+      "description": "Freela",
+      "amount": "150.13",
+      "type": "entrada",
+      "frequency": "eventual",
+      "date": "2020-08-17"
+    },
+    {
+      "id": 126,
+      "description": "Salário",
+      "amount": "7500.23",
+      "type": "entrada",
+      "frequency": "recorrente",
+      "date": "2020-09-10"
+    },
+    {
+      "id": 127,
+      "description": "Freela site",
+      "amount": "11900.23",
+      "type": "entrada",
+      "frequency": "eventual",
+      "date": "2020-09-21"
+    },
+    {
+      "id": 128,
+      "description": "Telefone",
+      "amount": "99.99",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2020-07-23"
+    },
+    {
+      "id": 129,
+      "description": "Plano de Saúde",
+      "amount": "300.00",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2020-07-23"
+    },
+    {
+      "id": 130,
+      "description": "Compras do mês",
+      "amount": "700.00",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2020-07-25"
+    },
+    {
+      "id": 131,
+      "description": "Cafeteira",
+      "amount": "250.00",
+      "type": "saída",
+      "frequency": "eventual",
+      "date": "2020-07-26"
+    },
+    {
+      "id": 132,
+      "description": "Pizza",
+      "amount": "60.00",
+      "type": "saída",
+      "frequency": "eventual",
+      "date": "2020-07-19"
+    },
+    {
+      "id": 133,
+      "description": "Água",
+      "amount": "219.15",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2020-08-15"
+    },
+    {
+      "id": 134,
+      "description": "Telefone",
+      "amount": "99.99",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2020-08-23"
+    },
+    {
+      "id": 135,
+      "description": "Plano de Saúde",
+      "amount": "300.00",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2020-08-23"
+    },
+    {
+      "id": 136,
+      "description": "Compras do mês",
+      "amount": "540.00",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2020-08-25"
+    },
+    {
+      "id": 137,
+      "description": "Parcela do Celular 1/5",
+      "amount": "150.99",
+      "type": "saída",
+      "frequency": "eventual",
+      "date": "2020-08-26"
+    },
+    {
+      "id": 138,
+      "description": "Cinema",
+      "amount": "45.00",
+      "type": "saída",
+      "frequency": "eventual",
+      "date": "2020-08-23"
+    },
+    {
+      "id": 139,
+      "description": "Energia elétrica",
+      "amount": "497.00",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2020-09-10"
+    },
+    {
+      "id": 140,
+      "description": "Água",
+      "amount": "200.10",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2020-09-15"
+    },
+    {
+      "id": 141,
+      "description": "Freela app",
+      "amount": "12200.92",
+      "type": "entrada",
+      "frequency": "eventual",
+      "date": "2020-09-23"
+    },
+    {
+      "id": 142,
+      "description": "Salário",
+      "amount": "5300",
+      "type": "entrada",
+      "frequency": "recorrente",
+      "date": "2020-10-10"
+    },
+    {
+      "id": 143,
+      "description": "Telefone",
+      "amount": "99.99",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2021-09-23"
+    },
+    {
+      "id": 144,
+      "description": "Plano de Saúde",
+      "amount": "300.00",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2021-09-23"
+    },
+    {
+      "id": 145,
+      "description": "Compras do mês",
+      "amount": "800.50",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2021-09-17"
+    },
+    {
+      "id": 146,
+      "description": "Parcela do Celular 2/5",
+      "amount": "150.99",
+      "type": "saída",
+      "frequency": "eventual",
+      "date": "2021-09-18"
+    },
+    {
+      "id": 147,
+      "description": "Troca de Oléo do carro",
+      "amount": "90.00",
+      "type": "saída",
+      "frequency": "eventual",
+      "date": "2021-09-23"
+    },
+    {
+      "id": 148,
+      "description": "Energia elétrica",
+      "amount": "275.99",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2021-10-10"
+    },
+    {
+      "id": 149,
+      "description": "Água",
+      "amount": "380.33",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2021-10-15"
+    },
+    {
+      "id": 150,
+      "description": "Telefone",
+      "amount": "99.99",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2021-10-23"
+    },
+    {
+      "id": 151,
+      "description": "Plano de Saúde",
+      "amount": "300.00",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2021-10-23"
+    },
+    {
+      "id": 152,
+      "description": "Compras do mês",
+      "amount": "600.00",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2021-10-25"
+    },
+    {
+      "id": 153,
+      "description": "Parcela do Celular 3/5",
+      "amount": "150.99",
+      "type": "saída",
+      "frequency": "eventual",
+      "date": "2021-10-26"
+    },
+    {
+      "id": 154,
+      "description": "Ebook de React Js",
+      "amount": "85.95",
+      "type": "saída",
+      "frequency": "eventual",
+      "date": "2021-10-13"
+    },
+    {
+      "id": 155,
+      "description": "Energia elétrica",
+      "amount": "725.55",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2021-11-10"
+    },
+    {
+      "id": 156,
+      "description": "Água",
+      "amount": "390.15",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2021-11-15"
+    },
+    {
+      "id": 157,
+      "description": "Telefone",
+      "amount": "99.99",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2021-11-23"
+    },
+    {
+      "id": 158,
+      "description": "Plano de Saúde",
+      "amount": "300.00",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2021-11-23"
+    },
+    {
+      "id": 159,
+      "description": "Compras do mês",
+      "amount": "744.15",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2021-11-25"
+    },
+    {
+      "id": 160,
+      "description": "Salário",
+      "amount": "8500.18",
+      "type": "entrada",
+      "frequency": "recorrente",
+      "date": "2020-11-10"
+    },
+    {
+      "id": 161,
+      "description": "Salário",
+      "amount": "25000.15",
+      "type": "entrada",
+      "frequency": "recorrente",
+      "date": "2020-12-10"
+    },
+    {
+      "id": 162,
+      "description": "Parcela do Celular 4/5",
+      "amount": "150.99",
+      "type": "saída",
+      "frequency": "eventual",
+      "date": "2021-11-26"
+    },
+    {
+      "id": 163,
+      "description": "Blusa Iron Man",
+      "amount": "150.00",
+      "type": "saída",
+      "frequency": "eventual",
+      "date": "2021-01-23"
+    },
+    {
+      "id": 164,
+      "description": "Energia elétrica",
+      "amount": "600.11",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2021-12-10"
+    },
+    {
+      "id": 165,
+      "description": "Água",
+      "amount": "450.00",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2021-12-15"
+    },
+    {
+      "id": 166,
+      "description": "Telefone",
+      "amount": "99.99",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2021-12-23"
+    },
+    {
+      "id": 167,
+      "description": "Plano de Saúde",
+      "amount": "300.00",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2021-12-23"
+    },
+    {
+      "id": 168,
+      "description": "Compras do mês",
+      "amount": "659.15",
+      "type": "saída",
+      "frequency": "recorrente",
+      "date": "2021-12-25"
+    },
+    {
+      "id": 169,
+      "description": "Parcela do Celular 5/5",
+      "amount": "150.99",
+      "type": "saída",
+      "frequency": "eventual",
+      "date": "2021-12-26"
+    },
+    {
+      "id": 170,
+      "description": "Perfume",
+      "amount": "250.00",
+      "type": "saída",
+      "frequency": "eventual",
+      "date": "2021-12-21"
+    },
+    {
+      "id": 171,
+      "description": "Pizza",
+      "amount": "750.01",
+      "type": "saída",
+      "frequency": "eventual",
+      "date": "2020-07-19"
+    },
+    {
+      "id": 172,
+      "description": "Salário",
+      "amount": "12000.12",
+      "type": "entrada",
+      "frequency": "recorrente",
+      "date": "2020-11-10"
+    },
+    {
+      "id": 173,
+      "description": "Salário",
+      "amount": "9700.00",
+      "type": "entrada",
+      "frequency": "recorrente",
+      "date": "2019-11-10"
+    }
+  ]
 }
