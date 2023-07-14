@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Container } from "./styles";
 
 interface Props {
@@ -38,8 +37,6 @@ const InputMoney: React.FC<Props> = ({
     onChange,
     onBlur
 }) => {
-    const [currencyValue, setCurrencyValue] = useState<string>(value);
-
     const convertToAmericanNumberSystem = (val: string) => {
         let newValue: string = val.replace(/\D/g,'');
         newValue = (Number(newValue)/100).toFixed(2) + '';
@@ -66,7 +63,8 @@ const InputMoney: React.FC<Props> = ({
         // newValue = newValue.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
         // val = newValue;
 
-        return setCurrencyValue(newValue);
+        // setCurrencyValue(newValue);
+        return newValue
     }
 
     // const formatMoney = (val: string) => {
@@ -76,12 +74,10 @@ const InputMoney: React.FC<Props> = ({
     //     valor = String(parseInt(valor.replace(/[\D]+/g,'')));
     //     valor = valor + '';
     //     valor = valor.replace(/([0-9]{2})$/g, ",$1");
-      
     //     if (valor.length > 6) {
     //       valor = valor.replace(/([0-9]{3}),([0-9]{2}$)/g, ".$1,$2");
     //     }
-      
-    //     return setCurrencyValue(valor);
+    //     return valor;
     // }
 
     // const formatMoney = (val: string) => {
@@ -93,15 +89,13 @@ const InputMoney: React.FC<Props> = ({
     //     valor=valor.replace(/(\d{1})(\d{8})$/,"$1.$2")  //coloca ponto antes dos últimos 8 dígitos     
     //     valor=valor.replace(/(\d{1})(\d{5})$/,"$1.$2")  //coloca ponto antes dos últimos 5 dígitos                
     //     valor=valor.replace(/(\d{1})(\d{1,2})$/,"$1,$2")    //coloca virgula antes dos últimos 2 dígitos                
-    //     val = valor;   
-      
-    //     return setCurrencyValue(valor);
+    //     val = valor;
+    //     return valor;
     // }
 
     const handleChange = (e: React.ChangeEvent<any>) => {
         // Converte o número puro que vem do evento para um número em formato americano
         const number = convertToAmericanNumberSystem(e.target.value);
-        setCurrencyValue(number || '');
         onChange && onChange({
             ...e,
             target: {
@@ -117,7 +111,7 @@ const InputMoney: React.FC<Props> = ({
         <Container className={className}>
             { label && <label htmlFor={id || name}>{label}</label> }
             <input
-                value={currencyValue == null ? "" : currencyValue}
+                value={formatMoney(value)}
                 id={id || name}
                 name={name}
                 type={"text"}
