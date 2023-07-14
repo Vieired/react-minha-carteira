@@ -6,6 +6,7 @@ import Button from "../../../components/Inputs/Button";
 import ContentHeader from "../../../components/ContentHeader";
 import Input from "../../../components/Inputs/Input";
 import InputMoney from "../../../components/Inputs/InputMoney";
+import InputDateHTML from "../../../components/Inputs/InputDateHTML";
 
 import { Buttons, Container } from "./styles";
 
@@ -111,14 +112,12 @@ const AddBudget: React.FC = () => {
                         : undefined
                     }
                 />
-                <Input
+                <InputDateHTML
+                    label="Data de Nascimento *"
                     id="date"
                     name="date"
-                    label="Data *"
-                    placeholder="Data"
-                    value={formik?.values?.date}
+                    value={formik?.values?.date || ''}
                     onChange={formik?.handleChange}
-                    autoFocus
                     errorText={
                         formik?.touched?.date && formik?.errors?.date
                         ? formik?.errors?.date
