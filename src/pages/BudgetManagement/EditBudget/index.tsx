@@ -1,20 +1,23 @@
+import { useEffect } from "react";
 import { useHistory, useParams } from "react-router-dom";
 import { useFormik } from "formik";
 
+import { useBudget } from "../../../hooks/BudgetContext";
 import { BudgetItem } from "../../../shared/models/Budget";
 import Button from "../../../components/Inputs/Button";
 import ContentHeader from "../../../components/ContentHeader";
 import Input from "../../../components/Inputs/Input";
 import InputMoney from "../../../components/Inputs/InputMoney";
+// import InputDate from "../../../components/Inputs/InputDate";
+import InputDateHTML from "../../../components/Inputs/InputDateHTML";
 
 import { Buttons, Container } from "./styles";
-import { useEffect } from "react";
-import { useBudget } from "../../../hooks/BudgetContext";
 
 const EditBudget: React.FC = () => {
 
     const { push } = useHistory();
     const { id } = useParams<BudgetItem>();
+    // const [selectedDate, setSelectedDate] = useState<string|undefined>(undefined);
     const {
         budgetItemEditing,
         getBudgetItemById,
@@ -35,6 +38,16 @@ const EditBudget: React.FC = () => {
     const handleCancelClick = () => {
         push('/budget')
     }
+
+    // const handleSelected = (date: Date) => {
+    //     const dateStr = date.toISOString();
+    //     setSelectedDate(dateStr);
+    // }
+    // const handleDateChange = (fieldName: string, date: Date) => {
+    //     const dateStr = date.toISOString();
+    //     formik.setFieldValue(fieldName, dateStr);
+    //     setSelectedDate(dateStr);
+    // }
 
     useEffect(() => {
         // if(!budgetItemEditing) {
@@ -127,7 +140,19 @@ const EditBudget: React.FC = () => {
                         : undefined
                     }
                 />
-                <Input
+                <InputDateHTML
+                    label="Data de Nascimento *"
+                    id="date"
+                    name="date"
+                    value={formik?.values?.date || ''}
+                    onChange={formik?.handleChange}
+                    errorText={
+                        formik?.touched?.date && formik?.errors?.date
+                        ? formik?.errors?.date
+                        : undefined
+                    }
+                />
+                {/* <Input
                     id="date"
                     name="date"
                     label="Data *"
@@ -140,7 +165,17 @@ const EditBudget: React.FC = () => {
                         ? formik?.errors?.date
                         : undefined
                     }
-                />
+                /> */}
+                {/* <InputDate
+                    id="date"
+                    name="date"
+                    label="Data *"
+                    placeholder="Data"
+                    selected={selectedDate}
+                    onSelect={date => handleSelected(date)}
+                    onChange={date => handleDateChange('dataNascimento', date)}
+                    noDefaultDate               
+                /> */}
                 <Buttons>
                     <Button
                         type="button"
