@@ -15,6 +15,7 @@ interface ITheme {
         primary: string;
         secondary: string;
         tertiary: string;
+        btnTextSecondary: string;
         white: string;
         black: string;
         gray: string;
