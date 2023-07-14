@@ -36,7 +36,7 @@ const AddBudget: React.FC = () => {
     return (
         <Container>
             <ContentHeader
-                title="Cadastro de Orçamentos"
+                title="Cadastrar Orçamento"
                 lineColor="#F7931B"
             />
             <form onSubmit={formik.handleSubmit}>
