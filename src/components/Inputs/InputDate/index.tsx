@@ -1,6 +1,6 @@
-// import DatePicker from "react-datepicker";
-// import { registerLocale, setDefaultLocale } from  "react-datepicker";
-// import ptBR from 'date-fns/locale/pt-BR';
+import DatePicker from "react-datepicker";
+import { registerLocale, setDefaultLocale } from  "react-datepicker";
+import ptBR from 'date-fns/locale/pt-BR';
 
 import { Container } from "./styles";
 
@@ -38,8 +38,8 @@ const InputDate: React.FC<Props> = ({
     onChange,
     onBlur
 }) => {
-    // registerLocale('pt-BR', ptBR);
-    // setDefaultLocale('pt-BR');
+    registerLocale('pt-BR', ptBR);
+    setDefaultLocale('pt-BR');
 
     function handleDateValue(date: string | undefined) {
         if (!date) return null;
@@ -64,7 +64,7 @@ const InputDate: React.FC<Props> = ({
             { label && <label htmlFor={id}>{label}</label> }
             <div>
                 <p>Componente desativado: Instalar dependências do react-datepicker para usá-lo.</p>
-                {/* <DatePicker
+                <DatePicker
                     id={id}
                     name={name}
                     locale='pt-BR'
@@ -80,7 +80,7 @@ const InputDate: React.FC<Props> = ({
                     isClearable={!readOnly}
                     autoComplete="off"
                     aria-label={label || `Campo de data`}
-                /> */}
+                />
             </div>
             { (!fit || (fit && errorText)) && <small role="alert">{errorText}</small> }
         </Container>
