@@ -96,8 +96,12 @@ const BudgetManagement: React.FC = () => {
                     return ({
                         id: budgetItems.id,
                         description: budgetItems?.description || '-',
-                        type: BUDGETS_TYPE.find((x: DomainSelectOption) => x.value === budgetItems?.type)?.label || '',
-                        frequency: BUDGETS_FREQUENCY.find((x: DomainSelectOption) => x.value === budgetItems?.type)?.label || '',
+                        type: BUDGETS_TYPE.find(
+                            (x: DomainSelectOption) =>  x.value === budgetItems?.type
+                        )?.label || '',
+                        frequency: BUDGETS_FREQUENCY.find(
+                            (x: DomainSelectOption) => x.value === budgetItems?.type
+                        )?.label || '',
                         date: budgetItems?.date || '-',
                         amount: budgetItems?.amount || '-',
                     })
