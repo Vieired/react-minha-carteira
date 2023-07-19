@@ -1234,7 +1234,7 @@
   "budgets": [
     {
       "id": 1,
-      "description": "Energia elétrica",
+      "description": "Energia elétrica - Light",
       "amount": "411.55",
       "type": "saída",
       "frequency": "recorrente",
@@ -1244,16 +1244,16 @@
       "id": 2,
       "description": "Corte de cabelo",
       "amount": "45.31",
-      "type": "saída",
-      "frequency": "recorrente",
+      "type": "1",
+      "frequency": "2",
       "date": "2021-01-11"
     },
     {
       "id": 3,
-      "description": "Água",
+      "description": "Água - Águas do Rio",
       "amount": "175.55",
-      "type": "saída",
-      "frequency": "recorrente",
+      "type": "1",
+      "frequency": "1",
       "date": "2021-01-15"
     },
     {
@@ -1284,8 +1284,8 @@
       "id": 7,
       "description": "Lanche",
       "amount": "45.70",
-      "type": "saída",
-      "frequency": "eventual",
+      "type": "1",
+      "frequency": "2",
       "date": "2021-01-23"
     },
     {
@@ -1306,18 +1306,18 @@
     },
     {
       "id": 10,
-      "description": "Água",
-      "amount": "190.15",
-      "type": "saída",
-      "frequency": "recorrente",
+      "description": "Galão de água 5L",
+      "amount": "10.00",
+      "type": "1",
+      "frequency": "1",
       "date": "2021-02-15"
     },
     {
       "id": 11,
-      "description": "Telefone",
-      "amount": "99.99",
-      "type": "saída",
-      "frequency": "recorrente",
+      "description": "Fatura cartão de crédito",
+      "amount": "280.99",
+      "type": "1",
+      "frequency": "2",
       "date": "2021-02-23"
     },
     {
@@ -1402,10 +1402,10 @@
     },
     {
       "id": 22,
-      "description": "Água",
+      "description": "Fone de ouvido Adamantium",
       "amount": "200.10",
       "type": "saída",
-      "frequency": "recorrente",
+      "frequency": "2",
       "date": "2021-03-15"
     },
     {
@@ -1507,17 +1507,17 @@
     {
       "id": 35,
       "description": "Salário",
-      "amount": "2500.18",
-      "type": "entrada",
-      "frequency": "recorrente",
+      "amount": "6500.18",
+      "type": "2",
+      "frequency": "1",
       "date": "2021-04-10"
     },
     {
       "id": 36,
       "description": "Salário",
-      "amount": "2500.15",
-      "type": "entrada",
-      "frequency": "recorrente",
+      "amount": "9500.15",
+      "type": "2",
+      "frequency": "1",
       "date": "2021-05-10"
     },
     {
@@ -1547,9 +1547,9 @@
     {
       "id": 40,
       "description": "Salário",
-      "amount": "2500.12",
-      "type": "entrada",
-      "frequency": "recorrente",
+      "amount": "8001.28",
+      "type": "2",
+      "frequency": "1",
       "date": "2021-06-10"
     },
     {
@@ -1580,16 +1580,16 @@
       "id": 44,
       "description": "Freela site",
       "amount": "13900.23",
-      "type": "entrada",
-      "frequency": "eventual",
+      "type": "2",
+      "frequency": "2",
       "date": "2020-02-21"
     },
     {
       "id": 45,
       "description": "Freela app",
       "amount": "33810.92",
-      "type": "entrada",
-      "frequency": "eventual",
+      "type": "2",
+      "frequency": "2",
       "date": "2020-02-23"
     },
     {
@@ -1979,7 +1979,7 @@
     {
       "id": 94,
       "description": "Salário",
-      "amount": "2500.15",
+      "amount": "4500.15",
       "type": "entrada",
       "frequency": "recorrente",
       "date": "2020-05-10"
@@ -2147,7 +2147,7 @@
     {
       "id": 115,
       "description": "Salário",
-      "amount": "2500.12",
+      "amount": "7500.12",
       "type": "entrada",
       "frequency": "recorrente",
       "date": "2021-11-10"
