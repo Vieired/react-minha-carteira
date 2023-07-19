@@ -1,6 +1,7 @@
 import { createContext, useContext, useState } from "react";
 import { BudgetItem } from "../shared/models/Budget";
 import { budgetService } from "../services/budgetService";
+import { toast } from "react-toastify";
 
 interface Context {
     budgetItems: BudgetItem[];
@@ -72,7 +73,14 @@ export const BudgetProvider: React.FC<Props> = ({  children }) => {
 
     const edit = async (item: BudgetItem) => {
         try {
+            // setIsLoading(true);
             await budgetService.update(item);
+            toast.success('Item atualizado com sucesso.', {
+                // onClose: () => {
+                //     ...
+                //     setIsLoading(false);
+                // },
+            });            
         } catch (error) {
             alert(`Erro: ${error}`);
             console.log(error);
