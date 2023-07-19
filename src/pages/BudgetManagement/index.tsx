@@ -29,6 +29,7 @@ const BudgetManagement: React.FC = () => {
     const columns = [
         {
             name: 'Ações',
+            width: '70px',
             cell: (row: any) => {
                 return (
                     <Actions itemId={row.id} aria-label="Botões de ação">
@@ -48,18 +49,24 @@ const BudgetManagement: React.FC = () => {
         },
         {
             name: 'Tipo',
+            width: '100px',
             selector: (row: any) => row.type,
         },
         {
             name: 'Frequência',
+            width: '120px',
             selector: (row: any) => row.frequency,
         },
         {
             name: 'Data',
+            width: '120px',
+            right: true,
             selector: (row: any) => formatDate(row.date),
         },
         {
             name: 'Valor (R$)',
+            width: '150px',
+            right: true,            
             selector: (row: any) => formatCurrency(Number(row.amount)),
         }
     ];
