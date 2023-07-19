@@ -100,7 +100,7 @@ const BudgetManagement: React.FC = () => {
                             (x: DomainSelectOption) =>  x.value === budgetItems?.type
                         )?.label || '',
                         frequency: BUDGETS_FREQUENCY.find(
-                            (x: DomainSelectOption) => x.value === budgetItems?.type
+                            (x: DomainSelectOption) => x.value === budgetItems?.frequency
                         )?.label || '',
                         date: budgetItems?.date || '-',
                         amount: budgetItems?.amount || '-',
