@@ -14,7 +14,7 @@ const Actions: React.FC<Props> = ({children, itemId}) => {
     return (
         <Container>
             <Link
-                to={`/budget/edit/:${itemId}`}
+                to={`/budget/edit/${itemId}`}
                 aria-label="Ação Editar Usuário"
             >
                 <FaPencilAlt />

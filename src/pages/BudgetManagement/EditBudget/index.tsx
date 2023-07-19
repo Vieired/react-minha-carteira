@@ -69,16 +69,19 @@ const EditBudget: React.FC = () => {
     // }
 
     useEffect(() => {
+        // console.log("id params: ", id);
         // if(!budgetItemEditing) {
-            let idParam: number = 0;
-            if(id?.includes(':')) {
-                idParam = Number(id?.split(':')[1]);
-            } else {
-                idParam = Number(id);
-            }        
-            
-            getBudgetItemById(idParam)
+            // let idParam: number = 0;
+            // if(id?.includes(':')) {
+            //     idParam = Number(id?.split(':')[1]);
+            // } else {
+            //     idParam = Number(id);
+            // }
+            // getBudgetItemById(idParam)
         // }
+
+        // if(id)
+            getBudgetItemById(Number(id))
     },[]);
 
     return (
