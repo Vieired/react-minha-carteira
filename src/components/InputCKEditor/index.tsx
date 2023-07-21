@@ -7,22 +7,24 @@ import { Container } from './styles';
 
 interface Prop {
   name: string;
+  id?: string;
   label?: string;
-  onChange: (value: string) => void;
-  //   onBlur: (event, editor) => void;
   value: string;
   disabled?: boolean;
   hideToolbar?: boolean;
+  onChange?(e: React.ChangeEvent<unknown>): void;
+  // onBlur: () => void;
 }
 
 export const InputCKEditor: React.FC<Prop> = ({
   label,
   name,
-  onChange,
-  //   onBlur,
+  id,
   value,
   disabled,
   hideToolbar = false,
+  onChange,
+  // onBlur,
 }) => {
 
   const config = {
@@ -59,16 +61,33 @@ export const InputCKEditor: React.FC<Prop> = ({
     },
   };
 
+  const handleChange = (e: React.ChangeEvent<any>, editor: any) => {
+    onChange && onChange({
+        ...e,
+        target: {
+            ...e.target,
+            value: editor?.getData() || '',
+            id,
+            name
+        }
+    } as React.ChangeEvent<any>)
+  };
+
   return (
     <Container className={`${hideToolbar ? 'ck-display-mode' : ''}`}>
-      {label && (
-        <label htmlFor={name}>{label}</label>
+      { label && (
+          <label id={`aria-label-${id || name}`} htmlFor={id || name}>
+              {label}
+          </label>
       )}
       <CKEditor
         editor={Editor}
         config={config}
         data={value}
-        onChange={(event:any, editor:any) => onChange(editor?.getData())}
+        onChange={
+          (evt: React.ChangeEvent<any>, editor: any) =>
+            handleChange(evt, editor)
+        }
         id={name}
         disabled={disabled}
       />
