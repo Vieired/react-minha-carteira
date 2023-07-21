@@ -80,8 +80,10 @@ const BudgetManagement: React.FC = () => {
     }
 
     useEffect(() => {
-        fetchBudgetItems();
-    }, []);
+        if(budgetItems?.length === 0) {
+            fetchBudgetItems();
+        }
+    }, [budgetItems?.length, fetchBudgetItems]);
 
     return (
         <Container>
