@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useHistory, useParams } from "react-router-dom";
 import { useFormik } from "formik";
+import { SingleValue } from "react-select";
 
 import { useBudget } from "../../../hooks/BudgetContext";
 import { BudgetItem } from "../../../shared/models/Budget";
@@ -10,12 +11,12 @@ import Input from "../../../components/Inputs/Input";
 import InputMoney from "../../../components/Inputs/InputMoney";
 // import InputDate from "../../../components/Inputs/InputDate";
 import InputDateHTML from "../../../components/Inputs/InputDateHTML";
-
-import { Buttons, Container } from "./styles";
 import InputSelect from "../../../components/Inputs/InputSelect";
-import { SingleValue } from "react-select";
+import InputCKEditor from "../../../components/InputCKEditor";
+
 import { DomainSelectOption } from "../../../shared/models/Domains";
 import { BUDGETS_FREQUENCY, BUDGETS_TYPE } from "../../../shared/consts";
+import { Buttons, Container } from "./styles";
 
 const EditBudget: React.FC = () => {
 
@@ -222,6 +223,15 @@ const EditBudget: React.FC = () => {
                     onChange={date => handleDateChange('dataNascimento', date)}
                     noDefaultDate               
                 /> */}
+
+                <InputCKEditor
+                    label="Detalhes (Texto Rico)"
+                    // id="details"
+                    name="details"
+                    value={formik?.values?.details}
+                    onChange={formik?.handleChange}
+                />
+
                 <Buttons>
                     <Button
                         type="button"

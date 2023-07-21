@@ -7,7 +7,6 @@ import MessageBox from '../../components/MessageBox';
 import PieChartBox from '../../components/PieChartBox';
 import HistoryBox from '../../components/HistoryBox';
 import BarChartBox from '../../components/BarChartBox';
-import InputCKEditor from '../../components/InputCKEditor';
 
 import expenses from '../../repositories/expenses';
 import gains from '../../repositories/gains';
@@ -25,7 +24,6 @@ const Dashboard: React.FC = () => {
 
     const [selectedMonth, setSelectedMonth] = useState<number>(new Date().getMonth()+1);
     const [selectedYear, setSelectedYear] = useState<number>(new Date().getFullYear());
-    const [ richText, setRichText ] = useState<any>('');
     const { budgetItems, fetchBudgetItems } = useBudget();
 
     const years = useMemo(() => {
@@ -374,13 +372,6 @@ const Dashboard: React.FC = () => {
                 <BarChartBox
                     title="Entradas"
                     data={relationGainsRecurrentVersusEventual}
-                />
-
-                <InputCKEditor
-                    label="Texto Rico"
-                    name="textoRico"
-                    onChange={(value:string) => setRichText(value)}
-                    value={richText}
                 />
             </Content>
         </Container>

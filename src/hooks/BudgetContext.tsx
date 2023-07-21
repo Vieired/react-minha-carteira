@@ -63,6 +63,7 @@ export const BudgetProvider: React.FC<Props> = ({  children }) => {
                 description: response?.description || '',
                 frequency: response?.frequency || '',
                 type: response?.type || '',
+                details: response?.details || '',
             } as BudgetItem)
         } catch (error) {
             console.log(error);
