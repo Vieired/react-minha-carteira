@@ -62,15 +62,19 @@ export const InputCKEditor: React.FC<Prop> = ({
   };
 
   const handleChange = (e: React.ChangeEvent<any>, editor: any) => {
-    onChange && onChange({
-        ...e,
-        target: {
-            ...e.target,
-            value: editor?.getData() || '',
-            id,
-            name
-        }
-    } as React.ChangeEvent<any>)
+    try {
+      onChange && onChange({
+          ...e,
+          target: {
+              ...e.target,
+              value: editor?.getData() || '',
+              id,
+              name
+          }
+      } as React.ChangeEvent<any>)
+    } catch (err) {
+      console.log("handleChange: ", err)
+    }
   };
 
   return (
@@ -84,11 +88,21 @@ export const InputCKEditor: React.FC<Prop> = ({
         editor={Editor}
         config={config}
         data={value}
+        // data={value || ""}
         onChange={
           (evt: React.ChangeEvent<any>, editor: any) =>
             handleChange(evt, editor)
         }
+        // onReady={ editor => {
+        //   // You can store the "editor" and use when it is needed.
+        //   console.log( 'Editor está pronto para uso!', editor );
+        // } }
+        onError={ editor => {
+          // You can store the "editor" and use when it is needed.
+          console.log( 'Ocorreu um erro no carregamento do editor.', editor );
+        } }
         id={name}
+        name={name}
         disabled={disabled}
       />
     </Container>
