@@ -1255,7 +1255,8 @@
       "amount": "175.55",
       "type": "1",
       "frequency": "1",
-      "date": "2021-01-15"
+      "date": "2021-01-15",
+      "details": "<p>teste</p>"
     },
     {
       "id": 4,
@@ -1263,7 +1264,8 @@
       "amount": "99.99",
       "type": "1",
       "frequency": "1",
-      "date": "2021-01-23"
+      "date": "2021-01-23",
+      "details": "<p>Lorem ipsum</p>"
     },
     {
       "id": 5,
@@ -1271,7 +1273,8 @@
       "amount": "300.00",
       "type": "1",
       "frequency": "1",
-      "date": "2021-01-23"
+      "date": "2021-01-23",
+      "details": "<p>Texto de detalhes para teste.</p>"
     },
     {
       "id": 6,
@@ -1279,7 +1282,8 @@
       "amount": "625.78",
       "type": "1",
       "frequency": "2",
-      "date": "2021-01-23"
+      "date": "2021-01-23",
+      "details": "<p>Teste</p>"
     },
     {
       "id": 7,
@@ -1287,15 +1291,17 @@
       "amount": "45.70",
       "type": "1",
       "frequency": "2",
-      "date": "2021-01-23"
+      "date": "2021-01-23",
+      "details": "<h2>Lorem Ipsum Dolor Sit Amet</h2><p>&nbsp;</p><h4>Lorem</h4><p>Consectetur adipiscing elit. Phasellus aliquet nibh sed congue viverra. Phasellus <strong>malesuada </strong>urna turpis, <strong>convallis </strong>elementum leo <strong>condimentum </strong>eu. Suspendisse eget mattis magna, vitae <strong>fermentum </strong>massa. Phasellus dictum luctus metus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Duis eget erat feugiat, lacinia urna ultrices, mollis lorem. Sed mollis felis turpis, vel convallis dui aliquet eu. Curabitur dignissim nunc tortor, at ultricies ante sollicitudin eu. Etiam sapien odio, volutpat sit amet risus ac, dictum viverra ex. Aenean hendrerit dictum ante, in gravida lacus dapibus vehicula. Etiam non suscipit nunc. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p><figure class=\"image image-style-side\"><img src=\"data:image/png;base64,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\"></figure><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus aliquet nibh sed congue viverra. Phasellus malesuada urna turpis, convallis elementum leo condimentum eu. Suspendisse eget mattis magna, vitae fermentum massa. Phasellus <a href=\"https://www.google.com.br/\">Google </a>dictum luctus metus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Duis eget erat feugiat, lacinia urna ultrices, mollis lorem. Sed mollis felis turpis, vel convallis dui aliquet eu. Curabitur dignissim nunc tortor, at ultricies ante sollicitudin eu. Etiam sapien odio, volutpat sit amet risus ac, dictum viverra ex. Aenean hendrerit dictum ante, in gravida lacus dapibus vehicula. Etiam non suscipit nunc. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus aliquet nibh sed congue viverra. Phasellus malesuada urna turpis, convallis elementum leo condimentum eu. Suspendisse eget mattis magna, vitae fermentum massa. Phasellus dictum luctus metus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Duis eget erat feugiat, lacinia urna ultrices, mollis lorem. Sed mollis felis turpis, vel convallis dui aliquet eu. Curabitur dignissim nunc tortor, at ultricies ante sollicitudin eu. Etiam sapien odio, volutpat sit amet risus ac, dictum viverra ex. Aenean hendrerit dictum ante, in gravida lacus dapibus vehicula. Etiam non suscipit nunc. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>"
     },
     {
       "id": 8,
       "description": "Blusa",
       "amount": "95.70",
-      "type": "saída",
-      "frequency": "eventual",
-      "date": "2021-01-23"
+      "type": "1",
+      "frequency": "2",
+      "date": "2021-01-23",
+      "details": ""
     },
     {
       "id": 9,
