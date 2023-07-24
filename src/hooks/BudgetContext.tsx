@@ -10,7 +10,7 @@ interface Context {
     fetchBudgetItems: () => void;
     searchBudgetItem: (term: string) => void;
     getBudgetItemById: (id: number) => void;
-    edit: (id: BudgetItem) => void;
+    edit: (item: BudgetItem) => void;
     removeBudgetById: (id: number) => void;
 }
 
