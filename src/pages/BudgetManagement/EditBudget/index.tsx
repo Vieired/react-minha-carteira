@@ -225,9 +225,10 @@ const EditBudget: React.FC = () => {
                 /> */}
 
                 <InputCKEditor
-                    label="Detalhes (Texto Rico)"
+                    label="Detalhes"
                     // id="details"
                     name="details"
+                    // value={formik?.values?.details || ""}
                     value={formik?.values?.details}
                     onChange={formik?.handleChange}
                 />
