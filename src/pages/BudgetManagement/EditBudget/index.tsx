@@ -31,7 +31,7 @@ const EditBudget: React.FC = () => {
 
     const handleSubmit = (data: BudgetItem) => {
         console.log(data);
-        edit(data);
+        edit(data, handleCancelClick);
     }
 
     const formik = useFormik({

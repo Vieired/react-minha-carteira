@@ -10,7 +10,7 @@ interface Context {
     fetchBudgetItems: () => void;
     searchBudgetItem: (term: string) => void;
     getBudgetItemById: (id: number) => void;
-    edit: (item: BudgetItem) => void;
+    edit: (item: BudgetItem, callback: () => void) => void;
     removeBudgetById: (id: number) => void;
 }
 
@@ -72,11 +72,12 @@ export const BudgetProvider: React.FC<Props> = ({  children }) => {
         }
       }  
 
-    const edit = async (item: BudgetItem) => {
+    const edit = async (item: BudgetItem, callback: () => void) => {
         try {
             // setIsLoading(true);
             await budgetService.update(item);
             toast.success('Item atualizado com sucesso.', {
+                onOpen: callback
                 // onClose: () => {
                 //     ...
                 //     setIsLoading(false);
