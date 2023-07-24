@@ -38,7 +38,7 @@ export const Container = styled.div`
     }
 
     .ck.ck-editor__editable_inline {
-      height: 120px;
+      height: 490px;
       color: #000;
 
       > :last-child {
