@@ -77,7 +77,10 @@ export const BudgetProvider: React.FC<Props> = ({  children }) => {
             // setIsLoading(true);
             await budgetService.update(item);
             toast.success('Item atualizado com sucesso.', {
-                onOpen: callback
+                onOpen: () => {
+                    fetchBudgetItems();
+                    callback();
+                }
                 // onClose: () => {
                 //     ...
                 //     setIsLoading(false);
