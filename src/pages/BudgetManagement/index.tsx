@@ -48,11 +48,14 @@ const BudgetManagement: React.FC = () => {
             cell: (row: any) => {
                 return (
                     <Actions itemId={row.id} aria-label="Botões de ação">
-                        <Link to="#" aria-label="Ação Remover Usuário">
+                        {/* <Link to="#" aria-label="Ação Remover Usuário">
                             <span onClick={() => handleRemoveItemClick(row.id)}>
                                 <FaTrash />
                             </span>
-                        </Link>
+                        </Link> */}
+                        <button onClick={() => handleRemoveItemClick(Number(row.id))}>
+                            <FaTrash />
+                        </button>                        
                     </Actions>
                 )
             },
@@ -161,11 +164,14 @@ const BudgetManagement: React.FC = () => {
                         id: item.id,
                         actions: (
                             <Actions itemId={Number(item.id)} aria-label="Botões de ação">
-                                <Link to="#" aria-label="Ação Remover Usuário">
+                                {/* <Link to="#" aria-label="Ação Remover Usuário">
                                     <span onClick={() => handleRemoveItemClick(Number(item.id))}>
                                         <FaTrash />
                                     </span>
-                                </Link>
+                                </Link> */}
+                                <button onClick={() => handleRemoveItemClick(Number(item.id))}>
+                                    <FaTrash />
+                                </button>
                             </Actions>
                         ),
                         description: item?.description || '-',

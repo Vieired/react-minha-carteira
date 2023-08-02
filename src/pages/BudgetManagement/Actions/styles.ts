@@ -8,14 +8,19 @@ export const Container = styled.div`
         border: solid blue 3px;
     } */
 
-    a {
-        color: ${props => props.theme.colors.white};
+    a, button {
+        color: ${props => props.theme.colors.gray};
         border-radius: 6px;
-        outline: 4px transparent #91caff;
+        outline: 4px solid transparent;
+        background-color: transparent;
 
-        &:link, &:hover, &:visited, &:active {
+        /* &:link, &:visited, &:active {
             color: ${props => props.theme.colors.gray};
-        }
+        } */
+
+        &:hover {
+            color: ${props => props.theme.colors.white};
+        }        
 
         &:focus {
             outline: 4px solid #91caff;
@@ -24,11 +29,11 @@ export const Container = styled.div`
         }
     }
 
-    a:last-child {
+    /* a:last-child, button:last-child {
         color: ${props => props.theme.colors.white};
 
         &:link, &:hover, &:visited, &:active {
             color: ${props => props.theme.colors.gray};
         }
-    }
+    } */
 `;
