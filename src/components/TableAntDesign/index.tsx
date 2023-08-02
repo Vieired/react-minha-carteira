@@ -6,7 +6,7 @@ import { useState } from "react";
 import { BudgetItem } from "../../shared/models/Budget";
 
 interface Props {
-    columns: ColumnsType<BudgetItem[]>;
+    columns: ColumnsType<BudgetItem>;
     dataSource: any[];
     responsive?: boolean;
 }
