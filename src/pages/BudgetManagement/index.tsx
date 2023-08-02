@@ -174,6 +174,10 @@ const BudgetManagement: React.FC = () => {
             />
             <br/>
             <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
             <Table
                 columns={columns}
                 data={budgetItems?.map((budgetItems:BudgetItem) => {
