@@ -10,14 +10,30 @@ export const Container = styled.div`
         }
     }
 
+    thead.ant-table-thead {
+        tr {
+            th {
+                &.ant-table-column-sort {
+                    background-color: ${props => props.theme.colors.tertiary};
+                }
+            }
+        }
+    }
+
     tbody.ant-table-tbody {
         background-color: ${props => props.theme.colors.primary};
         color: ${props => props.theme.colors.white};
 
         tr.ant-table-row {
 
-            td.ant-table-cell-row-hover {
-                background-color: ${props => props.theme.colors.tertiary};
+            td {
+                &.ant-table-cell-row-hover {
+                    background-color: ${props => props.theme.colors.secondary};
+                }
+
+                &.ant-table-column-sort {
+                    background-color: ${props => props.theme.colors.secondary};
+                }
             }
         }
     }
