@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 
 import { useBudget } from "../../hooks/BudgetContext";
@@ -8,6 +8,9 @@ import { BudgetItem } from "../../shared/models/Budget";
 import formatCurrency from "../../utils/formatCurrency";
 import formatDate from "../../utils/formatDate";
 import { FaPlus, FaTrash } from "react-icons/fa";
+import { Table as TableAntDesign } from "antd";
+import { ColumnsType, TablePaginationConfig } from "antd/es/table";
+import { FilterValue } from "antd/es/table/interface";
 import Table from "../../components/Table";
 import Actions from "./Actions";
 import Button from "../../components/Inputs/Button";
@@ -16,6 +19,12 @@ import { Container, Toolbar } from "./styles";
 import { DomainSelectOption } from "../../shared/models/Domains";
 import { BUDGETS_FREQUENCY, BUDGETS_TYPE } from "../../shared/consts";
 
+interface TableParams {
+    pagination?: TablePaginationConfig;
+    sortField?: string;
+    sortOrder?: string;
+    filters?: Record<string, FilterValue>;
+}
 
 const BudgetManagement: React.FC = () => {
 
@@ -25,6 +34,12 @@ const BudgetManagement: React.FC = () => {
         removeBudgetById
     } = useBudget();
     const { push } = useHistory();
+    const [tableParams, setTableParams] = useState<TableParams>({
+        pagination: {
+          current: 1,
+          pageSize: 10,
+        },
+    });    
 
     const columns = [
         {
@@ -71,6 +86,46 @@ const BudgetManagement: React.FC = () => {
         }
     ];
 
+    const columnsAnt: ColumnsType<BudgetItem> = [
+        {
+            title: 'Ações',
+            dataIndex: 'actions',
+            key: 'actions',
+            width: 70,
+        },        
+        {
+            title: 'Descrição',
+            dataIndex: 'description',
+            key: 'description',
+        },
+        {
+            title: 'Tipo',
+            dataIndex: 'type',
+            key: 'type',            
+            width: 100,
+        },
+        {
+            title: 'Frequência',
+            dataIndex: 'frequency',
+            key: 'frequency',
+            width: 120,
+        },
+        {
+            title: 'Data',
+            dataIndex: 'date',
+            key: 'date',
+            width: 120,
+            align: 'right',
+        },                    
+        {
+            title: 'Valor (R$)',
+            dataIndex: 'amount',
+            key: 'amount',
+            width: 150,
+            align: 'right',
+        },
+    ];
+
     const handleRemoveItemClick = (itemId: number) => {
         removeBudgetById(itemId);
     };
@@ -98,6 +153,38 @@ const BudgetManagement: React.FC = () => {
                     Adicionar Item de Orçamento
                 </Button>
             </Toolbar>
+            <br/>
+            <TableAntDesign
+                columns={columnsAnt}
+                dataSource={budgetItems?.map((item:BudgetItem) => {
+                    return {
+                        id: item.id,
+                        actions: (
+                            <Actions itemId={Number(item.id)} aria-label="Botões de ação">
+                                <Link to="#" aria-label="Ação Remover Usuário">
+                                    <span onClick={() => handleRemoveItemClick(Number(item.id))}>
+                                        <FaTrash />
+                                    </span>
+                                </Link>
+                            </Actions>
+                        ),
+                        description: item?.description || '-',
+                        type: BUDGETS_TYPE.find(
+                            (x: DomainSelectOption) =>  x.value === item?.type
+                        )?.label || '',
+                        frequency: BUDGETS_FREQUENCY.find(
+                            (x: DomainSelectOption) => x.value === item?.frequency
+                        )?.label || '',
+                        date: item?.date ? formatDate(item.date) : '-',
+                        amount: item?.amount ? formatCurrency(Number(item.amount)) : '-',
+                        details: item.details,
+                    }
+                })}
+                rowKey={(row) => row.id}
+                // pagination={tableParams.pagination}
+                scroll={{ x: 800 }}
+            />
+            <br/>
             <br/>
             <Table
                 columns={columns}
