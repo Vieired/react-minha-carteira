@@ -1,30 +1,21 @@
-import { useEffect, useState } from "react";
-import { Link, useHistory } from "react-router-dom";
+import { useEffect } from "react";
+import { useHistory } from "react-router-dom";
 
 import { useBudget } from "../../hooks/BudgetContext";
-import ContentHeader from "../../components/ContentHeader";
 import { BudgetItem } from "../../shared/models/Budget";
+import { DomainSelectOption } from "../../shared/models/Domains";
+import { BUDGETS_FREQUENCY, BUDGETS_TYPE } from "../../shared/consts";
 
 import formatCurrency from "../../utils/formatCurrency";
 import formatDate from "../../utils/formatDate";
 import { FaPlus, FaTrash } from "react-icons/fa";
-import { Table as TableAntDesign } from "antd";
-import { ColumnsType, TablePaginationConfig } from "antd/es/table";
-import { FilterValue } from "antd/es/table/interface";
+import ContentHeader from "../../components/ContentHeader";
 import Table from "../../components/Table";
+import TableAntDesign from "../../components/TableAntDesign";
 import Actions from "./Actions";
 import Button from "../../components/Inputs/Button";
 
 import { Container, Toolbar } from "./styles";
-import { DomainSelectOption } from "../../shared/models/Domains";
-import { BUDGETS_FREQUENCY, BUDGETS_TYPE } from "../../shared/consts";
-
-interface TableParams {
-    pagination?: TablePaginationConfig;
-    sortField?: string;
-    sortOrder?: string;
-    filters?: Record<string, FilterValue>;
-}
 
 const BudgetManagement: React.FC = () => {
 
@@ -34,12 +25,6 @@ const BudgetManagement: React.FC = () => {
         removeBudgetById
     } = useBudget();
     const { push } = useHistory();
-    const [tableParams, setTableParams] = useState<TableParams>({
-        pagination: {
-          current: 1,
-          pageSize: 10,
-        },
-    });    
 
     const columns = [
         {
@@ -89,7 +74,7 @@ const BudgetManagement: React.FC = () => {
         }
     ];
 
-    const columnsAnt: ColumnsType<BudgetItem> = [
+    const columnsAnt: any = [
         {
             title: 'Ações',
             dataIndex: 'actions',
@@ -186,9 +171,6 @@ const BudgetManagement: React.FC = () => {
                         details: item.details,
                     }
                 })}
-                rowKey={(row) => row.id}
-                // pagination={tableParams.pagination}
-                scroll={{ x: 800 }}
             />
             <br/>
             <br/>
