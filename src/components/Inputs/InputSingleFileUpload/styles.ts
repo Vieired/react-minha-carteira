@@ -1,9 +1,11 @@
 import styled from "styled-components";
 import defaultImage from "../../assets/img/perfil-vazio.png";
 
+const squareSize = 247;
+
 export const Wrapper = styled.div`
-    width: 247px;
-    min-width: 247px;
+    width: ${squareSize}px;
+    min-width: ${squareSize}px;
     height: min-content;
     display: flex;
     flex-direction: column;
@@ -37,10 +39,10 @@ export const Container = styled.div`
     min-height: 100%;
     min-width: 100%;
     position: relative;
-    height: 247px;
+    height: ${squareSize}px;
 
     @media (max-width: 576px) {
-        max-height: 247px;
+        max-height: ${squareSize}px;
     }
 
     aside {
@@ -88,7 +90,7 @@ export const Wrap = styled.div`
     border: 2px solid ${props => getColor(props)};
 
     &.empty {
-        background: url(${defaultImage}) center no-repeat;
+        background: url(${defaultImage}) center / 100% 100% no-repeat;
         filter: opacity(0.5);
     }
 
