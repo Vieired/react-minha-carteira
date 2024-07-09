@@ -255,7 +255,8 @@ const ApiSw: React.FC = () => {
                 isOpen={isModalOpen}
                 contentLabel={"Detalhes do item"}
                 ariaHideApp={false}
-                onRequestClose={handleRequestCloseFunc}>
+                onRequestClose={handleRequestCloseFunc}
+            >
                 <h1>{clickedItem.name}</h1>
                 <br />
                 <p>Altura: {clickedItem.height} cm</p>
