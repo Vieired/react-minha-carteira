@@ -12,6 +12,7 @@ import { FaPlus, FaTrash } from "react-icons/fa";
 import ContentHeader from "../../components/ContentHeader";
 import Table from "../../components/Table";
 import TableAntDesign from "../../components/TableAntDesign";
+import { ColumnsType } from "antd/es/table";
 import Actions from "./Actions";
 import Button from "../../components/Inputs/Button";
 
@@ -74,7 +75,7 @@ const BudgetManagement: React.FC = () => {
         }
     ];
 
-    const columnsAnt: any = [
+    const columnsAnt: ColumnsType<BudgetItem> = [
         {
             title: 'Ações',
             dataIndex: 'actions',
