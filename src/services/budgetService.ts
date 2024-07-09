@@ -30,9 +30,14 @@ async function update(item: BudgetItem): Promise<BudgetItem> {
     return data;
 }
 
+async function remove(id: number): Promise<any> {
+    await api.delete(`${ENDPOINT}/${id}`);
+}
+
 export const budgetService = {
     list,
     search,
     read,
     update,
+    remove,
 };

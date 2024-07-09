@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useCallback, useContext, useState } from "react";
 import { BudgetItem } from "../shared/models/Budget";
 import { budgetService } from "../services/budgetService";
 import { toast } from "react-toastify";
@@ -26,7 +26,7 @@ export const BudgetProvider: React.FC<Props> = ({  children }) => {
     const [budgetItemsFound, setBudgetItemsFound] = useState<BudgetItem[]>([]);
 
     // #region
-    const fetchBudgetItems = async () => {
+    const fetchBudgetItems = useCallback(async () => {
         try {
             const response: BudgetItem[] = await budgetService.list();
             setBudgetItems(response);
@@ -34,7 +34,7 @@ export const BudgetProvider: React.FC<Props> = ({  children }) => {
             toast.error('Erro ao tentar buscar informações.');
             console.log(error);
         }
-    }
+    },[]);
 
     const searchBudgetItem = async (term: string) => {
         try {
@@ -92,7 +92,18 @@ export const BudgetProvider: React.FC<Props> = ({  children }) => {
     }
 
     const removeBudgetById = async (id: number) => {
-        alert("Item removido com sucesso.");
+        const isConfirm = window.confirm("Tem certeza que deseja apagar este item?");
+        if(isConfirm) {
+            try {
+                await budgetService.remove(id)
+                    .then(() => {
+                        toast.success('Item removido com sucesso.');
+                        fetchBudgetItems();
+                    });
+            } catch (error) {
+                toast.error(error);
+            }
+        }
         // dialogConfirm({
         //   text: "Você confirma que deseja apagar este item?",
         //   title: "Apagar item",
@@ -107,7 +118,7 @@ export const BudgetProvider: React.FC<Props> = ({  children }) => {
         //     }
         //   }
         // });
-      }    
+    };
     //#endregion
 
     return (
