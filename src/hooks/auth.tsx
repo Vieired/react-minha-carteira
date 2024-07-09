@@ -1,9 +1,12 @@
 import React, { createContext, useContext, useState } from "react";
+import { AuthGoogleProfile } from "../shared/models/Auth";
+import jwt_decode from "jwt-decode";
 
 
 interface IAuthContext {
     logged: boolean;
     signIn(emaill: string, password: string): void;
+    sigInWithGoogle(credentialToken: string): void;
     signOut(): void;
 }
 
@@ -28,13 +31,24 @@ const AuthProvider: React.FC = ({ children }) => {
         }        
     }
 
+    const sigInWithGoogle = async (credentialToken: string) => {
+        const profile: AuthGoogleProfile = jwt_decode(credentialToken);
+        // signIn(profile.email, profile.sub);
+        console.log("profile: ", profile);
+    }    
+
     const signOut = () => {
         localStorage.removeItem('@minha-carteira:logged');
         setLogged(false);
     }
 
     return (
-        <AuthContext.Provider value={{logged, signIn, signOut}}>
+        <AuthContext.Provider value={{
+            logged,
+            signIn,
+            signOut,
+            sigInWithGoogle,
+        }}>
             {children}
         </AuthContext.Provider>
     );

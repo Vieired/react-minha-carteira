@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 
+import { GoogleLogin } from '@react-oauth/google';
 import logoImg from '../../assets/logo.svg';
 import Button from '../../components/Button';
 import Input from '../../components/Input';
@@ -9,12 +10,16 @@ import {
     Logo,
     Form,
     FormTitle
-} from './styles'
+} from './styles';
 
 const SignIn: React.FC = () => {
     const [email, setEmail] = useState<string>('');
     const [password, setPassword] = useState<string>('');
-    const { signIn } = useAuth();
+    const { signIn, sigInWithGoogle } = useAuth();
+
+    const handleGoogleLogin = (response) => {
+        sigInWithGoogle(response.credential);
+    };
 
     return (
         <Container>
@@ -38,6 +43,13 @@ const SignIn: React.FC = () => {
                 />
                 <Button type="submit">Acessar</Button>
             </Form>
+
+            <GoogleLogin
+                onSuccess={handleGoogleLogin}
+                onError={() => {
+                    console.log('Login Failed');
+                }}
+            />            
         </Container>
     );
 }

@@ -9,6 +9,9 @@ A variável deve ser usada no código da seguinte forma:
 
 process.env.REACT_APP_BASE_URL
 
-## Login (mockup)
+## Login
+Para funcionar a autenticação via Google é necessário adicionar o ID do Cliente Google na variável de ambiente REACT_GOOGLE_APP_CLIENT_ID do arquivo "env".
+
+### Mockup:
 E-mail: meu e-mail
 Senha: 123
