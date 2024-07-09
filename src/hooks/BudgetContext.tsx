@@ -31,7 +31,7 @@ export const BudgetProvider: React.FC<Props> = ({  children }) => {
             const response: BudgetItem[] = await budgetService.list();
             setBudgetItems(response);
         } catch (error) {
-            alert(`Erro: ${error}`);
+            toast.error('Erro ao tentar buscar informações.');
             console.log(error);
         }
     }
@@ -41,7 +41,7 @@ export const BudgetProvider: React.FC<Props> = ({  children }) => {
             const response: BudgetItem[] = await budgetService.search(term);
             setBudgetItemsFound(response);
         } catch (error) {
-            console.log(error);
+            toast.error(error);
         }
     }
 
@@ -66,7 +66,7 @@ export const BudgetProvider: React.FC<Props> = ({  children }) => {
                 details: response?.details || '',
             } as BudgetItem)
         } catch (error) {
-            console.log(error);
+            toast.error(error);
         } finally {
             // setIsLoading(false);
         }
@@ -87,8 +87,7 @@ export const BudgetProvider: React.FC<Props> = ({  children }) => {
                 // },
             });            
         } catch (error) {
-            alert(`Erro: ${error}`);
-            console.log(error);
+            toast.error(error);
         }
     }
 
@@ -104,7 +103,7 @@ export const BudgetProvider: React.FC<Props> = ({  children }) => {
         //       toast.success('Usuário removido com sucesso.');
         //       fetchUsers();
         //     } catch (error) {
-        //       console.log(error);
+        //       toast.error(error);
         //     }
         //   }
         // });
