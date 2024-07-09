@@ -15,3 +15,6 @@ Para funcionar a autenticação via Google é necessário adicionar o ID do Clie
 ### Mockup:
 E-mail: meu e-mail
 Senha: 123
+
+## Testes Com Servidor Fake Na Tela Administração de Orçamentos
+Instalar a lib Json Server, configurá-la em uma porta diferente da usada para rodar a aplicação (ex.3333) e rodar o comando "yarn server" para levantar um servidor fake para testes.
