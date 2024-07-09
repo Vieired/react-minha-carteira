@@ -86,6 +86,20 @@ const BudgetManagement: React.FC = () => {
             title: 'Descrição',
             dataIndex: 'description',
             key: 'description',
+            // defaultSortOrder: 'descend',
+            // sortDirections: ['descend'],
+            // sortDirections: ['ascend', 'descend', 'ascend'],
+            sortDirections: ['ascend', 'descend'],
+            sorter: (a:BudgetItem, b:BudgetItem, sortOrder) => {
+                if(sortOrder === 'ascend') {
+                    return a.description.length - b.description.length
+                }
+                if(sortOrder === 'descend') {
+                    return b.description.length - a.description.length
+                }
+
+                return 0;
+            },
         },
         {
             title: 'Tipo',

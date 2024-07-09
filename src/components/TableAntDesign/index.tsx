@@ -1,9 +1,9 @@
+import { useState } from "react";
 import { Table } from "antd";
 import { ColumnsType, TablePaginationConfig } from "antd/es/table";
 import { FilterValue } from "antd/es/table/interface";
-import { Container } from "./styles";
-import { useState } from "react";
 import { BudgetItem } from "../../shared/models/Budget";
+import { Container } from "./styles";
 
 interface Props {
     columns: ColumnsType<BudgetItem>;
@@ -38,6 +38,7 @@ const TableAntDesign: React.FC<Props> = ({
                 rowKey={(row) => row.id}
                 // pagination={tableParams.pagination}
                 scroll={{ x: 800 }}
+                // sortDirections={['descend', 'ascend']}
             />
         </Container>
     )
