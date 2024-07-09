@@ -159,7 +159,7 @@ const BudgetManagement: React.FC = () => {
                                 </button>
                             </Actions>
                         ),
-                        description: item?.description || '-',
+                        description: item?.description ? item?.description.trim() : '-',
                         type: BUDGETS_TYPE.find(
                             (x: DomainSelectOption) =>  x.value === item?.type
                         )?.label || '',
