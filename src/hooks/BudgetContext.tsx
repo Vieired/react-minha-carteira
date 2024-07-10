@@ -25,7 +25,7 @@ export const BudgetProvider: React.FC<Props> = ({  children }) => {
     const [budgetItems, setBudgetItems] = useState<BudgetItem[]>([]);
     const [budgetItemEditing, setBudgetItemEditing] = useState<BudgetItem|null>(null);
     const [budgetItemsFound, setBudgetItemsFound] = useState<BudgetItem[]>([]);
-    const [isLoadingEditForm, setIsLoadingEditForm] = useState<boolean>(false);
+    const [isLoadingEditForm, setIsLoadingEditForm] = useState<boolean>(true);
 
     // #region
     const fetchBudgetItems = useCallback(async () => {
