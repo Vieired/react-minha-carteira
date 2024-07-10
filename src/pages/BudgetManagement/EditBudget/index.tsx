@@ -1,10 +1,13 @@
 import { useEffect } from "react";
+
 import { useHistory, useParams } from "react-router-dom";
 import { useFormik } from "formik";
 import { SingleValue } from "react-select";
 
+import { BUDGETS_FREQUENCY, BUDGETS_TYPE } from "../../../shared/consts";
 import { useBudget } from "../../../hooks/BudgetContext";
 import { BudgetItem } from "../../../shared/models/Budget";
+import { DomainSelectOption } from "../../../shared/models/Domains";
 import Button from "../../../components/Inputs/Button";
 import ContentHeader from "../../../components/ContentHeader";
 import Input from "../../../components/Inputs/Input";
@@ -13,9 +16,7 @@ import InputMoney from "../../../components/Inputs/InputMoney";
 import InputDateHTML from "../../../components/Inputs/InputDateHTML";
 import InputSelect from "../../../components/Inputs/InputSelect";
 import InputCKEditor from "../../../components/InputCKEditor";
-
-import { DomainSelectOption } from "../../../shared/models/Domains";
-import { BUDGETS_FREQUENCY, BUDGETS_TYPE } from "../../../shared/consts";
+import { BigSpinner } from "../../../components/BigSpinner";
 import { Buttons, Container } from "./styles";
 
 const EditBudget: React.FC = () => {
@@ -24,13 +25,14 @@ const EditBudget: React.FC = () => {
     const { id } = useParams<BudgetItem>();
     // const [selectedDate, setSelectedDate] = useState<string|undefined>(undefined);
     const {
+        isLoadingEditForm,
         budgetItemEditing,
         getBudgetItemById,
         edit,
     } = useBudget();
 
     const handleSubmit = (data: BudgetItem) => {
-        console.log(data);
+        // console.log(data);
         edit(data, handleCancelClick);
     }
 
@@ -82,8 +84,12 @@ const EditBudget: React.FC = () => {
         // }
 
         // if(id)
-            getBudgetItemById(Number(id))
-    },[]);
+        getBudgetItemById(Number(id))
+    },[getBudgetItemById, id]);
+
+    if(!budgetItemEditing || isLoadingEditForm) {
+        return <BigSpinner/>
+    }
 
     return (
         <Container>

@@ -7,6 +7,7 @@ interface Context {
     budgetItems: BudgetItem[];
     budgetItemsFound: BudgetItem[];
     budgetItemEditing: BudgetItem|null;
+    isLoadingEditForm: boolean;
     fetchBudgetItems: () => void;
     searchBudgetItem: (term: string) => void;
     getBudgetItemById: (id: number) => void;
@@ -24,6 +25,7 @@ export const BudgetProvider: React.FC<Props> = ({  children }) => {
     const [budgetItems, setBudgetItems] = useState<BudgetItem[]>([]);
     const [budgetItemEditing, setBudgetItemEditing] = useState<BudgetItem|null>(null);
     const [budgetItemsFound, setBudgetItemsFound] = useState<BudgetItem[]>([]);
+    const [isLoadingEditForm, setIsLoadingEditForm] = useState<boolean>(false);
 
     // #region
     const fetchBudgetItems = useCallback(async () => {
@@ -45,47 +47,54 @@ export const BudgetProvider: React.FC<Props> = ({  children }) => {
         }
     }
 
-    const getBudgetItemById = async (id: number) => {
-        // setIsLoading(true);
+    const getBudgetItemById = useCallback(async (id: number) => {
+        setIsLoadingEditForm(true);
         try {
-            const response: BudgetItem = await budgetService.read(id);
-            // setBudgetItemEditing(null);
-            setBudgetItemEditing({
-                ...response,
-                /*
-                    * Mapeamento dos valores recebidos do backend.
-                    * Sem isso a propriedade touched não funciona corretamente,
-                    * acarretando falha na exibição da mensagem de erro da validação.
-                */
-                id: response.id,
-                amount: response?.amount || '0.00',
-                date: response?.date || '',
-                description: response?.description || '',
-                frequency: response?.frequency || '',
-                type: response?.type || '',
-                details: response?.details || '',
-            } as BudgetItem)
+            await budgetService
+                .read(id)
+                .then((response: BudgetItem) => {
+                    // setBudgetItemEditing(null);
+                    setBudgetItemEditing({
+                        ...response,
+                        /*
+                            * Mapeamento dos valores recebidos do backend.
+                            * Sem isso a propriedade touched não funciona corretamente,
+                            * acarretando falha na exibição da mensagem de erro da validação.
+                        */
+                        id: response.id,
+                        amount: response?.amount || '0.00',
+                        date: response?.date || '',
+                        description: response?.description || '',
+                        frequency: response?.frequency || '',
+                        type: response?.type || '',
+                        details: response?.details || '',
+                    } as BudgetItem);
+                    setIsLoadingEditForm(false);
+                });
         } catch (error) {
             toast.error(error);
+            setIsLoadingEditForm(false);
         } finally {
-            // setIsLoading(false);
+            // setIsLoadingEditForm(false);
         }
-      }  
+    },[]);
 
     const edit = async (item: BudgetItem, callback: () => void) => {
         try {
             // setIsLoading(true);
-            await budgetService.update(item);
-            toast.success('Item atualizado com sucesso.', {
-                onOpen: () => {
-                    fetchBudgetItems();
-                    callback();
-                }
-                // onClose: () => {
-                //     ...
-                //     setIsLoading(false);
-                // },
-            });            
+            await budgetService.update(item)
+                .then(() => {
+                    toast.success('Item atualizado com sucesso.', {
+                        onOpen: () => {
+                            fetchBudgetItems();
+                            callback();
+                        }
+                        // onClose: () => {
+                        //     ...
+                        //     setIsLoading(false);
+                        // },
+                    });
+                });
         } catch (error) {
             toast.error(error);
         }
@@ -127,6 +136,7 @@ export const BudgetProvider: React.FC<Props> = ({  children }) => {
                 budgetItems,
                 budgetItemsFound,
                 budgetItemEditing,
+                isLoadingEditForm,
                 fetchBudgetItems,
                 searchBudgetItem,
                 getBudgetItemById,
