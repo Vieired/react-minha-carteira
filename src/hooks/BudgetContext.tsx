@@ -13,6 +13,7 @@ interface Context {
     getBudgetItemById: (id: number) => void;
     edit: (item: BudgetItem, callback: () => void) => void;
     removeBudgetById: (id: number) => void;
+    clearBudgetItem: () => void;
 }
 
 interface Props {
@@ -128,6 +129,10 @@ export const BudgetProvider: React.FC<Props> = ({  children }) => {
         //   }
         // });
     };
+
+    const clearBudgetItem = (): void => {
+        setBudgetItemEditing(null);
+    }
     //#endregion
 
     return (
@@ -142,6 +147,7 @@ export const BudgetProvider: React.FC<Props> = ({  children }) => {
                 getBudgetItemById,
                 edit,
                 removeBudgetById,
+                clearBudgetItem,
             }}
             >
             {children}

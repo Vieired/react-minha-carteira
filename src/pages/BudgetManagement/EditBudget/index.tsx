@@ -21,6 +21,8 @@ import { Buttons, Container } from "./styles";
 
 const EditBudget: React.FC = () => {
 
+    // const InputCKEditor = lazy(() => import('../../../components/InputCKEditor'));
+
     const { push } = useHistory();
     const { id } = useParams<BudgetItem>();
     // const [selectedDate, setSelectedDate] = useState<string|undefined>(undefined);
@@ -28,8 +30,11 @@ const EditBudget: React.FC = () => {
         isLoadingEditForm,
         budgetItemEditing,
         getBudgetItemById,
+        clearBudgetItem,
         edit,
     } = useBudget();
+
+    // const [ready, setReady] = useState<boolean>(false);
 
     const handleSubmit = (data: BudgetItem) => {
         // console.log(data);
@@ -87,7 +92,20 @@ const EditBudget: React.FC = () => {
         getBudgetItemById(Number(id))
     },[getBudgetItemById, id]);
 
-    if(!budgetItemEditing || isLoadingEditForm) {
+    // useEffect(() => {
+    //     if(budgetItemEditing) {
+    //         setReady(true)
+    //     }
+    // },[budgetItemEditing]);
+
+    useEffect(() => {
+        return () => {
+            formik.resetForm();
+            clearBudgetItem();
+        };
+    }, []);
+
+    if(!budgetItemEditing || isLoadingEditForm/* || !ready*/) {
         return <BigSpinner/>
     }
 
