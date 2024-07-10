@@ -42,7 +42,7 @@ const MainHeader: React.FC = () => {
     });    
 
     return (
-        <Container>
+        <Container className="cy-container">
             <Toggle
                 labelLeft="Light"
                 labelRight="Dark"

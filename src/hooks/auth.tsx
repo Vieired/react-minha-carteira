@@ -22,7 +22,7 @@ const AuthProvider: React.FC = ({ children }) => {
     });
 
     const signIn = (email: string, password: string) => {
-        if(email === 'logominus@gmail.com' && password === '123') {
+        if(email === 'teste@teste.com' && password === '123') {
             localStorage.setItem('@minha-carteira:logged', 'true');
             setLogged(true);
         }

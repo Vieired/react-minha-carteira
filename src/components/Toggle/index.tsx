@@ -22,6 +22,7 @@ const Toggle: React.FC<IToggleProps> = ({
             uncheckedIcon={false}
             checkedIcon={false}
             onChange={onChange}
+            className="cy-input-toggle"
         />
         <ToggleLabel>{labelRight}</ToggleLabel>
     </Container>
