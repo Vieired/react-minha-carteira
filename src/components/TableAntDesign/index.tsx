@@ -9,6 +9,7 @@ interface Props {
     columns: ColumnsType<BudgetItem>;
     dataSource: any[];
     responsive?: boolean;
+    label?: string;
 }
 
 interface TableParams {
@@ -21,6 +22,7 @@ interface TableParams {
 const TableAntDesign: React.FC<Props> = ({
     columns,
     dataSource,
+    label = "",
 }) => {
     // const { loading } = useLoader();
     const [tableParams, setTableParams] = useState<TableParams>({
@@ -33,6 +35,7 @@ const TableAntDesign: React.FC<Props> = ({
     return (
         <Container>
             <Table
+                caption={label}
                 columns={columns}
                 dataSource={dataSource}
                 rowKey={(row) => row.id}

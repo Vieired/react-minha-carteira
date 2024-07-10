@@ -158,6 +158,7 @@ const BudgetManagement: React.FC = () => {
             </Toolbar>
             <br/>
             <TableAntDesign
+                // label="Ant Design"
                 columns={columnsAnt}
                 dataSource={budgetItems?.map((item:BudgetItem) => {
                     return {
@@ -194,6 +195,7 @@ const BudgetManagement: React.FC = () => {
             <br/>
             <br/>
             <Table
+                // label="Data-Table"
                 columns={columns}
                 data={budgetItems?.map((budgetItems:BudgetItem) => {
                     return ({

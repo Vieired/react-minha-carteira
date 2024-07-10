@@ -7,18 +7,21 @@ interface Props {
     columns: any;
     data: TableRow[];
     responsive?: boolean;
+    label?: string;
 }
 
 const Table: React.FC<Props> = ({
     columns,
     data,
     responsive = true,
+    label = ""
 }) => {
     // const { loading } = useLoader();
 
     return (
         <Container>
             <DataTable
+                title={label}
                 columns={columns}
                 data={data}
                 // progressPending={loading}
