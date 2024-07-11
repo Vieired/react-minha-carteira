@@ -14,7 +14,8 @@ export const Container = styled.div`
 export const Buttons = styled.div`
     display: flex;
     justify-content: end;
-    column-gap: 32px;
+    gap: 0 32px;
+    height: 40px;
 
     button {
         width: unset;
