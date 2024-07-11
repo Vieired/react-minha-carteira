@@ -1,7 +1,7 @@
 import {
     useEffect,
     useMemo,
-    // useState,
+    useState,
 } from "react";
 import { useHistory, useParams } from "react-router-dom";
 
@@ -42,9 +42,10 @@ const EditBudget: React.FC = () => {
         addOrEdit,
     } = useBudget();
 
+    const [isLoadingSend, setIsLoadingEdit] = useState<boolean>(false);
     // const [ready, setReady] = useState<boolean>(false);
 
-    const isLoading = useMemo(() => {
+    const isLoadingFetch = useMemo(() => {
         return !budgetItemEditing
             || isLoadingEditForm
             // || !ready
@@ -55,7 +56,7 @@ const EditBudget: React.FC = () => {
     ]);
 
     const handleSubmit = (data: BudgetItem) => {
-        // console.log(data);
+        setIsLoadingEdit(true);
         addOrEdit(data, handleCancelClick);
     }
 
@@ -124,20 +125,21 @@ const EditBudget: React.FC = () => {
         };
     }, []);
 
-    // if(!isLoading) {
+    // if(!isLoadingFetch) {
     //     return <BigSpinner/>
     // }
 
     return (
         <Container
             // onClick={() => setReady(prevState => !prevState)}
+            className={isLoadingSend ? "loading-send" : ""}
         >
             <ContentHeader
                 title="Editar Orçamento"
                 lineColor="#F7931B"
             />
             <form onSubmit={formik.handleSubmit}>
-                {isLoading && (
+                {isLoadingFetch && (
                     <div style={{gap:'8px'}}>
                         <Skeleton
                             height={65}
@@ -182,7 +184,7 @@ const EditBudget: React.FC = () => {
                         />                                                                                                                        
                     </div>
                 )}
-                {!isLoading && (
+                {!isLoadingFetch && (
                     <>
                         <Input
                             id="description"
@@ -334,14 +336,14 @@ const EditBudget: React.FC = () => {
                         type="button"
                         btnTheme="secondary"
                         onClick={handleCancelClick}
-                        disabled={isLoading}
+                        disabled={isLoadingFetch || isLoadingSend}
                     >
                         Cancelar
                     </Button>
                     <Button
                         type="submit"
                         btnTheme="primary"
-                        disabled={isLoading}
+                        disabled={isLoadingFetch || isLoadingSend}
                     >
                         Salvar
                     </Button>

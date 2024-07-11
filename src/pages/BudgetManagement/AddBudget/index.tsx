@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useHistory } from "react-router-dom";
 
 import { useFormik } from "formik";
@@ -23,7 +24,10 @@ const AddBudget: React.FC = () => {
     const { push } = useHistory();
     const { addOrEdit } = useBudget();
 
+    const [isLoadingSend, setIsLoadingEdit] = useState<boolean>(false);
+
     const handleSubmit = (data: BudgetItem) => {
+        setIsLoadingEdit(true);
         addOrEdit(data, handleCancelClick);
     }
 
@@ -61,7 +65,9 @@ const AddBudget: React.FC = () => {
     }
 
     return (
-        <Container>
+        <Container
+            className={isLoadingSend ? "loading-send" : ""}
+        >
             <ContentHeader
                 title="Cadastrar Orçamento"
                 lineColor="#F7931B"
@@ -76,11 +82,6 @@ const AddBudget: React.FC = () => {
                     onChange={formik?.handleChange}
                     autoFocus
                     errorText={getErrorMessage('description')}
-                    // errorText={
-                    //     formik?.touched?.description && formik?.errors?.description
-                    //     ? formik?.errors?.description
-                    //     : undefined
-                    // }
                 />
                 <InputMoney
                     id="amount"
@@ -92,11 +93,6 @@ const AddBudget: React.FC = () => {
                     // value={String(formik?.values?.amount)}
                     onChange={formik?.handleChange}
                     errorText={getErrorMessage('amount')}
-                    // errorText={
-                    //     formik?.touched?.amount && formik?.errors?.amount
-                    //     ? formik?.errors?.amount
-                    //     : undefined
-                    // }
                 />
                 <InputSelect
                     name="type"

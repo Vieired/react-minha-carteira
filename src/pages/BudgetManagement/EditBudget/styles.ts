@@ -1,8 +1,28 @@
 import styled from "styled-components";
+import loader from '../../../assets/loader3.gif';
 
 export const Container = styled.div`
     display: flex;
     flex-direction: column;
+
+    &.loading-send::after {
+      content: "";
+      position: absolute;
+      height: -webkit-fill-available;
+      width: -webkit-fill-available;
+      left: 250px;
+      background: url(${loader}) #ffffffab center no-repeat;
+      background-size: 5rem;
+      margin-top: -25px;
+      /* margin-bottom: 68px; */
+      user-select: none;
+      pointer-events: visiblestroke;
+      transition: .5s;
+
+      @media (max-width: 576px) {
+        left: 0;
+      }
+    }
 
     > form {
         display: flex;
