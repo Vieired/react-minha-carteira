@@ -28,7 +28,7 @@ export const Wrapper = styled.div`
             align-self: start;
             text-align: left;
             color: red;
-            min-height: 15px;
+            min-height: 16px;
         }
     }
 `;
