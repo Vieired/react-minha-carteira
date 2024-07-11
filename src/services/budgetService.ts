@@ -25,6 +25,11 @@ async function read(id: number): Promise<BudgetItem> {
     return data;
 }
 
+async function create(item: BudgetItem): Promise<BudgetItem> {
+    const { data } = await api.post(`${ENDPOINT}`, item);
+    return data;
+}
+
 async function update(item: BudgetItem): Promise<BudgetItem> {
     const { data } = await api.put(`${ENDPOINT}/${item.id}`, item);
     return data;
@@ -38,6 +43,7 @@ export const budgetService = {
     list,
     search,
     read,
+    create,
     update,
     remove,
 };

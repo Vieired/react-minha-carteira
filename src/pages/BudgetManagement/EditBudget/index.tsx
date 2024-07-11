@@ -39,7 +39,7 @@ const EditBudget: React.FC = () => {
         budgetItemEditing,
         getBudgetItemById,
         clearBudgetItem,
-        edit,
+        addOrEdit,
     } = useBudget();
 
     // const [ready, setReady] = useState<boolean>(false);
@@ -56,7 +56,7 @@ const EditBudget: React.FC = () => {
 
     const handleSubmit = (data: BudgetItem) => {
         // console.log(data);
-        edit(data, handleCancelClick);
+        addOrEdit(data, handleCancelClick);
     }
 
     const formik = useFormik({

@@ -4,6 +4,7 @@ import { useFormik } from "formik";
 import { SingleValue } from "react-select";
 import { toast } from "react-toastify";
 
+import { useBudget } from "../../../hooks/BudgetContext";
 import { BudgetItem } from "../../../shared/models/Budget";
 import { DomainSelectOption } from "../../../shared/models/Domains";
 import { BUDGETS_FREQUENCY, BUDGETS_TYPE } from "../../../shared/consts";
@@ -13,15 +14,17 @@ import Input from "../../../components/Inputs/Input";
 import InputMoney from "../../../components/Inputs/InputMoney";
 import InputDateHTML from "../../../components/Inputs/InputDateHTML";
 import InputSelect from "../../../components/Inputs/InputSelect";
+import InputCKEditor from "../../../components/InputCKEditor";
 import schema from "./schema";
 import { Buttons, Container } from "./styles";
 
 const AddBudget: React.FC = () => {
 
     const { push } = useHistory();
+    const { addOrEdit } = useBudget();
 
     const handleSubmit = (data: BudgetItem) => {
-        console.log(data)
+        addOrEdit(data, handleCancelClick);
     }
 
     const formik = useFormik({
@@ -33,7 +36,8 @@ const AddBudget: React.FC = () => {
             date: '2023-07-10',
             description: '',
             frequency: '',
-            type: ''
+            type: '',
+            // details: '',
         } as BudgetItem
     });
 
@@ -144,6 +148,13 @@ const AddBudget: React.FC = () => {
                         : undefined
                     }
                 />
+                <InputCKEditor
+                    label="Detalhes"
+                    name="details"
+                    value={formik?.values?.details}
+                    onChange={formik?.handleChange}
+                />
+                
                 <Buttons>
                     <Button
                         type="button"

@@ -11,7 +11,7 @@ interface Context {
     fetchBudgetItems: () => void;
     searchBudgetItem: (term: string) => void;
     getBudgetItemById: (id: number) => void;
-    edit: (item: BudgetItem, callback: () => void) => void;
+    addOrEdit: (item: BudgetItem, callback: () => void) => void;
     removeBudgetById: (id: number) => void;
     clearBudgetItem: () => void;
 }
@@ -80,22 +80,39 @@ export const BudgetProvider: React.FC<Props> = ({  children }) => {
         }
     },[]);
 
-    const edit = async (item: BudgetItem, callback: () => void) => {
+    const addOrEdit = async (item: BudgetItem, callback: () => void) => {
+        console.log("Item no contexto: ", item);
         try {
-            // setIsLoading(true);
-            await budgetService.update(item)
-                .then(() => {
-                    toast.success('Item atualizado com sucesso.', {
-                        onOpen: () => {
-                            fetchBudgetItems();
-                            callback();
-                        }
-                        // onClose: () => {
-                        //     ...
-                        //     setIsLoading(false);
-                        // },
+            if(!item?.id || item?.id === "") {
+                await budgetService.create(item)
+                    .then(() => {
+                        toast.success('Item cadastrado com sucesso.', {
+                            onOpen: () => {
+                                fetchBudgetItems();
+                                callback();
+                            }
+                            // onClose: () => {
+                            //     ...
+                            //     setIsLoading(false);
+                            // },
+                        });
                     });
-                });
+            } else {
+                // setIsLoading(true);
+                await budgetService.update(item)
+                    .then(() => {
+                        toast.success('Item atualizado com sucesso.', {
+                            onOpen: () => {
+                                fetchBudgetItems();
+                                callback();
+                            }
+                            // onClose: () => {
+                            //     ...
+                            //     setIsLoading(false);
+                            // },
+                        });
+                    });
+            }
         } catch (error) {
             toast.error(error);
         }
@@ -145,7 +162,7 @@ export const BudgetProvider: React.FC<Props> = ({  children }) => {
                 fetchBudgetItems,
                 searchBudgetItem,
                 getBudgetItemById,
-                edit,
+                addOrEdit,
                 removeBudgetById,
                 clearBudgetItem,
             }}
