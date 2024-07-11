@@ -10,7 +10,7 @@ export const Container = styled.button<Props>`
         return css<Props>`
             /* width: 100%; */
             width: auto;
-            margin: 7px 0;
+            margin: 16px 0;
             padding: 10px;
             background-color: ${(x:Props) => 
                 x.btnTheme === "primary"
