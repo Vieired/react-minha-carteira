@@ -1,6 +1,8 @@
 import { useHistory } from "react-router-dom";
+
 import { useFormik } from "formik";
 import { SingleValue } from "react-select";
+import { toast } from "react-toastify";
 
 import { BudgetItem } from "../../../shared/models/Budget";
 import { DomainSelectOption } from "../../../shared/models/Domains";
@@ -11,7 +13,7 @@ import Input from "../../../components/Inputs/Input";
 import InputMoney from "../../../components/Inputs/InputMoney";
 import InputDateHTML from "../../../components/Inputs/InputDateHTML";
 import InputSelect from "../../../components/Inputs/InputSelect";
-
+import schema from "./schema";
 import { Buttons, Container } from "./styles";
 
 const AddBudget: React.FC = () => {
@@ -24,6 +26,7 @@ const AddBudget: React.FC = () => {
 
     const formik = useFormik({
         onSubmit: handleSubmit,
+        validationSchema: schema,
         enableReinitialize: true,
         initialValues: {
             amount: '0.00',
@@ -36,6 +39,21 @@ const AddBudget: React.FC = () => {
 
     const handleCancelClick = () => {
         push('/budget')
+    }
+
+    const getErrorMessage = (fieldName: string): string | undefined => {
+        if(formik.isSubmitting && !formik.isValid){
+            toast.error("Verifique os campos obrigatórios.", {
+                toastId: 'invalid-form-field'
+            });
+        }
+
+        return (formik?.getFieldMeta(fieldName)?.touched &&
+                formik?.getFieldMeta(fieldName)?.error)
+            ?
+            formik.getFieldMeta(fieldName).error
+            :
+            ''
     }
 
     return (
@@ -53,11 +71,12 @@ const AddBudget: React.FC = () => {
                     value={formik?.values?.description}
                     onChange={formik?.handleChange}
                     autoFocus
-                    errorText={
-                        formik?.touched?.description && formik?.errors?.description
-                        ? formik?.errors?.description
-                        : undefined
-                    }
+                    errorText={getErrorMessage('description')}
+                    // errorText={
+                    //     formik?.touched?.description && formik?.errors?.description
+                    //     ? formik?.errors?.description
+                    //     : undefined
+                    // }
                 />
                 <InputMoney
                     id="amount"
@@ -68,11 +87,12 @@ const AddBudget: React.FC = () => {
                     value={formik?.values?.amount}
                     // value={String(formik?.values?.amount)}
                     onChange={formik?.handleChange}
-                    errorText={
-                        formik?.touched?.amount && formik?.errors?.amount
-                        ? formik?.errors?.amount
-                        : undefined
-                    }
+                    errorText={getErrorMessage('amount')}
+                    // errorText={
+                    //     formik?.touched?.amount && formik?.errors?.amount
+                    //     ? formik?.errors?.amount
+                    //     : undefined
+                    // }
                 />
                 <InputSelect
                     name="type"

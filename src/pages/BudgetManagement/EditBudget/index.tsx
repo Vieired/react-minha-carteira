@@ -3,12 +3,13 @@ import {
     useMemo,
     // useState,
 } from "react";
-
 import { useHistory, useParams } from "react-router-dom";
+
 import { useFormik } from "formik";
 import { SingleValue } from "react-select";
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
+import { toast } from "react-toastify";
 
 import { BUDGETS_FREQUENCY, BUDGETS_TYPE } from "../../../shared/consts";
 import { useBudget } from "../../../hooks/BudgetContext";
@@ -23,6 +24,7 @@ import InputDateHTML from "../../../components/Inputs/InputDateHTML";
 import InputSelect from "../../../components/Inputs/InputSelect";
 import InputCKEditor from "../../../components/InputCKEditor";
 // import { BigSpinner } from "../../../components/BigSpinner";
+import schema from "./schema";
 import { Buttons, Container } from "./styles";
 
 const EditBudget: React.FC = () => {
@@ -59,6 +61,7 @@ const EditBudget: React.FC = () => {
 
     const formik = useFormik({
         onSubmit: handleSubmit,
+        validationSchema: schema,
         enableReinitialize: true,
         initialValues: budgetItemEditing as BudgetItem
     });
@@ -77,20 +80,20 @@ const EditBudget: React.FC = () => {
     //     setSelectedDate(dateStr);
     // }
 
-    // const getErrorMessage = (fieldName: string): string | undefined => {
-    //     if(formik.isSubmitting && !formik.isValid){
-    //         toast.error("Verifique os campos obrigatórios.", {
-    //             toastId: customId
-    //         });
-    //     }
+    const getErrorMessage = (fieldName: string): string | undefined => {
+        if(formik.isSubmitting && !formik.isValid){
+            toast.error("Verifique os campos obrigatórios.", {
+                toastId: 'invalid-form-field'
+            });
+        }
 
-    //     return (formik?.getFieldMeta(fieldName)?.touched &&
-    //             formik?.getFieldMeta(fieldName)?.error)
-    //         ?
-    //         formik.getFieldMeta(fieldName).error
-    //         :
-    //         ''
-    // }
+        return (formik?.getFieldMeta(fieldName)?.touched &&
+                formik?.getFieldMeta(fieldName)?.error)
+            ?
+            formik.getFieldMeta(fieldName).error
+            :
+            ''
+    }
 
     useEffect(() => {
         // console.log("id params: ", id);
@@ -189,11 +192,12 @@ const EditBudget: React.FC = () => {
                             value={formik?.values?.description}
                             onChange={formik?.handleChange}
                             autoFocus
-                            errorText={
-                                formik?.touched?.description && formik?.errors?.description
-                                ? formik?.errors?.description
-                                : undefined
-                            }
+                            errorText={getErrorMessage('description')}
+                            // errorText={
+                            //     formik?.touched?.description && formik?.errors?.description
+                            //     ? formik?.errors?.description
+                            //     : undefined
+                            // }
                         />
                         <InputMoney
                             id="amount"
@@ -204,11 +208,12 @@ const EditBudget: React.FC = () => {
                             value={formik?.values?.amount}
                             // value={String(formik?.values?.amount)}
                             onChange={formik?.handleChange}
-                            errorText={
-                                formik?.touched?.amount && formik?.errors?.amount
-                                ? formik?.errors?.amount
-                                : undefined
-                            }
+                            errorText={getErrorMessage('amount')}
+                            // errorText={
+                            //     formik?.touched?.amount && formik?.errors?.amount
+                            //     ? formik?.errors?.amount
+                            //     : undefined
+                            // }
                         />
                         {/* <InputNumber
                             maskType="money"
