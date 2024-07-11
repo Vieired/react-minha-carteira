@@ -12,6 +12,8 @@ interface Prop {
   value: string;
   disabled?: boolean;
   hideToolbar?: boolean;
+  errorText?: string;
+  fit?: boolean;
   onChange?(e: React.ChangeEvent<unknown>): void;
   // onBlur: () => void;
 }
@@ -23,6 +25,8 @@ export const InputCKEditor: React.FC<Prop> = ({
   value,
   disabled,
   hideToolbar = false,
+  errorText,
+  fit = false,
   onChange,
   // onBlur,
 }) => {
@@ -105,6 +109,7 @@ export const InputCKEditor: React.FC<Prop> = ({
         name={name}
         disabled={disabled}
       />
+      { (!fit || (fit && errorText)) && <small role="alert">{errorText}</small> }
     </Container>
   );
 };

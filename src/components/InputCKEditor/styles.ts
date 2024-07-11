@@ -89,6 +89,14 @@ export const Container = styled.div`
     }
   }
 
+  small {
+      margin-top: 2px;
+      align-self: start;
+      text-align: left;
+      color: red;
+      min-height: 16px;
+  }
+
   .m-zoom {
     z-index: 2; // fixs ckeditor overlay
   }
