@@ -3,10 +3,16 @@ import React, { useState, useEffect } from 'react';
 import Modal from 'react-modal';
 import 'react-loading-skeleton/dist/skeleton.css'
 import Skeleton from 'react-loading-skeleton';
+import { useStarWars } from '../../hooks/StarWarsContext';
 import HistoryFinanceCard from '../../components/HistoryFinanceCard';
 import apiSW from '../../services/ApiSw';
 import formatDate from '../../utils/formatDate';
 import formatDateYear from '../../utils/formatDateYear';
+import {
+    IPeople,
+    IResponseFilm,
+    IResponseStarships,
+} from '../../shared/models/StarWars';
 import {
     Container,
     Content,
@@ -16,71 +22,20 @@ import {
 } from './styles';
 
 
-interface IPeople {
-    birth_year: string;
-    eye_color: string;
-    skin_color: string;
-    hair_color: string;
-    films: string[];
-    gender: string;
-    height: string;
-    homeworld: string;
-    mass: string;
-    name: string;
-    created: string;
-    edited: string;
-    species: string[];
-    starships: string[];
-}
-
-interface IDataFilm {
-    title: string;
-    episode_id?: number;
-    opening_crawl?: string;
-    director?: string, 
-    producer?: string, 
-    release_date: string;
-    url?: string;
-}
-
-interface IConfig {
-    url: string;
-    baseURL?: string;
-    method?: string;
-}
-
-interface IResponseFilm {
-    config: IConfig;
-    data: IDataFilm;
-}
-
-interface IDataPages {
-    count: number;
-    next: string | null;
-    previous: string | null;
-    results?: IPeople[];
-}
-
-interface IDataStarships {
-    name: string;
-    model?: string;
-    manufacturer?: string;
-    starship_class?: string;
-    cost_in_credits?: string;
-    length?: string;
-    max_atmosphering_speed?: string;
-}
-
-interface IResponseStarships {
-    config: IConfig;
-    data: IDataStarships;
-}
-
 const ApiSw: React.FC = () => {
 
-    const [items, setItems] = useState<any>({});
-    const [dataPages, setDataPages] = useState<IDataPages>({count: 0, next: null, previous: null});
-    const [isLoading, setIsLoading] = useState(true);
+    const {
+        isLoading,
+        items,
+        dataPages,
+        fetchItems,
+        fetchItemsPageNext,
+        fetchItemsPagePrevious,
+    } = useStarWars();
+
+    // const [items, setItems] = useState<any>({});
+    // const [dataPages, setDataPages] = useState<IDataPages>({count: 0, next: null, previous: null});
+    // const [isLoading, setIsLoading] = useState(true);
     const [isLoadingSectionModal, setIsLoadingSectionModal] = useState(true);
     const [isLoadingStarships, setIsLoadingStarships] = useState(true);
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -111,64 +66,27 @@ const ApiSw: React.FC = () => {
             }
         }
     ]);
-    const [responseStarshipsClickedItem, setResponseStarshipsClickedItem] = useState<IResponseStarships[]>([
-        {
-            config: {
-                url: ""
-            },
-            data: {
-                name: ""
+    const [responseStarshipsClickedItem, setResponseStarshipsClickedItem] =
+        useState<IResponseStarships[]>([
+            {
+                config: {
+                    url: ""
+                },
+                data: {
+                    name: ""
+                }
             }
-        }
-    ]);    
-
-    useEffect(() => {
-        apiSW.get("people/").then((response) => {
-            setItems(response.data.results);
-            setDataPages(response.data);
-            // console.log("Response:", response);
-        })
-        .catch((err) => {
-            console.log("There is a error!")
-        })
-        .finally(() => {
-            setIsLoading(false);
-        });
-    },[]);
+        ]);
 
     const handleClickPageNext = () => {
-        if(dataPages.next != null) {
-            setIsLoading(true);
-            const url = `people/?page=${dataPages.next?.split('=')[1]}`;
-            apiSW.get(url).then((response) => {
-                setItems(response.data.results);
-                setDataPages(response.data);
-                // console.log("Response:", response);
-            })
-            .catch((err) => {
-                console.log("There is a error!")
-            })
-            .finally(() => {
-                setIsLoading(false);
-            });
+        if(dataPages?.next != null) {
+            fetchItemsPageNext();
         }
     };
 
     const handleClickPagePrev = () => {
-        if(dataPages.previous != null) {
-            setIsLoading(true);
-            const url = `people/?page=${dataPages.previous?.split('=')[1]}`;
-            apiSW.get(url).then((response) => {
-                setItems(response.data.results);
-                setDataPages(response.data);
-                // console.log("Response:", response);
-            })
-            .catch((err) => {
-                console.log("There is a error!")
-            })
-            .finally(() => {
-                setIsLoading(false);
-            });
+        if(dataPages?.previous != null) {
+            fetchItemsPagePrevious();
         }
     };
 
@@ -176,8 +94,8 @@ const ApiSw: React.FC = () => {
         setClickedItem(person);
         setIsModalOpen(true);
         setIsLoadingSectionModal(true);
-        getFilmesByPerson(person);
         getStarshipsByPerson(person);
+        getFilmesByPerson(person);
     };
 
     const handleRequestCloseFunc = ():void => {
@@ -239,6 +157,10 @@ const ApiSw: React.FC = () => {
             setIsLoadingSectionModal(false);
         })
     };
+
+    useEffect(() => {
+        fetchItems()
+    },[fetchItems]);
 
     return (
         <Container>

@@ -8,6 +8,7 @@ import { AuthProvider } from './hooks/auth';
 import App from './App';
 import { ModalProvider } from './hooks/ModalContext';
 import { BudgetProvider } from './hooks/BudgetContext';
+import { StarWarsProvider } from './hooks/StarWarsContext';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -15,7 +16,9 @@ ReactDOM.render(
       <AuthProvider>
         <ModalProvider>
           <BudgetProvider>
-            <App />
+            <StarWarsProvider>
+              <App />
+            </StarWarsProvider>
           </BudgetProvider>
         </ModalProvider>
       </AuthProvider>
