@@ -1,10 +1,19 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Content, Header, Loading, LoadingSectionModal, Paginate } from './styles';
+
+import Modal from 'react-modal';
+import 'react-loading-skeleton/dist/skeleton.css'
+import Skeleton from 'react-loading-skeleton';
 import HistoryFinanceCard from '../../components/HistoryFinanceCard';
 import apiSW from '../../services/ApiSw';
-import Modal from 'react-modal';
 import formatDate from '../../utils/formatDate';
 import formatDateYear from '../../utils/formatDateYear';
+import {
+    Container,
+    Content,
+    Header,
+    Loading,
+    Paginate,
+} from './styles';
 
 
 interface IPeople {
@@ -283,7 +292,9 @@ const ApiSw: React.FC = () => {
                 { responseStarshipsClickedItem.length > 0 &&
                     <div>
                         <p>Naves:</p>
-                        { isLoadingStarships && <LoadingSectionModal/> }
+                        { isLoadingStarships && (
+                            <Skeleton count={3} baseColor="#ffffff14" highlightColor="#f5f5f5db"/>
+                        )}
                         { !isLoadingStarships &&
                             <ul>
                                 {
@@ -302,7 +313,9 @@ const ApiSw: React.FC = () => {
                 }
                 <div>
                     <p>Filmes:</p>
-                    { isLoadingSectionModal && <LoadingSectionModal/> }
+                    { isLoadingSectionModal && (
+                        <Skeleton count={3} baseColor="#ffffff14" highlightColor="#f5f5f5db"/>
+                    )}
                     { !isLoadingSectionModal &&
                         <ul>
                         {
