@@ -26,7 +26,7 @@ const ApiSw: React.FC = () => {
 
     const {
         isLoading,
-        dataPages,
+        dataSource,
         fetchItems,
         fetchItemsPageNext,
         fetchItemsPagePrevious,
@@ -75,13 +75,13 @@ const ApiSw: React.FC = () => {
         ]);
 
     const handleClickPageNext = () => {
-        if(dataPages?.next != null) {
+        if(dataSource?.next != null) {
             fetchItemsPageNext();
         }
     };
 
     const handleClickPagePrev = () => {
-        if(dataPages?.previous != null) {
+        if(dataSource?.previous != null) {
             fetchItemsPagePrevious();
         }
     };
@@ -163,7 +163,7 @@ const ApiSw: React.FC = () => {
             <Header>API Star Wars</Header>
             <Content>
                 { isLoading && <Loading/> }
-                { !isLoading && dataPages.results?.map((person:IPeople) => (
+                { !isLoading && dataSource.results?.map((person:IPeople) => (
                     <HistoryFinanceCard
                         key={person.name}
                         title={person.name}
@@ -175,7 +175,7 @@ const ApiSw: React.FC = () => {
                 <Paginate>
                     <button onClick={handleClickPagePrev}>{"<"}</button>
                     <button onClick={handleClickPageNext}>{">"}</button>
-                    <small>Total items: {dataPages.count}</small>
+                    <small>Total items: {dataSource.count}</small>
                 </Paginate>
             </Content>
             <Modal

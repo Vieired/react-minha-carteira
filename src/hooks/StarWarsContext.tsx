@@ -4,7 +4,7 @@ import { starWarsService } from "../services/starWarsService";
 import { IDataPages } from "../shared/models/StarWars";
 
 interface Context {
-    dataPages: IDataPages;
+    dataSource: IDataPages;
     isLoading: boolean;
     fetchItems: () => void;
     fetchItemsPageNext: () => void;
@@ -19,7 +19,7 @@ interface Props {
 export const StarWarsContext = createContext<Context>({} as Context);
 
 export const StarWarsProvider: React.FC<Props> = ({ children }) => {
-    const [dataPages, setDataPages] = useState<IDataPages>({
+    const [dataSource, setDataSource] = useState<IDataPages>({
         count: 0,
         next: null,
         previous: null,
@@ -34,7 +34,7 @@ export const StarWarsProvider: React.FC<Props> = ({ children }) => {
         try {
             setIsLoading(true);
             starWarsService.list().then((response: IDataPages) => {
-                setDataPages(response);
+                setDataSource(response);
                 setIsLoading(false);
             })
             .catch((err) => {
@@ -54,9 +54,9 @@ export const StarWarsProvider: React.FC<Props> = ({ children }) => {
     const fetchItemsPageNext = useCallback(async () => {
         try {
             setIsLoading(true);
-            const page = `${dataPages.next?.split('=')[1]}`;
+            const page = `${dataSource.next?.split('=')[1]}`;
             starWarsService.listNext(page).then((response:any) => {
-                setDataPages(response);
+                setDataSource(response);
                 setIsLoading(false);
             })
             .catch((err) => {
@@ -71,14 +71,14 @@ export const StarWarsProvider: React.FC<Props> = ({ children }) => {
             toast.error('Erro inesperado ao tentar buscar informações.');
             console.log(error);
         }
-    },[dataPages.next]);
+    },[dataSource.next]);
 
     const fetchItemsPagePrevious = useCallback(async () => {
         try {
             setIsLoading(true);
-            const page = `${dataPages.previous?.split('=')[1]}`;
+            const page = `${dataSource.previous?.split('=')[1]}`;
             starWarsService.listPrevious(page).then((response:any) => {
-                setDataPages(response);
+                setDataSource(response);
                 setIsLoading(false);
             })
             .catch((err) => {
@@ -93,7 +93,7 @@ export const StarWarsProvider: React.FC<Props> = ({ children }) => {
             toast.error('Erro inesperado ao tentar buscar informações.');
             console.log(error);
         }
-    },[dataPages.previous]);
+    },[dataSource.previous]);
 
     // const getStarshipsByPerson = (person:IPeople) => {
     //     let promises:any[] = [];
@@ -126,7 +126,7 @@ export const StarWarsProvider: React.FC<Props> = ({ children }) => {
     return (
         <StarWarsContext.Provider
             value={{
-                dataPages,
+                dataSource,
                 isLoading,
                 fetchItems,
                 fetchItemsPageNext,
