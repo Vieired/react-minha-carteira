@@ -26,16 +26,12 @@ const ApiSw: React.FC = () => {
 
     const {
         isLoading,
-        items,
         dataPages,
         fetchItems,
         fetchItemsPageNext,
         fetchItemsPagePrevious,
     } = useStarWars();
 
-    // const [items, setItems] = useState<any>({});
-    // const [dataPages, setDataPages] = useState<IDataPages>({count: 0, next: null, previous: null});
-    // const [isLoading, setIsLoading] = useState(true);
     const [isLoadingSectionModal, setIsLoadingSectionModal] = useState(true);
     const [isLoadingStarships, setIsLoadingStarships] = useState(true);
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -167,7 +163,7 @@ const ApiSw: React.FC = () => {
             <Header>API Star Wars</Header>
             <Content>
                 { isLoading && <Loading/> }
-                { !isLoading && items?.map((person:IPeople) => (
+                { !isLoading && dataPages.results?.map((person:IPeople) => (
                     <HistoryFinanceCard
                         key={person.name}
                         title={person.name}

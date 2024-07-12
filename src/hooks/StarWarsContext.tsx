@@ -1,10 +1,9 @@
 import { createContext, useCallback, useContext, useState } from "react";
 import { toast } from "react-toastify";
 import { starWarsService } from "../services/starWarsService";
-import { IDataPages, IPeople, IResponseStarships } from "../shared/models/StarWars";
+import { IDataPages } from "../shared/models/StarWars";
 
 interface Context {
-    items: IPeople[];
     dataPages: IDataPages;
     isLoading: boolean;
     fetchItems: () => void;
@@ -20,8 +19,12 @@ interface Props {
 export const StarWarsContext = createContext<Context>({} as Context);
 
 export const StarWarsProvider: React.FC<Props> = ({ children }) => {
-    const [items, setItems] = useState<IPeople[]>([]);
-    const [dataPages, setDataPages] = useState<IDataPages>({count: 0, next: null, previous: null});
+    const [dataPages, setDataPages] = useState<IDataPages>({
+        count: 0,
+        next: null,
+        previous: null,
+        results: [],
+    });
     // const [budgetItemEditing, setBudgetItemEditing] = useState<BudgetItem|null>(null);
     // const [isLoadingEditForm, setIsLoadingEditForm] = useState<boolean>(true);
     const [isLoading, setIsLoading] = useState<boolean>(true);
@@ -31,8 +34,6 @@ export const StarWarsProvider: React.FC<Props> = ({ children }) => {
         try {
             setIsLoading(true);
             starWarsService.list().then((response: IDataPages) => {
-                console.log("Response: ", response);
-                setItems(response?.results || []);
                 setDataPages(response);
                 setIsLoading(false);
             })
@@ -55,8 +56,6 @@ export const StarWarsProvider: React.FC<Props> = ({ children }) => {
             setIsLoading(true);
             const page = `${dataPages.next?.split('=')[1]}`;
             starWarsService.listNext(page).then((response:any) => {
-                console.log("Response: ", response);
-                setItems(response.results as IPeople[]);
                 setDataPages(response);
                 setIsLoading(false);
             })
@@ -79,8 +78,6 @@ export const StarWarsProvider: React.FC<Props> = ({ children }) => {
             setIsLoading(true);
             const page = `${dataPages.previous?.split('=')[1]}`;
             starWarsService.listPrevious(page).then((response:any) => {
-                console.log("Response: ", response);
-                setItems(response.results as IPeople[]);
                 setDataPages(response);
                 setIsLoading(false);
             })
@@ -129,7 +126,6 @@ export const StarWarsProvider: React.FC<Props> = ({ children }) => {
     return (
         <StarWarsContext.Provider
             value={{
-                items,
                 dataPages,
                 isLoading,
                 fetchItems,
