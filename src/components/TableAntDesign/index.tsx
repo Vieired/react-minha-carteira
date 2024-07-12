@@ -10,6 +10,7 @@ interface Props {
     dataSource: any[];
     responsive?: boolean;
     label?: string;
+    loading?: boolean;
 }
 
 interface TableParams {
@@ -23,6 +24,7 @@ const TableAntDesign: React.FC<Props> = ({
     columns,
     dataSource,
     label = "",
+    loading = false,
 }) => {
     // const { loading } = useLoader();
     const [tableParams, setTableParams] = useState<TableParams>({
@@ -42,6 +44,7 @@ const TableAntDesign: React.FC<Props> = ({
                 // pagination={tableParams.pagination}
                 scroll={{ x: 800 }}
                 // sortDirections={['descend', 'ascend']}
+                loading={loading}
             />
         </Container>
     )
