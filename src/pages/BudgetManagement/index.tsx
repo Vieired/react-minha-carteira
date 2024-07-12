@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useCallback, useEffect, useMemo } from "react";
 import { useHistory } from "react-router-dom";
 
 import { useBudget } from "../../hooks/BudgetContext";
@@ -23,9 +23,13 @@ const BudgetManagement: React.FC = () => {
     const {
         budgetItems,
         fetchBudgetItems,
-        removeBudgetById
+        removeBudgetById,
     } = useBudget();
     const { push } = useHistory();
+
+    const handleRemoveItemClick = useCallback((itemId: number) => {
+        removeBudgetById(itemId);
+    },[removeBudgetById]);
 
     const columns = [
         {
@@ -129,19 +133,38 @@ const BudgetManagement: React.FC = () => {
         },
     ];
 
-    const handleRemoveItemClick = (itemId: number) => {
-        removeBudgetById(itemId);
-    };
+    const dataSourse = useMemo(() => {
+        return budgetItems?.map((item:BudgetItem) => {
+            return {
+                id: item.id,
+                actions: (
+                    <Actions itemId={Number(item.id)} aria-label="Botões de ação">
+                        <button onClick={() => handleRemoveItemClick(Number(item.id))}>
+                            <FaTrash />
+                        </button>
+                    </Actions>
+                ),
+                description: item?.description ? item?.description.trim() : '-',
+                type: BUDGETS_TYPE.find(
+                    (x: DomainSelectOption) =>  x.value === item?.type
+                )?.label || '',
+                frequency: BUDGETS_FREQUENCY.find(
+                    (x: DomainSelectOption) => x.value === item?.frequency
+                )?.label || '',
+                date: item?.date ? formatDate(item.date) : '-',
+                amount: item?.amount ? formatCurrency(Number(item.amount)) : '-',
+                details: item.details,
+            }
+        }) || [];
+    },[budgetItems, handleRemoveItemClick]);
 
     const handleClick = () => {
         push('/addbudget')
     }
 
     useEffect(() => {
-        if(budgetItems?.length === 0) {
-            fetchBudgetItems();
-        }
-    }, [budgetItems?.length, fetchBudgetItems]);
+        fetchBudgetItems();
+    }, [fetchBudgetItems]);
 
     return (
         <Container>
@@ -160,33 +183,8 @@ const BudgetManagement: React.FC = () => {
             <TableAntDesign
                 // label="Ant Design"
                 columns={columnsAnt}
-                dataSource={budgetItems?.map((item:BudgetItem) => {
-                    return {
-                        id: item.id,
-                        actions: (
-                            <Actions itemId={Number(item.id)} aria-label="Botões de ação">
-                                {/* <Link to="#" aria-label="Ação Remover Usuário">
-                                    <span onClick={() => handleRemoveItemClick(Number(item.id))}>
-                                        <FaTrash />
-                                    </span>
-                                </Link> */}
-                                <button onClick={() => handleRemoveItemClick(Number(item.id))}>
-                                    <FaTrash />
-                                </button>
-                            </Actions>
-                        ),
-                        description: item?.description ? item?.description.trim() : '-',
-                        type: BUDGETS_TYPE.find(
-                            (x: DomainSelectOption) =>  x.value === item?.type
-                        )?.label || '',
-                        frequency: BUDGETS_FREQUENCY.find(
-                            (x: DomainSelectOption) => x.value === item?.frequency
-                        )?.label || '',
-                        date: item?.date ? formatDate(item.date) : '-',
-                        amount: item?.amount ? formatCurrency(Number(item.amount)) : '-',
-                        details: item.details,
-                    }
-                })}
+                dataSource={dataSourse}
+                loading={!budgetItems}
             />
             <br/>
             <br/>
@@ -210,7 +208,7 @@ const BudgetManagement: React.FC = () => {
                         date: budgetItems?.date || '-',
                         amount: budgetItems?.amount || '-',
                     })
-                })}
+                }) || []}
             />
         </Container>
     )

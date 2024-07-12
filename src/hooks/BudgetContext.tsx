@@ -4,7 +4,7 @@ import { budgetService } from "../services/budgetService";
 import { toast } from "react-toastify";
 
 interface Context {
-    budgetItems: BudgetItem[];
+    budgetItems: BudgetItem[]|null;
     budgetItemsFound: BudgetItem[];
     budgetItemEditing: BudgetItem|null;
     isLoadingEditForm: boolean;
@@ -23,7 +23,7 @@ interface Props {
 export const BudgetContext = createContext<Context>({} as Context);
 
 export const BudgetProvider: React.FC<Props> = ({  children }) => {
-    const [budgetItems, setBudgetItems] = useState<BudgetItem[]>([]);
+    const [budgetItems, setBudgetItems] = useState<BudgetItem[]|null>(null);
     const [budgetItemEditing, setBudgetItemEditing] = useState<BudgetItem|null>(null);
     const [budgetItemsFound, setBudgetItemsFound] = useState<BudgetItem[]>([]);
     const [isLoadingEditForm, setIsLoadingEditForm] = useState<boolean>(true);
@@ -31,8 +31,9 @@ export const BudgetProvider: React.FC<Props> = ({  children }) => {
     // #region
     const fetchBudgetItems = useCallback(async () => {
         try {
-            const response: BudgetItem[] = await budgetService.list();
-            setBudgetItems(response);
+            await budgetService.list().then((response: BudgetItem[]) => {
+                setBudgetItems(response);
+            });
         } catch (error) {
             toast.error('Erro ao tentar buscar informações.');
             console.log(error);
