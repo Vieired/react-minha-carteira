@@ -2,16 +2,8 @@ import { useState } from "react";
 import { Table } from "antd";
 import { ColumnsType, TablePaginationConfig } from "antd/es/table";
 import { FilterValue } from "antd/es/table/interface";
-import { BudgetItem } from "../../shared/models/Budget";
 import { Container } from "./styles";
 
-interface Props {
-    columns: ColumnsType<BudgetItem>;
-    dataSource: any[];
-    responsive?: boolean;
-    label?: string;
-    loading?: boolean;
-}
 
 interface TableParams {
     pagination?: TablePaginationConfig;
@@ -20,11 +12,21 @@ interface TableParams {
     filters?: Record<string, FilterValue>;
 }
 
+interface Props {
+    columns: ColumnsType<any>;
+    dataSource: any[];
+    responsive?: boolean;
+    label?: string;
+    loading?: boolean;
+    pagination?: false | TablePaginationConfig | undefined;
+}
+
 const TableAntDesign: React.FC<Props> = ({
     columns,
     dataSource,
     label = "",
     loading = false,
+    pagination = false,
 }) => {
     // const { loading } = useLoader();
     const [tableParams, setTableParams] = useState<TableParams>({
@@ -41,7 +43,7 @@ const TableAntDesign: React.FC<Props> = ({
                 columns={columns}
                 dataSource={dataSource}
                 rowKey={(row) => row.id}
-                // pagination={tableParams.pagination}
+                pagination={pagination}
                 scroll={{ x: 800 }}
                 // sortDirections={['descend', 'ascend']}
                 loading={loading}
