@@ -1,3 +1,11 @@
+export interface Response {
+    config: IConfig;
+    headers?: any;
+    request?: any;
+    status?: any;
+    statusText?: string;
+}
+
 export interface IPeople {
     birth_year: string;
     eye_color: string;
@@ -38,22 +46,31 @@ export interface IConfig {
     method?: string;
 }
 
-export interface IResponseFilm {
-    config: IConfig;
+export interface IResponseFilm extends Response {
     data: IDataFilm;
 }
 
-export interface IDataStarships {
-    name: string;
-    model?: string;
-    manufacturer?: string;
-    starship_class?: string;
+export interface IDataStarship {
+    pilots?: string[];
+    MGLT?: string;
+    cargo_capacity?: string;
+    consumables?: string;
     cost_in_credits?: string;
+    created?: string;
+    crew?: string;
+    edited?: string;
+    films?: string[];
+    hyperdrive_rating?: string;
     length?: string;
+    manufacturer?: string;
     max_atmosphering_speed?: string;
+    model: string;
+    name: string;
+    passengers?: string;
+    starship_class?: string;
+    url?: string;
 }
 
-export interface IResponseStarships {
-    config: IConfig;
-    data: IDataStarships;
+export interface IResponseStarships extends Response {
+    data: IDataStarship;
 }

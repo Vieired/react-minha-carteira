@@ -9,10 +9,12 @@ import apiSW from '../../services/ApiSw';
 import formatDate from '../../utils/formatDate';
 import formatDateYear from '../../utils/formatDateYear';
 import {
+    IDataStarship,
     IPeople,
     IResponseFilm,
     IResponseStarships,
 } from '../../shared/models/StarWars';
+import StarshipLI from './StarshipLI';
 import {
     Container,
     Content,
@@ -70,7 +72,7 @@ const ApiSw: React.FC = () => {
                 },
                 data: {
                     name: ""
-                }
+                } as IDataStarship
             }
         ]);
 
@@ -110,9 +112,9 @@ const ApiSw: React.FC = () => {
                 );
             });
             
-            Promise.all(promises).then((responses:IResponseStarships[]) => {
-                console.log(responses);
-                setResponseStarshipsClickedItem(responses);
+            Promise.all(promises).then((response:IResponseStarships[]) => {
+                // console.log("Promise.all: ", response);
+                setResponseStarshipsClickedItem(response);
                 setIsLoadingStarships(false);
             })
         }
@@ -132,23 +134,6 @@ const ApiSw: React.FC = () => {
         });
         
         Promise.all(promises).then((responses:IResponseFilm[]) => {
-            // console.log(responses);
-            // let temp:IDataFilm[] = [];
-            // responses.forEach(x => temp.push({
-            //     title: x.data.title
-            // }));
-
-            // const [um.data, dois.data, tres.data] = responses;
-            // const [...resto] = temp;
-            // console.log("Temp:", temp);
-            // setFilmsdataClickedItem( ...responses.data, {
-            //     title: x.title
-            // });
-            // setFilmsdataClickedItem([...responses.data, { title: responses.data.title }]);
-
-            // [...temp] = responses.data;
-            // setFilmsdataClickedItem(responses[0].data);
-
             setResponseFilmsClickedItem(responses);
             setIsLoadingSectionModal(false);
         })
@@ -216,12 +201,8 @@ const ApiSw: React.FC = () => {
                         { !isLoadingStarships &&
                             <ul>
                                 {
-                                    responseStarshipsClickedItem?.map((x:IResponseStarships) => (
-                                        <li key={x.data.name}>
-                                            <button title={x.data.manufacturer}>
-                                                {x.data.name} ({x.data.starship_class})
-                                            </button>
-                                        </li>
+                                    responseStarshipsClickedItem?.map((resp:IResponseStarships,i) => (
+                                        <StarshipLI key={i} item={resp}/>
                                     ))
                                 }
                             </ul>
