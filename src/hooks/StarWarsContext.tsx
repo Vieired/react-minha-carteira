@@ -1,7 +1,13 @@
 import { createContext, useCallback, useContext, useState } from "react";
 import { toast } from "react-toastify";
 import { starWarsService } from "../services/starWarsService";
-import { IDataPages, IDataStarship, IPeople, IResponseStarships } from "../shared/models/StarWars";
+import {
+    IDataPages,
+    IDataStarship,
+    IPeople,
+    IResponseFilm,
+    IResponseStarships,
+} from "../shared/models/StarWars";
 import apiSW from "../services/ApiSw";
 
 interface Context {
@@ -9,10 +15,13 @@ interface Context {
     isLoading: boolean;
     isLoadingStarships: boolean;
     responseStarshipsClickedItem: IResponseStarships[];
+    isLoadingSectionModal: boolean;
+    responseFilmsClickedItem: IResponseFilm[];
     fetchItems: () => void;
     fetchItemsPageNext: () => void;
     fetchItemsPagePrevious: () => void;
     getStarshipsByPerson: (person: IPeople) => void;
+    getFilmesByPerson: (person:IPeople) => void;
     // clearEditingItem: () => void;
 }
 
@@ -42,8 +51,20 @@ export const StarWarsProvider: React.FC<Props> = ({ children }) => {
             } as IDataStarship
         }
     ]);
+    const [responseFilmsClickedItem, setResponseFilmsClickedItem] = useState<IResponseFilm[]>([
+        {
+            config: {
+                url: ""
+            },
+            data: {
+                title: "",
+                release_date: ""
+            }
+        }
+    ]);
     const [isLoading, setIsLoading] = useState<boolean>(true);
     const [isLoadingStarships, setIsLoadingStarships] = useState(true);
+    const [isLoadingSectionModal, setIsLoadingSectionModal] = useState(true);
 
     // #region
     const fetchItems = useCallback(async () => {
@@ -132,6 +153,24 @@ export const StarWarsProvider: React.FC<Props> = ({ children }) => {
         }
     };
 
+    const getFilmesByPerson = (person:IPeople) => {
+
+        let promises:any[] = [];
+
+        person.films.forEach(x => {
+            const id = x.split("/")[5];
+            const url = `films/${id}`;
+            promises.push(
+                apiSW.get(url)
+            );
+        });
+        
+        Promise.all(promises).then((responses:IResponseFilm[]) => {
+            setResponseFilmsClickedItem(responses);
+            setIsLoadingSectionModal(false);
+        })
+    };
+
     // const clearEditingItem = (): void => {
     //     setEditingItem(null);
     // }
@@ -144,10 +183,13 @@ export const StarWarsProvider: React.FC<Props> = ({ children }) => {
                 isLoading,
                 isLoadingStarships,
                 responseStarshipsClickedItem,
+                isLoadingSectionModal,
+                responseFilmsClickedItem,
                 fetchItems,
                 fetchItemsPageNext,
                 fetchItemsPagePrevious,
                 getStarshipsByPerson,
+                getFilmesByPerson,
                 // clearEditingItem,
             }}
             >

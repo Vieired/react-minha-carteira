@@ -5,14 +5,12 @@ import Skeleton from 'react-loading-skeleton';
 import { useStarWars } from '../../hooks/StarWarsContext';
 
 import HistoryFinanceCard from '../../components/HistoryFinanceCard';
-import apiSW from '../../services/ApiSw';
 import formatDate from '../../utils/formatDate';
 import formatDateYear from '../../utils/formatDateYear';
 import {
-    IDataStarship,
     IPeople,
-    IResponseFilm,
     IResponseStarships,
+    IResponseFilm,
 } from '../../shared/models/StarWars';
 import StarshipLI from './StarshipLI';
 import Modal from '../../components/Modal';
@@ -33,15 +31,18 @@ const ApiSw: React.FC = () => {
     const {
         isLoading,
         isLoadingStarships,
+        isLoadingSectionModal,
         dataSource,
         responseStarshipsClickedItem,
+        responseFilmsClickedItem,
         fetchItems,
         fetchItemsPageNext,
         fetchItemsPagePrevious,
         getStarshipsByPerson,
+        getFilmesByPerson,
     } = useStarWars();
 
-    const [isLoadingSectionModal, setIsLoadingSectionModal] = useState(true);
+    // const [isLoadingSectionModal, setIsLoadingSectionModal] = useState(true);
     // const [isLoadingStarships, setIsLoadingStarships] = useState(true);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [clickedItem, setClickedItem] = useState<IPeople>({
@@ -60,17 +61,6 @@ const ApiSw: React.FC = () => {
         species: [],
         starships: []
     });
-    const [responseFilmsClickedItem, setResponseFilmsClickedItem] = useState<IResponseFilm[]>([
-        {
-            config: {
-                url: ""
-            },
-            data: {
-                title: "",
-                release_date: ""
-            }
-        }
-    ]);
 
     const handleClickPageNext = () => {
         if(dataSource?.next != null) {
@@ -87,7 +77,6 @@ const ApiSw: React.FC = () => {
     const handleClick = (person:IPeople) => {
         setClickedItem(person);
         setIsModalOpen(true);
-        setIsLoadingSectionModal(true);
         getStarshipsByPerson(person);
         getFilmesByPerson(person);
     };
@@ -99,22 +88,6 @@ const ApiSw: React.FC = () => {
     const handleAfterClose = () => {
         setIsModalOpen(false);
     }
-
-    const getFilmesByPerson = (person:IPeople) => {
-        let promises:any[] = [];
-        person.films.forEach(x => {
-            const id = x.split("/")[5];
-            const url = `films/${id}`;
-            promises.push(
-                apiSW.get(url)
-            );
-        });
-        
-        Promise.all(promises).then((responses:IResponseFilm[]) => {
-            setResponseFilmsClickedItem(responses);
-            setIsLoadingSectionModal(false);
-        })
-    };
 
     useEffect(() => {
         fetchItems()
