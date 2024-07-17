@@ -44,3 +44,11 @@ export const Paginate = styled.footer`
         align-self: center;
     }
 `;
+
+export const Metadata = styled.footer`
+    small {
+        display: flex;
+        justify-content: end;
+        color: #4f5473;
+    }
+`;

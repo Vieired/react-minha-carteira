@@ -22,9 +22,52 @@ export const GlobalStyled = createGlobalStyle`
         cursor: pointer;
     }
 
+    
     .ReactModal__Overlay {
         opacity: 0;
         transition: opacity 200ms ease-in-out;
+        /* z-index: 1; */
+
+        /* &.ReactModal__Overlay--after-open {
+            background-color: rgba(0, 0, 0, 0.75) !important;
+        }    */
+    }
+    
+    .ReactModal__Content {
+        width: 50%;
+        height: 70%;
+        margin: auto auto;
+        background-color: ${props => props.theme.colors.secondary} !important;
+        color: ${props => props.theme.colors.white} !important;
+        box-shadow: 0px 0px 8px 0px #a1a1a1;
+        border-top-left-radius: 8px !important;
+        border-bottom-left-radius: 8px !important;
+        padding: 0 !important;
+        /* padding: 1rem; */
+        /* inset: calc(50% + (48px / 2)) auto auto 50%; !important */
+
+        @media(max-width: 576px) {
+            /* width: 90%; */
+            width: auto;
+        }
+
+        /* > div {
+            height: 100%;
+        } */
+
+        ul {
+            li {
+                list-style: none;
+            }
+        }
+
+        /* footer {
+            small {
+                color: ${props => props.theme.colors.gray};
+                display: flex;
+                justify-content: end;
+            }
+        } */
     }
 
     .ReactModal__Overlay--after-open{
@@ -33,34 +76,6 @@ export const GlobalStyled = createGlobalStyle`
 
     .ReactModal__Overlay--before-close{
         opacity: 0;
-    }
-
-    .ReactModal__Content {
-        height: 50%;
-        margin: auto auto;
-        background-color: ${props => props.theme.colors.secondary} !important;
-        color: ${props => props.theme.colors.white} !important;
-        box-shadow: 0px 0px 8px 0px #a1a1a1;
-        border-top-left-radius: 8px !important;
-        border-bottom-left-radius: 8px !important;
-
-        @media(min-width: 770px) {
-            width: 40%;
-        }
-
-        ul {
-            li {
-                list-style: none;
-            }
-        }
-
-        footer {
-            small {
-                color: ${props => props.theme.colors.gray};
-                display: flex;
-                justify-content: end;
-            }
-        }
     }
 `;
 
