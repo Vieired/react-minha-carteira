@@ -2,6 +2,10 @@ import { useState } from 'react';
 import TableAntDesign from '../../../components/TableAntDesign';
 import { ColumnsType } from 'antd/es/table';
 import { IPeople, IResponseStarships } from '../../../shared/models/StarWars';
+import {
+    FaChevronDown as CaretDown,
+    FaChevronLeft as CaretLeft
+} from 'react-icons/fa';
 import { Container } from './styles';
 
 interface Props {
@@ -31,7 +35,8 @@ const StarshipLI: React.FC<Props> = ({item}) => {
                 title={item.data.manufacturer}
                 onClick={() => setToggle(prevState => !prevState)}
             >
-                {item.data.name} ({item.data.starship_class})
+                <p>{item.data.name} ({item.data.starship_class})</p>
+                <span>{toggle ? <CaretLeft/> : <CaretDown/>}</span>
             </button>
             {item?.data?.pilots && item.data.pilots.length > 0 && (
                 <div className={toggle ? "open" : ""}>

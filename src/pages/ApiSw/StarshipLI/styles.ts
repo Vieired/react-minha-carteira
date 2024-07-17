@@ -2,6 +2,16 @@ import styled from 'styled-components';
 
 export const Container = styled.li`
 
+    > button {
+        background-color: ${props => props.theme.colors.tertiary};
+        color: ${props => props.theme.colors.white};
+        padding: .5rem;
+        border-radius: 4px;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+
     > div {
         visibility: collapse;
         /* height: 0;

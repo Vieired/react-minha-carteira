@@ -23,6 +23,7 @@ import {
     Loading,
     Metadata,
     Paginate,
+    StarshipUL,
 } from './styles';
 
 
@@ -211,13 +212,13 @@ const ApiSw: React.FC = () => {
                                 <Skeleton count={3} baseColor="#ffffff14" highlightColor="#f5f5f5db"/>
                             )}
                             { !isLoadingStarships &&
-                                <ul>
+                                <StarshipUL>
                                     {
                                         responseStarshipsClickedItem?.map((resp:IResponseStarships,i) => (
                                             <StarshipLI key={i} item={resp}/>
                                         ))
                                     }
-                                </ul>
+                                </StarshipUL>
                             }
                             <br/>
                         </div>

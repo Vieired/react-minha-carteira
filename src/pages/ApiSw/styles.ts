@@ -52,3 +52,9 @@ export const Metadata = styled.footer`
         color: #4f5473;
     }
 `;
+
+export const StarshipUL = styled.ul`
+    gap: 4px;
+    display: flex;
+    flex-direction: column;
+`;
