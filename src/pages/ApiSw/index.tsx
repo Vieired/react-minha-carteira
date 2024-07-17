@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 
 import 'react-loading-skeleton/dist/skeleton.css'
 import Skeleton from 'react-loading-skeleton';
@@ -18,6 +18,7 @@ import {
     Container,
     Content,
     Header,
+    HomePlanet,
     Loading,
     Metadata,
     Paginate,
@@ -35,32 +36,32 @@ const ApiSw: React.FC = () => {
         dataSource,
         responseStarshipsClickedItem,
         responseFilmsClickedItem,
+        planet,
         fetchItems,
         fetchItemsPageNext,
         fetchItemsPagePrevious,
         getStarshipsByPerson,
         getFilmesByPerson,
+        getPlanetById,
     } = useStarWars();
 
     // const [isLoadingSectionModal, setIsLoadingSectionModal] = useState(true);
     // const [isLoadingStarships, setIsLoadingStarships] = useState(true);
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const [clickedItem, setClickedItem] = useState<IPeople>({
-        birth_year: "",
-        eye_color: "",
-        skin_color: "",
-        hair_color: "",
-        films: [],
-        gender: "",
-        height: "",
-        homeworld: "",
-        mass: "",
-        name: "",
-        created: "",
-        edited: "",
-        species: [],
-        starships: []
-    });
+    const [clickedItem, setClickedItem] = useState<IPeople|null>(null);
+
+    const homePlanet = useMemo<string|React.ReactNode>(() => {
+        return (isLoading
+            || !clickedItem
+            || !planet?.name)
+            ? (
+                <Skeleton
+                    baseColor="#ffffff14"
+                    highlightColor="#f5f5f5db"
+                />
+            )
+            : planet?.name;
+    },[clickedItem, isLoading, planet?.name]);
 
     const handleClickPageNext = () => {
         if(dataSource?.next != null) {
@@ -83,6 +84,7 @@ const ApiSw: React.FC = () => {
 
     const handleRequestCloseFunc = (): void => {
         setIsModalOpen(false);
+        setClickedItem(null);
     };
 
     const handleAfterClose = () => {
@@ -92,6 +94,10 @@ const ApiSw: React.FC = () => {
     useEffect(() => {
         fetchItems()
     },[fetchItems]);
+
+    useEffect(() => {
+        clickedItem?.homeworld && getPlanetById(clickedItem.homeworld.split('/')[5]);
+    },[clickedItem?.homeworld, getPlanetById]);
 
     return (
         <Container>
@@ -119,7 +125,7 @@ const ApiSw: React.FC = () => {
 
             <Modal
                 isOpen={isModalOpen}
-                title={clickedItem.name}
+                title={clickedItem?.name || "N/A"}
                 contentLabel={"Detalhes do item"}
                 appElement={element}
                 ariaHideApp={false}
@@ -127,21 +133,26 @@ const ApiSw: React.FC = () => {
                 onAfterClose={handleAfterClose}
             >
                 <>
-                    <p>Altura: {clickedItem.height} cm</p>
-                    <p>Peso: {clickedItem.mass} kg</p>
-                    <p>Aniversário: {clickedItem.birth_year}</p>
-                    <p>Cor da pele: {clickedItem.skin_color}</p>
-                    <p>Cor do cabelo: {clickedItem.hair_color}</p>
-                    <p>Cor do cabelo: {clickedItem.eye_color}</p>
-                    <p>Gênero: {clickedItem.gender}</p>
+                    <p>Altura: {clickedItem?.height || "N/A"} cm</p>
+                    <p>Peso: {clickedItem?.mass || "N/A"} kg</p>
+                    <p>Aniversário: {clickedItem?.birth_year || "N/A"}</p>
+                    <p>Cor da pele: {clickedItem?.skin_color || "N/A"}</p>
+                    <p>Cor do cabelo: {clickedItem?.hair_color || "N/A"}</p>
+                    <p>Cor do cabelo: {clickedItem?.eye_color || "N/A"}</p>
+                    <p>Gênero: {clickedItem?.gender || "N/A"}</p>
                     <br/>
-                    <p>URL do mundo natal: {clickedItem.homeworld}</p>
+                    <HomePlanet>
+                        <span>Mundo natal: </span>
+                        <span title={clickedItem?.homeworld || ""}>
+                            {homePlanet}
+                        </span>
+                    </HomePlanet>
                     <br/>
                     <div>
                         <p>URL das espécies:</p>
                         <ul>
                         {
-                            clickedItem.species?.map((urlSpecies:any) => (
+                            clickedItem?.species?.map((urlSpecies:any) => (
                                 <li key={urlSpecies}>{urlSpecies}</li>
                             ))
                         }
@@ -189,10 +200,10 @@ const ApiSw: React.FC = () => {
                     <br />
                     <Metadata>
                         <div>
-                            <small>{`Criado em: ${formatDate(clickedItem.created)}`}</small>
+                            <small>{`Criado em: ${formatDate(clickedItem?.created || "N/A")}`}</small>
                         </div>
                         <div>
-                            <small>{`Última edição: ${formatDate(clickedItem.edited)}`}</small>
+                            <small>{`Última edição: ${formatDate(clickedItem?.edited || "N/A")}`}</small>
                         </div>
                     </Metadata>                
                 </>

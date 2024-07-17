@@ -58,3 +58,16 @@ export const StarshipUL = styled.ul`
     display: flex;
     flex-direction: column;
 `;
+
+export const HomePlanet = styled.div`
+    display: flex;
+    flex-direction: row;
+
+    > span:first-of-type {
+        white-space: pre;
+    }
+
+    > span:last-of-type {
+        width: 30%;
+    }
+`;

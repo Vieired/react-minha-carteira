@@ -1,14 +1,16 @@
 import { createContext, useCallback, useContext, useState } from "react";
 import { toast } from "react-toastify";
-import { starWarsService } from "../services/starWarsService";
+import apiSW from "../services/ApiSw";
+import { peopleService } from "../services/ApiSw/peopleService";
+import { planetsService } from "../services/ApiSw/planetsService";
 import {
     IDataPages,
     IDataStarship,
     IPeople,
+    IPlanet,
     IResponseFilm,
     IResponseStarships,
 } from "../shared/models/StarWars";
-import apiSW from "../services/ApiSw";
 
 interface Context {
     dataSource: IDataPages;
@@ -17,11 +19,13 @@ interface Context {
     responseStarshipsClickedItem: IResponseStarships[];
     isLoadingSectionModal: boolean;
     responseFilmsClickedItem: IResponseFilm[];
+    planet: IPlanet | null;
     fetchItems: () => void;
     fetchItemsPageNext: () => void;
     fetchItemsPagePrevious: () => void;
     getStarshipsByPerson: (person: IPeople) => void;
     getFilmesByPerson: (person:IPeople) => void;
+    getPlanetById: (id: string) => void;
     // clearEditingItem: () => void;
 }
 
@@ -41,27 +45,29 @@ export const StarWarsProvider: React.FC<Props> = ({ children }) => {
     // const [budgetItemEditing, setBudgetItemEditing] = useState<BudgetItem|null>(null);
     // const [isLoadingEditForm, setIsLoadingEditForm] = useState<boolean>(true);
     const [responseStarshipsClickedItem, setResponseStarshipsClickedItem] =
-    useState<IResponseStarships[]>([
-        {
-            config: {
-                url: ""
-            },
-            data: {
-                name: ""
-            } as IDataStarship
-        }
-    ]);
-    const [responseFilmsClickedItem, setResponseFilmsClickedItem] = useState<IResponseFilm[]>([
-        {
-            config: {
-                url: ""
-            },
-            data: {
-                title: "",
-                release_date: ""
+        useState<IResponseStarships[]>([
+            {
+                config: {
+                    url: ""
+                },
+                data: {
+                    name: ""
+                } as IDataStarship
             }
-        }
-    ]);
+        ]);
+    const [responseFilmsClickedItem, setResponseFilmsClickedItem] =
+        useState<IResponseFilm[]>([
+            {
+                config: {
+                    url: ""
+                },
+                data: {
+                    title: "",
+                    release_date: ""
+                }
+            }
+        ]);
+    const [planet, setPlanet] = useState<IPlanet|null>(null);
     const [isLoading, setIsLoading] = useState<boolean>(true);
     const [isLoadingStarships, setIsLoadingStarships] = useState(true);
     const [isLoadingSectionModal, setIsLoadingSectionModal] = useState(true);
@@ -70,7 +76,7 @@ export const StarWarsProvider: React.FC<Props> = ({ children }) => {
     const fetchItems = useCallback(async () => {
         try {
             setIsLoading(true);
-            starWarsService.list().then((response: IDataPages) => {
+            peopleService.list().then((response: IDataPages) => {
                 setDataSource(response);
                 setIsLoading(false);
             })
@@ -92,7 +98,7 @@ export const StarWarsProvider: React.FC<Props> = ({ children }) => {
         try {
             setIsLoading(true);
             const page = `${dataSource.next?.split('=')[1]}`;
-            starWarsService.listNext(page).then((response:any) => {
+            peopleService.listNext(page).then((response:any) => {
                 setDataSource(response);
                 setIsLoading(false);
             })
@@ -114,7 +120,7 @@ export const StarWarsProvider: React.FC<Props> = ({ children }) => {
         try {
             setIsLoading(true);
             const page = `${dataSource.previous?.split('=')[1]}`;
-            starWarsService.listPrevious(page).then((response:any) => {
+            peopleService.listPrevious(page).then((response:any) => {
                 setDataSource(response);
                 setIsLoading(false);
             })
@@ -143,7 +149,6 @@ export const StarWarsProvider: React.FC<Props> = ({ children }) => {
             });
             
             Promise.all(promises).then((responses:IResponseStarships[]) => {
-                console.log(responses);
                 setResponseStarshipsClickedItem(responses);
                 setIsLoadingStarships(false);
             })
@@ -171,7 +176,30 @@ export const StarWarsProvider: React.FC<Props> = ({ children }) => {
         })
     };
 
-    // const clearEditingItem = (): void => {
+    const getPlanetById = useCallback(async (id: string) => {
+        console.log("ID do planet", id);
+        try {
+            setIsLoading(true);
+            await planetsService.getHomeworld(id).then((response: any) => {
+                setPlanet(response);
+                setIsLoading(false);
+            })
+            .catch((err) => {
+                toast.error('Erro ao tentar buscar informações.');
+                console.log("There is a error!", err);
+                setIsLoading(false);
+            })
+            .finally(() => {
+                // setIsLoading(false);
+            });
+        } catch (error) {
+            toast.error('Erro inesperado ao tentar buscar informações.');
+            console.log(error);
+            setIsLoading(false);
+        }
+    },[]);
+
+    // const clearClickedItem = (): void => {
     //     setEditingItem(null);
     // }
     //#endregion
@@ -185,11 +213,13 @@ export const StarWarsProvider: React.FC<Props> = ({ children }) => {
                 responseStarshipsClickedItem,
                 isLoadingSectionModal,
                 responseFilmsClickedItem,
+                planet,
                 fetchItems,
                 fetchItemsPageNext,
                 fetchItemsPagePrevious,
                 getStarshipsByPerson,
                 getFilmesByPerson,
+                getPlanetById,
                 // clearEditingItem,
             }}
             >

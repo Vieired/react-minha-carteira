@@ -1,6 +1,6 @@
 
-import apiSW from "./ApiSw";
-import { IDataPages } from "../shared/models/StarWars";
+import apiSW from ".";
+import { IDataPages } from "../../shared/models/StarWars";
 
 const ENDPOINT = 'people';
 
@@ -19,7 +19,7 @@ async function listPrevious(page: string): Promise<IDataPages> {
     return data;
 }
 
-export const starWarsService = {
+export const peopleService = {
     list,
     listNext,
     listPrevious,

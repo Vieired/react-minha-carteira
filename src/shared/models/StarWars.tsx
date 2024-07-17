@@ -6,7 +6,13 @@ export interface Response {
     statusText?: string;
 }
 
-export interface IPeople {
+interface BasicInfos {
+    url?: string;
+    edited: string;
+    created: string;
+}
+
+export interface IPeople extends BasicInfos {
     birth_year: string;
     eye_color: string;
     skin_color: string;
@@ -17,8 +23,6 @@ export interface IPeople {
     homeworld: string;
     mass: string;
     name: string;
-    created: string;
-    edited: string;
     species: string[];
     starships: string[];
 }
@@ -73,4 +77,18 @@ export interface IDataStarship {
 
 export interface IResponseStarships extends Response {
     data: IDataStarship;
+}
+
+export interface IPlanet extends BasicInfos {
+    climate: string;
+    diameter: number;
+    films: string[];
+    gravity: string;
+    name: string;
+    orbital_period: string;
+    population: number;
+    residents: IPeople[];
+    rotation_period: number;
+    surface_water: string;
+    terrain: string;
 }
