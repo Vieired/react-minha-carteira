@@ -29,6 +29,7 @@ export const Container = styled.div`
             td {
                 &.ant-table-cell-row-hover {
                     background-color: ${props => props.theme.colors.secondary};
+                    background-color: ${props => props.theme.colors.tertiary};
                 }
 
                 &.ant-table-column-sort {

@@ -13,7 +13,7 @@ export const Container = styled.li`
         &.open {
             visibility: visible;
             padding: 8px;
-            box-shadow: 2px 2px 11px 0px #000;
+            box-shadow: 2px 2px 5px 2px #00000075;
             margin-bottom: 16px;            
             /* height: 100vh; */
         }

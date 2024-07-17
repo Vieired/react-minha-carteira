@@ -28,9 +28,11 @@ export const GlobalStyled = createGlobalStyle`
         transition: opacity 200ms ease-in-out;
         /* z-index: 1; */
 
-        /* &.ReactModal__Overlay--after-open {
-            background-color: rgba(0, 0, 0, 0.75) !important;
-        }    */
+        &.ReactModal__Overlay--after-open {
+            /* background-color: rgba(0, 0, 0, 0.75) !important; */
+            background-color: rgb(0 0 0 / 12%) !important;
+            backdrop-filter: blur(2px);
+        }
     }
     
     .ReactModal__Content {
@@ -39,9 +41,10 @@ export const GlobalStyled = createGlobalStyle`
         margin: auto auto;
         background-color: ${props => props.theme.colors.secondary} !important;
         color: ${props => props.theme.colors.white} !important;
-        box-shadow: 0px 0px 8px 0px #a1a1a1;
+        /* box-shadow: 0px 0px 8px 0px #a1a1a1; */
         border-top-left-radius: 8px !important;
         border-bottom-left-radius: 8px !important;
+        border: solid #5a5f7f 2px !important;
         padding: 0 !important;
         /* padding: 1rem; */
         /* inset: calc(50% + (48px / 2)) auto auto 50%; !important */
@@ -60,14 +63,6 @@ export const GlobalStyled = createGlobalStyle`
                 list-style: none;
             }
         }
-
-        /* footer {
-            small {
-                color: ${props => props.theme.colors.gray};
-                display: flex;
-                justify-content: end;
-            }
-        } */
     }
 
     .ReactModal__Overlay--after-open{
