@@ -32,14 +32,17 @@ const ApiSw: React.FC = () => {
     const element = document.createElement('div');
     const {
         isLoading,
+        isLoadingStarships,
         dataSource,
+        responseStarshipsClickedItem,
         fetchItems,
         fetchItemsPageNext,
         fetchItemsPagePrevious,
+        getStarshipsByPerson,
     } = useStarWars();
 
     const [isLoadingSectionModal, setIsLoadingSectionModal] = useState(true);
-    const [isLoadingStarships, setIsLoadingStarships] = useState(true);
+    // const [isLoadingStarships, setIsLoadingStarships] = useState(true);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [clickedItem, setClickedItem] = useState<IPeople>({
         birth_year: "",
@@ -68,17 +71,6 @@ const ApiSw: React.FC = () => {
             }
         }
     ]);
-    const [responseStarshipsClickedItem, setResponseStarshipsClickedItem] =
-        useState<IResponseStarships[]>([
-            {
-                config: {
-                    url: ""
-                },
-                data: {
-                    name: ""
-                } as IDataStarship
-            }
-        ]);
 
     const handleClickPageNext = () => {
         if(dataSource?.next != null) {
@@ -92,7 +84,7 @@ const ApiSw: React.FC = () => {
         }
     };
 
-    const handleClick = (person:any) => {
+    const handleClick = (person:IPeople) => {
         setClickedItem(person);
         setIsModalOpen(true);
         setIsLoadingSectionModal(true);
@@ -107,29 +99,6 @@ const ApiSw: React.FC = () => {
     const handleAfterClose = () => {
         setIsModalOpen(false);
     }
-
-    const getStarshipsByPerson = (person:IPeople) => {
-        let promises:any[] = [];
-
-        if(person.starships) {
-            person.starships.forEach(x => {
-                const id = x.split("/")[5];
-                const url = `starships/${id}`;
-                promises.push(
-                    apiSW.get(url)
-                );
-            });
-            
-            Promise.all(promises).then((response:IResponseStarships[]) => {
-                // console.log("Promise.all: ", response);
-                setResponseStarshipsClickedItem(response);
-                setIsLoadingStarships(false);
-            })
-        }
-        else {
-            setResponseStarshipsClickedItem([]);
-        }
-    };
 
     const getFilmesByPerson = (person:IPeople) => {
         let promises:any[] = [];
@@ -165,7 +134,8 @@ const ApiSw: React.FC = () => {
                         subtitle={`${person.height}cm . ${person.mass}kg . Ano de aniversário: ${person.birth_year}`}
                         amount=""
                         tagColor={person.skin_color}
-                        onClick={() => handleClick(person)} />
+                        onClick={() => handleClick(person)}
+                    />
                 ))}
                 <Paginate>
                     <button onClick={handleClickPagePrev}>{"<"}</button>

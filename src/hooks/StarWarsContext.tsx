@@ -1,14 +1,18 @@
 import { createContext, useCallback, useContext, useState } from "react";
 import { toast } from "react-toastify";
 import { starWarsService } from "../services/starWarsService";
-import { IDataPages } from "../shared/models/StarWars";
+import { IDataPages, IDataStarship, IPeople, IResponseStarships } from "../shared/models/StarWars";
+import apiSW from "../services/ApiSw";
 
 interface Context {
     dataSource: IDataPages;
     isLoading: boolean;
+    isLoadingStarships: boolean;
+    responseStarshipsClickedItem: IResponseStarships[];
     fetchItems: () => void;
     fetchItemsPageNext: () => void;
     fetchItemsPagePrevious: () => void;
+    getStarshipsByPerson: (person: IPeople) => void;
     // clearEditingItem: () => void;
 }
 
@@ -27,7 +31,19 @@ export const StarWarsProvider: React.FC<Props> = ({ children }) => {
     });
     // const [budgetItemEditing, setBudgetItemEditing] = useState<BudgetItem|null>(null);
     // const [isLoadingEditForm, setIsLoadingEditForm] = useState<boolean>(true);
+    const [responseStarshipsClickedItem, setResponseStarshipsClickedItem] =
+    useState<IResponseStarships[]>([
+        {
+            config: {
+                url: ""
+            },
+            data: {
+                name: ""
+            } as IDataStarship
+        }
+    ]);
     const [isLoading, setIsLoading] = useState<boolean>(true);
+    const [isLoadingStarships, setIsLoadingStarships] = useState(true);
 
     // #region
     const fetchItems = useCallback(async () => {
@@ -95,28 +111,26 @@ export const StarWarsProvider: React.FC<Props> = ({ children }) => {
         }
     },[dataSource.previous]);
 
-    // const getStarshipsByPerson = (person:IPeople) => {
-    //     let promises:any[] = [];
+    const getStarshipsByPerson = (person:IPeople) => {
+        let promises:any[] = [];
 
-    //     if(person.starships) {
-    //         person.starships.forEach(x => {
-    //             const id = x.split("/")[5];
-    //             const url = `starships/${id}`;
-    //             promises.push(
-    //                 apiSW.get(url)
-    //             );
-    //         });
+        if(person.starships) {
+            person.starships.forEach(x => {
+                const id = x.split("/")[5];
+                const url = `starships/${id}`;
+                promises.push(apiSW.get(url));
+            });
             
-    //         Promise.all(promises).then((responses:IResponseStarships[]) => {
-    //             console.log(responses);
-    //             setResponseStarshipsClickedItem(responses);
-    //             setIsLoadingStarships(false);
-    //         })
-    //     }
-    //     else {
-    //         setResponseStarshipsClickedItem([]);
-    //     }
-    // };
+            Promise.all(promises).then((responses:IResponseStarships[]) => {
+                console.log(responses);
+                setResponseStarshipsClickedItem(responses);
+                setIsLoadingStarships(false);
+            })
+        }
+        else {
+            setResponseStarshipsClickedItem([]);
+        }
+    };
 
     // const clearEditingItem = (): void => {
     //     setEditingItem(null);
@@ -128,10 +142,12 @@ export const StarWarsProvider: React.FC<Props> = ({ children }) => {
             value={{
                 dataSource,
                 isLoading,
+                isLoadingStarships,
+                responseStarshipsClickedItem,
                 fetchItems,
                 fetchItemsPageNext,
                 fetchItemsPagePrevious,
-                // getStarshipsByPerson,
+                getStarshipsByPerson,
                 // clearEditingItem,
             }}
             >
